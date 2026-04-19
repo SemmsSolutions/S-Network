@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --primary: #E85D26;
+    --secondary: #1A1A2E;
+    --surface: #F8F5F0;
+    --success: #22C55E;
+    --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+body {
+    background: var(--surface);
+    font-family: 'DM Sans', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-family: 'Syne', sans-serif;
+    color: var(--secondary);
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.15s;
+
+    &:hover {
+        background: #d44e1a;
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
+
+.card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: var(--card-shadow);
+    overflow: hidden;
+}
+
+.badge-verified {
+    background: #DCFCE7;
+    color: #16A34A;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.badge-pending {
+    background: #FEF3C7;
+    color: #D97706;
+}
+
+.badge-new {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+/* Logo — S and N always red */
+.logo .s,
+.logo .n {
+    color: #E85D26;
+    font-weight: 800;
+}
+
+/* Menu Item utility */
+.menu-item {
+    display: block;
+    padding: 8px 16px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.1s;
+
+    &:hover {
+        background: #FFF7ED;
+        color: #E85D26;
+    }
+}

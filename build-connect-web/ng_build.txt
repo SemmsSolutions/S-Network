@@ -1,0 +1,5 @@
+
+> build-connect-web@0.0.0 build
+> ng build
+
+Terminate batch job (Y/N)? Terminate batch job (Y/N)? ^C
