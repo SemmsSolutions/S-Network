@@ -1,0 +1,32 @@
+Running Gradle task 'assembleRelease'...                        
+lib/core/services/auth_service.dart:36:58: Error: A value of type 'StreamSubscription<AuthState/*1*/>' can't be assigned to a variable of type 'StreamSubscription<AuthState/*2*/>?'.
+ - 'StreamSubscription' is from 'dart:async'.
+ - 'AuthState/*1*/' is from 'package:gotrue/src/types/auth_state.dart' ('/C:/Users/acer/AppData/Local/Pub/Cache/hosted/pub.dev/gotrue-2.19.0/lib/src/types/auth_state.dart').
+ - 'AuthState/*2*/' is from 'package:build_connect_mobile/core/services/auth_service.dart' ('lib/core/services/auth_service.dart').
+    _authSubscription = _supabase.auth.onAuthStateChange.listen((data) async {
+                                                         ^
+lib/features/vendor/leads_list_screen.dart:38:21: Error: A value of type 'PostgrestTransformBuilder<List<Map<String, dynamic>>>' can't be assigned to a variable of type 'PostgrestFilterBuilder<List<Map<String, dynamic>>>'.
+ - 'PostgrestTransformBuilder' is from 'package:postgrest/src/postgrest_builder.dart' ('/C:/Users/acer/AppData/Local/Pub/Cache/hosted/pub.dev/postgrest-2.6.0/lib/src/postgrest_builder.dart').
+ - 'List' is from 'dart:core'.
+ - 'Map' is from 'dart:core'.
+ - 'PostgrestFilterBuilder' is from 'package:postgrest/src/postgrest_builder.dart' ('/C:/Users/acer/AppData/Local/Pub/Cache/hosted/pub.dev/postgrest-2.6.0/lib/src/postgrest_builder.dart').
+      query = query.order('created_at');
+                    ^
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildRelease'.
+> Process 'command 'C:\Users\acer\develop\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 37s
+Running Gradle task 'assembleRelease'...                           38.5s
+Gradle task assembleRelease failed with exit code 1

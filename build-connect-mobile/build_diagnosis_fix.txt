@@ -1,0 +1,22 @@
+Running Gradle task 'assembleRelease'...                        
+lib/router.dart:36:25: Error: Undefined name 'Supabase'.
+        final session = Supabase.instance.client.auth.currentSession;
+                        ^^^^^^^^
+Target kernel_snapshot_program failed: Exception
+
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:compileFlutterBuildRelease'.
+> Process 'command 'C:\Users\acer\develop\flutter\bin\flutter.bat'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m
+Running Gradle task 'assembleRelease'...                           61.8s
+Gradle task assembleRelease failed with exit code 1

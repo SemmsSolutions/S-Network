@@ -1,0 +1,114 @@
+Resolving dependencies...
+Downloading packages...
+  flutter_dotenv 5.2.1 (6.0.0 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  flutter_local_notifications 17.2.4 (21.0.0 available)
+  flutter_local_notifications_linux 4.0.1 (8.0.0 available)
+  flutter_local_notifications_platform_interface 7.2.0 (11.0.0 available)
+  flutter_riverpod 2.6.1 (3.3.1 available)
+  geolocator 11.1.0 (14.0.2 available)
+  geolocator_android 4.6.2 (5.0.2 available)
+  geolocator_web 3.0.0 (4.1.3 available)
+  go_router 14.8.1 (17.2.1 available)
+  google_fonts 6.3.3 (8.0.2 available)
+  gotrue 2.19.0 (2.20.0 available)
+  lints 3.0.0 (6.1.0 available)
+  meta 1.17.0 (1.18.2 available)
+  postgrest 2.6.0 (2.7.0 available)
+  realtime_client 2.7.1 (2.7.3 available)
+  riverpod 2.6.1 (3.2.1 available)
+  storage_client 2.5.1 (2.5.2 available)
+  supabase 2.10.4 (2.10.6 available)
+  supabase_flutter 2.12.2 (2.12.4 available)
+  test_api 0.7.10 (0.7.11 available)
+  timezone 0.9.4 (0.11.0 available)
+  vector_math 2.2.0 (2.3.0 available)
+  vm_service 15.0.2 (15.1.0 available)
+  win32 5.15.0 (6.0.1 available)
+Got dependencies!
+25 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Running Gradle task 'assembleRelease'...                        ../../runtime/platform/allocation.cc: 22: error: Out of memory.
+version=3.11.4 (stable) (Tue Mar 24 01:02:20 2026 -0700) on "windows_x64"
+pid=21324, thread=10748, isolate_group=main(000001F067E441D0), isolate=main(000001F067E5AA10)
+os=windows, arch=x64, comp=no, sim=no
+isolate_instructions=1f06a620000, vm_instructions=7ff6d2fa8400
+fp=e26e9fbf60, sp=e26e9fbf18, pc=7ff6d328cca3
+  pc 0x00007ff6d328cca3 fp 0x000000e26e9fbf60 Dart_DetectNullSafety+0x2dc1c3
+-- End of DumpStackTrace
+  pc 0x0000000000000000 fp 0x000000e26e9fd720 sp 0x0000000000000000 [Stub] Exit frame
+  pc 0x000001f06ad05bae fp 0x000000e26e9fd780 sp 0x000000e26e9fd730 [Stub] LazySpecializeTypeTest+0x3e
+  pc 0x000001f0730aa63d fp 0x000000e26e9fd7e0 sp 0x000000e26e9fd790 [Unoptimized] _WhereStream@5048458._handleData@5048458+0xfd
+  pc 0x000001f0730aa4da fp 0x000000e26e9fd828 sp 0x000000e26e9fd7f0 [Unoptimized] _ForwardingStreamSubscription@5048458._handleData@5048458+0x19a
+  pc 0x000001f0730aa306 fp 0x000000e26e9fd868 sp 0x000000e26e9fd838 [Unoptimized] _ForwardingStreamSubscription@5048458._handleData@5048458+0x86
+  pc 0x000001f06a7cd236 fp 0x000000e26e9fd8e8 sp 0x000000e26e9fd878 [Unoptimized] _rootRunUnary@5048458+0x156
+  pc 0x000001f06a7cd5dd fp 0x000000e26e9fd950 sp 0x000000e26e9fd8f8 [Unoptimized] _rootRunUnary@5048458+0x11d
+  pc 0x000001f06a63e4af fp 0x000000e26e9fd9e8 sp 0x000000e26e9fd960 [Unoptimized] _CustomZone@5048458.runUnary+0x1ef
+  pc 0x000001f06a63e633 fp 0x000000e26e9fda70 sp 0x000000e26e9fd9f8 [Unoptimized] _CustomZone@5048458.runUnaryGuarded+0x123
+  pc 0x000001f06a63ec21 fp 0x000000e26e9fdac8 sp 0x000000e26e9fda80 [Unoptimized] _BufferingStreamSubscription@5048458._sendData@5048458+0x291
+  pc 0x000001f06a6781c8 fp 0x000000e26e9fdb08 sp 0x000000e26e9fdad8 [Unoptimized] _BufferingStreamSubscription@5048458._add@5048458+0x228
+  pc 0x000001f06a7c2c45 fp 0x000000e26e9fdb48 sp 0x000000e26e9fdb18 [Unoptimized] _SinkTransformerStreamSubscription@5048458._add@5048458+0x205
+  pc 0x000001f06a7c29d7 fp 0x000000e26e9fdb88 sp 0x000000e26e9fdb58 [Unoptimized] _EventSinkWrapper@5048458.add+0x197
+  pc 0x000001f0730a8ba5 fp 0x000000e26e9fdbc8 sp 0x000000e26e9fdb98 [Unoptimized] _StringAdapterSink@12003594.add+0x185
+  pc 0x000001f0730a9d0f fp 0x000000e26e9fdc38 sp 0x000000e26e9fdbd8 [Unoptimized] _LineSplitterSink@12003594._addLines@12003594+0x48f
+  pc 0x000001f0730a971d fp 0x000000e26e9fdc90 sp 0x000000e26e9fdc48 [Unoptimized] _LineSplitterSink@12003594.addSlice+0x2bd
+  pc 0x000001f0730a9401 fp 0x000000e26e9fdce8 sp 0x000000e26e9fdca0 [Unoptimized] StringConversionSink.add+0x191
+  pc 0x000001f06a7c3a9d fp 0x000000e26e9fdd50 sp 0x000000e26e9fdcf8 [Unoptimized] _SinkTransformerStreamSubscription@5048458._handleData@5048458+0x1dd
+  pc 0x000001f06a7c3cb6 fp 0x000000e26e9fdd90 sp 0x000000e26e9fdd60 [Unoptimized] _SinkTransformerStreamSubscription@5048458._handleData@5048458+0x86
+  pc 0x000001f06a7cd236 fp 0x000000e26e9fde10 sp 0x000000e26e9fdda0 [Unoptimized] _rootRunUnary@5048458+0x156
+  pc 0x000001f06a7cd5dd fp 0x000000e26e9fde78 sp 0x000000e26e9fde20 [Unoptimized] _rootRunUnary@5048458+0x11d
+  pc 0x000001f06a63e4af fp 0x000000e26e9fdf10 sp 0x000000e26e9fde88 [Unoptimized] _CustomZone@5048458.runUnary+0x1ef
+  pc 0x000001f06a63e633 fp 0x000000e26e9fdf98 sp 0x000000e26e9fdf20 [Unoptimized] _CustomZone@5048458.runUnaryGuarded+0x123
+  pc 0x000001f06a63ec21 fp 0x000000e26e9fdff0 sp 0x000000e26e9fdfa8 [Unoptimized] _BufferingStreamSubscription@5048458._sendData@5048458+0x291
+  pc 0x000001f06a6781c8 fp 0x000000e26e9fe030 sp 0x000000e26e9fe000 [Unoptimized] _BufferingStreamSubscription@5048458._add@5048458+0x228
+  pc 0x000001f06a7c2c45 fp 0x000000e26e9fe070 sp 0x000000e26e9fe040 [Unoptimized] _SinkTransformerStreamSubscription@5048458._add@5048458+0x205
+  pc 0x000001f06a7c29d7 fp 0x000000e26e9fe0b0 sp 0x000000e26e9fe080 [Unoptimized] _EventSinkWrapper@5048458.add+0x197
+  pc 0x000001f0730a922a fp 0x000000e26e9fe0f0 sp 0x000000e26e9fe0c0 [Unoptimized] StackTraceTransform|transformWithCallSite.<anonymous closure>+0x9a
+  pc 0x000001f0730a8f61 fp 0x000000e26e9fe150 sp 0x000000e26e9fe100 [Unoptimized] _HandlerEventSink@5048458.add+0x2d1
+  pc 0x000001f06a7c3a9d fp 0x000000e26e9fe1b8 sp 0x000000e26e9fe160 [Unoptimized] _SinkTransformerStreamSubscription@5048458._handleData@5048458+0x1dd
+  pc 0x000001f06a7c3cb6 fp 0x000000e26e9fe1f8 sp 0x000000e26e9fe1c8 [Unoptimized] _SinkTransformerStreamSubscription@5048458._handleData@5048458+0x86
+  pc 0x000001f06a7cd236 fp 0x000000e26e9fe278 sp 0x000000e26e9fe208 [Unoptimized] _rootRunUnary@5048458+0x156
+  pc 0x000001f06a7cd5dd fp 0x000000e26e9fe2e0 sp 0x000000e26e9fe288 [Unoptimized] _rootRunUnary@5048458+0x11d
+  pc 0x000001f06a63e4af fp 0x000000e26e9fe378 sp 0x000000e26e9fe2f0 [Unoptimized] _CustomZone@5048458.runUnary+0x1ef
+  pc 0x000001f06a63e633 fp 0x000000e26e9fe400 sp 0x000000e26e9fe388 [Unoptimized] _CustomZone@5048458.runUnaryGuarded+0x123
+  pc 0x000001f06a63ec21 fp 0x000000e26e9fe458 sp 0x000000e26e9fe410 [Unoptimized] _BufferingStreamSubscription@5048458._sendData@5048458+0x291
+  pc 0x000001f06a6781c8 fp 0x000000e26e9fe498 sp 0x000000e26e9fe468 [Unoptimized] _BufferingStreamSubscription@5048458._add@5048458+0x228
+  pc 0x000001f06a7c2c45 fp 0x000000e26e9fe4d8 sp 0x000000e26e9fe4a8 [Unoptimized] _SinkTransformerStreamSubscription@5048458._add@5048458+0x205
+  pc 0x000001f06a7c29d7 fp 0x000000e26e9fe518 sp 0x000000e26e9fe4e8 [Unoptimized] _EventSinkWrapper@5048458.add+0x197
+  pc 0x000001f0730a8ba5 fp 0x000000e26e9fe558 sp 0x000000e26e9fe528 [Unoptimized] _StringAdapterSink@12003594.add+0x185
+  pc 0x000001f0730a88c5 fp 0x000000e26e9fe5a0 sp 0x000000e26e9fe568 [Unoptimized] _StringAdapterSink@12003594.addSlice+0x155
+  pc 0x000001f0730a60ab fp 0x000000e26e9fe600 sp 0x000000e26e9fe5b0 [Unoptimized] _Utf8ConversionSink@12003594.addSlice+0x27b
+  pc 0x000001f0730a5dd1 fp 0x000000e26e9fe658 sp 0x000000e26e9fe610 [Unoptimized] _Utf8ConversionSink@12003594.add+0x191
+  pc 0x000001f06a7c3757 fp 0x000000e26e9fe698 sp 0x000000e26e9fe668 [Unoptimized] _ConverterStreamEventSink@12003594.add+0x197
+  pc 0x000001f06a7c3a9d fp 0x000000e26e9fe700 sp 0x000000e26e9fe6a8 [Unoptimized] _SinkTransformerStreamSubscription@5048458._handleData@5048458+0x1dd
+  pc 0x000001f06a7c3cb6 fp 0x000000e26e9fe740 sp 0x000000e26e9fe710 [Unoptimized] _SinkTransformerStreamSubscription@5048458._handleData@5048458+0x86
+  pc 0x000001f06a7cd236 fp 0x000000e26e9fe7c0 sp 0x000000e26e9fe750 [Unoptimized] _rootRunUnary@5048458+0x156
+  pc 0x000001f06a7cd5dd fp 0x000000e26e9fe828 sp 0x000000e26e9fe7d0 [Unoptimized] _rootRunUnary@5048458+0x11d
+  pc 0x000001f06a63e4af fp 0x000000e26e9fe8c0 sp 0x000000e26e9fe838 [Unoptimized] _CustomZone@5048458.runUnary+0x1ef
+  pc 0x000001f06a63e633 fp 0x000000e26e9fe948 sp 0x000000e26e9fe8d0 [Unoptimized] _CustomZone@5048458.runUnaryGuarded+0x123
+  pc 0x000001f06a63ec21 fp 0x000000e26e9fe9a0 sp 0x000000e26e9fe958 [Unoptimized] _BufferingStreamSubscription@5048458._sendData@5048458+0x291
+  pc 0x000001f06a6781c8 fp 0x000000e26e9fe9e0 sp 0x000000e26e9fe9b0 [Unoptimized] _BufferingStreamSubscription@5048458._add@5048458+0x228
+  pc 0x000001f06a678757 fp 0x000000e26e9fea20 sp 0x000000e26e9fe9f0 [Unoptimized] _SyncStreamController@5048458._sendData@5048458+0x197
+  pc 0x000001f06a678aa9 fp 0x000000e26e9fea60 sp 0x000000e26e9fea30 [Unoptimized] _StreamController@5048458._add@5048458+0x1b9
+  pc 0x000001f06a678f28 fp 0x000000e26e9feaa0 sp 0x000000e26e9fea70 [Unoptimized] _StreamController@5048458.add+0x1f8
+  pc 0x000001f06a6b5876 fp 0x000000e26e9feaf0 sp 0x000000e26e9feab0 [Unoptimized] _Socket@16069316._onData@16069316+0x246
+  pc 0x000001f06a6b5b86 fp 0x000000e26e9feb30 sp 0x000000e26e9feb00 [Unoptimized] _Socket@16069316._onData@16069316+0x86
+  pc 0x000001f06a7cd3ab fp 0x000000e26e9febb0 sp 0x000000e26e9feb40 [Unoptimized] _rootRunUnary@5048458+0x2cb
+  pc 0x000001f06a7cd5dd fp 0x000000e26e9fec18 sp 0x000000e26e9febc0 [Unoptimized] _rootRunUnary@5048458+0x11d
+  pc 0x000001f06a63e4af fp 0x000000e26e9fecb0 sp 0x000000e26e9fec28 [Unoptimized] _CustomZone@5048458.runUnary+0x1ef
+  pc 0x000001f06a63e633 fp 0x000000e26e9fed38 sp 0x000000e26e9fecc0 [Unoptimized] _CustomZone@5048458.runUnaryGuarded+0x123
+  pc 0x000001f06a63ec21 fp 0x000000e26e9fed90 sp 0x000000e26e9fed48 [Unoptimized] _BufferingStreamSubscription@5048458._sendData@5048458+0x291
+  pc 0x000001f06a6781c8 fp 0x000000e26e9fedd0 sp 0x000000e26e9feda0 [Unoptimized] _BufferingStreamSubscription@5048458._add@5048458+0x228
+  pc 0x000001f06a678757 fp 0x000000e26e9fee10 sp 0x000000e26e9fede0 [Unoptimized] _SyncStreamController@5048458._sendData@5048458+0x197
+  pc 0x000001f06a678aa9 fp 0x000000e26e9fee50 sp 0x000000e26e9fee20 [Unoptimized] _StreamController@5048458._add@5048458+0x1b9
+  pc 0x000001f06a678f28 fp 0x000000e26e9fee90 sp 0x000000e26e9fee60 [Unoptimized] _StreamController@5048458.add+0x1f8
+  pc 0x000001f06a6b9618 fp 0x000000e26e9feed0 sp 0x000000e26e9feea0 [Unoptimized] new _RawSocket@16069316..<anonymous closure>+0xb8
+  pc 0x000001f06a79f6b2 fp 0x000000e26e9fef28 sp 0x000000e26e9feee0 [Unoptimized] _NativeSocket@16069316.issueReadEvent.issue+0x5d2
+  pc 0x000001f06a7c82b0 fp 0x000000e26e9fef70 sp 0x000000e26e9fef38 [Unoptimized] _microtaskLoop@5048458+0x210
+  pc 0x000001f06a7cbc25 fp 0x000000e26e9fefb0 sp 0x000000e26e9fef80 [Unoptimized] _startMicrotaskLoop@5048458+0xb5
+  pc 0x000001f06a7cbea6 fp 0x000000e26e9fefd8 sp 0x000000e26e9fefc0 [Unoptimized] _startMicrotaskLoop@5048458+0x76
+  pc 0x000001f06a7dcc14 fp 0x000000e26e9ff018 sp 0x000000e26e9fefe8 [Unoptimized] _runPendingImmediateCallback@1026248+0x104
+  pc 0x000001f06a7f0988 fp 0x000000e26e9ff058 sp 0x000000e26e9ff028 [Unoptimized] _RawReceivePort@1026248._handleMessage@1026248+0x1c8
+  pc 0x000001f06ad0318f fp 0x000000e26e9ff180 sp 0x000000e26e9ff068 [Stub] Entry frame
+=== Crash occurred when compiling unknown function in unoptimized JIT mode in unknown pass
+=== Flow Graph not available

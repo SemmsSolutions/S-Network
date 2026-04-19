@@ -1,0 +1,1001 @@
+--------- beginning of main
+04-18 20:53:49.759   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624904934021297, stype = 2
+04-18 20:53:49.759   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624904934021297, stype =4, , 
+04-18 20:53:49.759   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -2, 2, 19
+04-18 20:53:49.759   663   840 E         : akm_log AKM_GetData time_stamp11=624904934021297, stype =4
+04-18 20:53:49.759   663   840 E         : PGLILI TimeStamp:624904934021297, PGLILI Gyro data:-0.002424, 0.002006,0.019915 , 
+04-18 20:53:49.763   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:49.763   663   840 E         : akm_log AKM_SetData time_stamp = 624904939886868, stype = 1
+04-18 20:53:49.763   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1000
+04-18 20:53:49.763   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624904939886868, stype = 1
+04-18 20:53:49.764   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 15, 0, 0, 9, dt: 1000
+04-18 20:53:49.764   663   840 E         : akm_log pg_mag(uT): 1000, -108, 945, 240, -65, 3, dt: 715
+04-18 20:53:49.764   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:49.764   663   840 E         : akm_log pg_gyr(d/s*16*1000): -135, 104, 1055, dt: 1000
+04-18 20:53:49.764   663   840 E         : akm_log save data:3,3
+04-18 20:53:49.764   663   840 E         : PGLILI TimeStamp:624904939886868, PGLILI Mag data:-118.800003, 44.250000,-434.400024 , 
+04-18 20:53:49.764   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624904934021297, stype =1, , 
+04-18 20:53:49.764   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:49.764   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:49.764   663   840 E         : akm_log AKM_GetData time_stamp11=624904939886868, stype =1
+04-18 20:53:49.764   663   840 E         : akm_log akm_wrapper_calibrate is -6.480000, 56.699997, 14.400000
+04-18 20:53:49.764   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:49.786   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:49.786   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:49.786   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:49.800   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.800   663   840 E         : PGLILI TimeStamp:624904954979405, PGLILI_set_acc:-0.876000, 0.052000,9.713000 , 
+04-18 20:53:49.800   663   840 E         : akm_log AKM_SetData time_stamp = 624904954979405, stype = 2
+04-18 20:53:49.800   663   840 E         : set_acc，-0.876000,0.052000,9.713000
+04-18 20:53:49.800   663   840 E         : PGLILIakm_log moving_vx = 1.187500,akm_log moving_vy = 1.359375,akm_log moving_vz = 1.000000
+04-18 20:53:49.800   663   840 E         : akm_log PGLILImoving_vx = 1.187500
+04-18 20:53:49.800   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.800   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.800   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.800   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624904954979405, stype = 2
+04-18 20:53:49.800   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624904954979405, stype =4, , 
+04-18 20:53:49.800   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -2, 1, 18
+04-18 20:53:49.800   663   840 E         : akm_log AKM_GetData time_stamp11=624904954979405, stype =4
+04-18 20:53:49.800   663   840 E         : PGLILI TimeStamp:624904954979405, PGLILI Gyro data:-0.002362, 0.001821,0.018426 , 
+04-18 20:53:49.800   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.801   663   840 E         : PGLILI TimeStamp:624904975937522, PGLILI_set_acc:-0.878000, 0.062000,9.816000 , 
+04-18 20:53:49.801   663   840 E         : akm_log AKM_SetData time_stamp = 624904975937522, stype = 2
+04-18 20:53:49.801   663   840 E         : set_acc，-0.878000,0.062000,9.816000
+04-18 20:53:49.801   663   840 E         : PGLILIakm_log moving_vx = 0.859375,akm_log moving_vy = 1.234375,akm_log moving_vz = 3.250000
+04-18 20:53:49.801   663   840 E         : akm_log PGLILImoving_vx = 0.859375
+04-18 20:53:49.801   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.801   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.801   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.801   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624904975937522, stype = 2
+04-18 20:53:49.801   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624904975937522, stype =4, , 
+04-18 20:53:49.801   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -2, 1, 18
+04-18 20:53:49.801   663   840 E         : akm_log AKM_GetData time_stamp11=624904975937522, stype =4
+04-18 20:53:49.801   663   840 E         : PGLILI TimeStamp:624904975937522, PGLILI Gyro data:-0.002362, 0.001821,0.018426 , 
+04-18 20:53:49.825   552  2119 I BufferQueueProducer: [LauncherMinusOneScreen#0](this:0x72967df800,id:2299,api:1,p:30148,c:552) queueBuffer: fps=60.14 dur=1014.26 max=21.78 min=10.71
+04-18 20:53:49.826   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:49.826   663   840 E         : akm_log AKM_SetData time_stamp = 624905002386868, stype = 1
+04-18 20:53:49.826   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1000
+04-18 20:53:49.826   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905002386868, stype = 1
+04-18 20:53:49.826   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 14, 0, 0, 9, dt: 1000
+04-18 20:53:49.826   663   840 E         : akm_log pg_mag(uT): 1000, -106, 944, 239, -64, 4, dt: 720
+04-18 20:53:49.826   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:49.826   663   840 E         : akm_log pg_gyr(d/s*16*1000): -121, 99, 956, dt: 1000
+04-18 20:53:49.826   663   840 E         : akm_log save data:3,3
+04-18 20:53:49.826   663   840 E         : PGLILI TimeStamp:624905002386868, PGLILI Mag data:-118.650002, 44.850002,-435.600006 , 
+04-18 20:53:49.826   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624904975937522, stype =1, , 
+04-18 20:53:49.826   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:49.826   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:49.826   663   840 E         : akm_log AKM_GetData time_stamp11=624905002386868, stype =1
+04-18 20:53:49.826   663   840 E         : akm_log akm_wrapper_calibrate is -6.360000, 56.639999, 14.340000
+04-18 20:53:49.826   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:49.830  1504  1981 D MobileSignalController: updateDataType mSelectedDataTypeIcon[0]=2131232925, mSelectedDataActivityIndex=7
+04-18 20:53:49.830  1504  1981 D TelephonyIcons: getSignalStrengthIcon: slot=0, inetCondition=1, level=4, roaming=false, signalstrength=SignalStrength:{mCdma=CellSignalStrengthCdma: cdmaDbm=2147483647 cdmaEcio=2147483647 evdoDbm=2147483647 evdoEcio=2147483647 evdoSnr=2147483647 miuiLevel=0 level=0,mGsm=CellSignalStrengthGsm: rssi=2147483647 ber=2147483647 mTa=2147483647 miuiLevel=0 mLevel=0,mWcdma=CellSignalStrengthWcdma: ss=2147483647 ber=2147483647 rscp=2147483647 ecno=2147483647 miuiLevel=0 level=0,mTdscdma=CellSignalStrengthTdscdma: rssi=2147483647 ber=2147483647 rscp=2147483647 miuiLevel=0 level=0,mLte=CellSignalStrengthLte: rssi=2147483647 rsrp=-103 rsrq=-11 rssnr=165 cqi=0 ta=0 miuiLevel=4 level=3,mNr=CellSignalStrengthNr:{ csiRsrp = 2147483647 csiRsrq = 2147483647 csiSinr = 2147483647 ssRsrp = 2147483647 ssRsrq = 2147483647 ssSinr = 2147483647 miuiLevel = 0 level = 0 },primary=CellSignalStrengthLte}, phoneId=0, mMtkLevel=-1, mMtkRsrpOnly=true, mMtkLteRsrpThreshold=null, mMtkLteRssnrThreshold=null
+04-18 20:53:49.831  1504  1981 D TelephonyIcons: getDataActivity, slot=0, activity=2
+04-18 20:53:49.836  1504  1981 D TelephonyIcons: null signal icon name: drawable/stat_sys_signal_null
+04-18 20:53:49.837  1504  1981 D TelephonyIcons: getDataTypeIcon sub=0
+04-18 20:53:49.838  1504  1504 D SignalClusterView: updateMobileTypeImage  0
+04-18 20:53:49.840  1504  1504 I chatty  : uid=1000(system) com.android.systemui identical 2 lines
+04-18 20:53:49.840  1504  1504 D SignalClusterView: updateMobileTypeImage  0
+04-18 20:53:49.842   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.842   663   840 E         : PGLILI TimeStamp:624904996895239, PGLILI_set_acc:-0.893000, 0.047000,9.771000 , 
+04-18 20:53:49.842   663   840 E         : akm_log AKM_SetData time_stamp = 624904996895239, stype = 2
+04-18 20:53:49.842   663   840 E         : set_acc，-0.893000,0.047000,9.771000
+04-18 20:53:49.842   663   840 E         : PGLILIakm_log moving_vx = 0.687500,akm_log moving_vy = 1.234375,akm_log moving_vz = 3.359375
+04-18 20:53:49.842   663   840 E         : akm_log PGLILImoving_vx = 0.687500
+04-18 20:53:49.842   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.842   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.842   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.842   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624904996895239, stype = 2
+04-18 20:53:49.842   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624904996895239, stype =4, , 
+04-18 20:53:49.842   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -2, 1, 16
+04-18 20:53:49.842   663   840 E         : akm_log AKM_GetData time_stamp11=624904996895239, stype =4
+04-18 20:53:49.842   663   840 E         : PGLILI TimeStamp:624904996895239, PGLILI Gyro data:-0.002118, 0.001736,0.016686 , 
+04-18 20:53:49.842   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.842   663   840 E         : PGLILI TimeStamp:624905017852970, PGLILI_set_acc:-0.909000, 0.050000,9.771000 , 
+04-18 20:53:49.842   663   840 E         : akm_log AKM_SetData time_stamp = 624905017852970, stype = 2
+04-18 20:53:49.842   663   840 E         : set_acc，-0.909000,0.050000,9.771000
+04-18 20:53:49.842   663   840 E         : PGLILIakm_log moving_vx = 0.687500,akm_log moving_vy = 0.859375,akm_log moving_vz = 3.437500
+04-18 20:53:49.842   663   840 E         : akm_log PGLILImoving_vx = 0.687500
+04-18 20:53:49.842   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.842   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.842   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.842   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905017852970, stype = 2
+04-18 20:53:49.842   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905017852970, stype =4, , 
+04-18 20:53:49.842   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -2, 1, 16
+04-18 20:53:49.842   663   840 E         : akm_log AKM_GetData time_stamp11=624905017852970, stype =4
+04-18 20:53:49.842   663   840 E         : PGLILI TimeStamp:624905017852970, PGLILI Gyro data:-0.002118, 0.001736,0.016686 , 
+04-18 20:53:49.859  1504  1504 D SignalClusterView: updateMobileTypeImage  0
+04-18 20:53:49.861  1504  1504 I chatty  : uid=1000(system) com.android.systemui identical 1 line
+04-18 20:53:49.863  1504  1504 D SignalClusterView: updateMobileTypeImage  0
+04-18 20:53:49.878   552  2119 I BufferQueueProducer: [StatusBar#0](this:0x72967f4000,id:3,api:1,p:1504,c:552) queueBuffer: fps=0.66 dur=3044.85 max=3030.13 min=14.72
+04-18 20:53:49.884   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.884   663   840 E         : PGLILI TimeStamp:624905038811711, PGLILI_set_acc:-0.890000, 0.057000,9.773000 , 
+04-18 20:53:49.884   663   840 E         : akm_log AKM_SetData time_stamp = 624905038811711, stype = 2
+04-18 20:53:49.884   663   840 E         : set_acc，-0.890000,0.057000,9.773000
+04-18 20:53:49.884   663   840 E         : PGLILIakm_log moving_vx = 0.609375,akm_log moving_vy = 0.734375,akm_log moving_vz = 3.484375
+04-18 20:53:49.884   663   840 E         : akm_log PGLILImoving_vx = 0.609375
+04-18 20:53:49.884   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.884   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.884   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.884   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905038811711, stype = 2
+04-18 20:53:49.884   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905038811711, stype =4, , 
+04-18 20:53:49.884   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -2, 1, 16
+04-18 20:53:49.884   663   840 E         : akm_log AKM_GetData time_stamp11=624905038811711, stype =4
+04-18 20:53:49.884   663   840 E         : PGLILI TimeStamp:624905038811711, PGLILI Gyro data:-0.002118, 0.001736,0.016686 , 
+04-18 20:53:49.884   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.884   663   840 E         : PGLILI TimeStamp:624905059770442, PGLILI_set_acc:-0.859000, 0.050000,9.785000 , 
+04-18 20:53:49.884   663   840 E         : akm_log AKM_SetData time_stamp = 624905059770442, stype = 2
+04-18 20:53:49.884   663   840 E         : set_acc，-0.859000,0.050000,9.785000
+04-18 20:53:49.884   663   840 E         : PGLILIakm_log moving_vx = 0.750000,akm_log moving_vy = 0.359375,akm_log moving_vz = 3.734375
+04-18 20:53:49.884   663   840 E         : akm_log PGLILImoving_vx = 0.750000
+04-18 20:53:49.884   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.884   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.884   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.884   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905059770442, stype = 2
+04-18 20:53:49.884   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905059770442, stype =4, , 
+04-18 20:53:49.884   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -2, 1, 16
+04-18 20:53:49.884   663   840 E         : akm_log AKM_GetData time_stamp11=624905059770442, stype =4
+04-18 20:53:49.884   663   840 E         : PGLILI TimeStamp:624905059770442, PGLILI Gyro data:-0.002118, 0.001736,0.016686 , 
+04-18 20:53:49.887   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:49.887   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:49.888   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:49.888   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:49.888   663   840 E         : akm_log AKM_SetData time_stamp = 624905064886859, stype = 1
+04-18 20:53:49.888   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 999
+04-18 20:53:49.888   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905064886859, stype = 1
+04-18 20:53:49.889   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 14, 0, 0, 9, dt: 999
+04-18 20:53:49.889   663   840 E         : akm_log pg_mag(uT): 999, -105, 945, 235, -63, 3, dt: 718
+04-18 20:53:49.889   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:49.889   663   840 E         : akm_log pg_gyr(d/s*16*1000): -108, 89, 860, dt: 999
+04-18 20:53:49.889   663   840 E         : akm_log save data:3,3
+04-18 20:53:49.889   663   840 E         : PGLILI TimeStamp:624905064886859, PGLILI Mag data:-118.800003, 43.950001,-435.150024 , 
+04-18 20:53:49.889   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905059770442, stype =1, , 
+04-18 20:53:49.889   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:49.889   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:49.889   663   840 E         : akm_log AKM_GetData time_stamp11=624905064886859, stype =1
+04-18 20:53:49.889   663   840 E         : akm_log akm_wrapper_calibrate is -6.300000, 56.699997, 14.099999
+04-18 20:53:49.889   663   840 I Magnetic: Magnetic: x:-6.300000, y:56.699997, z:14.099999]
+04-18 20:53:49.889   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:49.926   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.926   663   840 E         : PGLILI TimeStamp:624905080725960, PGLILI_set_acc:-0.876000, 0.045000,9.763000 , 
+04-18 20:53:49.926   663   840 E         : akm_log AKM_SetData time_stamp = 624905080725960, stype = 2
+04-18 20:53:49.926   663   840 E         : set_acc，-0.876000,0.045000,9.763000
+04-18 20:53:49.926   663   840 E         : PGLILIakm_log moving_vx = 0.750000,akm_log moving_vy = 0.187500,akm_log moving_vz = 3.734375
+04-18 20:53:49.926   663   840 E         : akm_log PGLILImoving_vx = 0.750000
+04-18 20:53:49.926   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.926   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.926   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.926   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905080725960, stype = 2
+04-18 20:53:49.926   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905080725960, stype =4, , 
+04-18 20:53:49.926   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 1, 15
+04-18 20:53:49.926   663   840 E         : akm_log AKM_GetData time_stamp11=624905080725960, stype =4
+04-18 20:53:49.926   663   840 E         : PGLILI TimeStamp:624905080725960, PGLILI Gyro data:-0.001898, 0.001561,0.015017 , 
+04-18 20:53:49.926   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.926   663   840 E         : PGLILI TimeStamp:624905101681503, PGLILI_set_acc:-0.857000, 0.057000,9.790000 , 
+04-18 20:53:49.926   663   840 E         : akm_log AKM_SetData time_stamp = 624905101681503, stype = 2
+04-18 20:53:49.926   663   840 E         : set_acc，-0.857000,0.057000,9.790000
+04-18 20:53:49.927   663   840 E         : PGLILIakm_log moving_vx = 1.359375,akm_log moving_vy = 0.234375,akm_log moving_vz = 3.500000
+04-18 20:53:49.927   663   840 E         : akm_log PGLILImoving_vx = 1.359375
+04-18 20:53:49.927   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.927   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.927   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.927   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905101681503, stype = 2
+04-18 20:53:49.927   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905101681503, stype =4, , 
+04-18 20:53:49.927   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 1, 15
+04-18 20:53:49.927   663   840 E         : akm_log AKM_GetData time_stamp11=624905101681503, stype =4
+04-18 20:53:49.927   663   840 E         : PGLILI TimeStamp:624905101681503, PGLILI Gyro data:-0.001898, 0.001561,0.015017 , 
+04-18 20:53:49.951   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:49.951   663   840 E         : akm_log AKM_SetData time_stamp = 624905127386824, stype = 1
+04-18 20:53:49.951   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 999
+04-18 20:53:49.951   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905127386824, stype = 1
+04-18 20:53:49.951   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 14, 0, 0, 9, dt: 999
+04-18 20:53:49.951   663   840 E         : akm_log pg_mag(uT): 999, -105, 944, 239, -62, 4, dt: 718
+04-18 20:53:49.951   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:49.951   663   840 E         : akm_log pg_gyr(d/s*16*1000): -104, 82, 779, dt: 999
+04-18 20:53:49.951   663   840 E         : akm_log save data:3,3
+04-18 20:53:49.951   663   840 E         : PGLILI TimeStamp:624905127386824, PGLILI Mag data:-118.800003, 45.300003,-433.950012 , 
+04-18 20:53:49.951   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905101681503, stype =1, , 
+04-18 20:53:49.951   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:49.951   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:49.951   663   840 E         : akm_log AKM_GetData time_stamp11=624905127386824, stype =1
+04-18 20:53:49.951   663   840 E         : akm_log akm_wrapper_calibrate is -6.300000, 56.639999, 14.340000
+04-18 20:53:49.951   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:49.968   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.968   663   840 E         : PGLILI TimeStamp:624905122638786, PGLILI_set_acc:-0.881000, 0.059000,9.780000 , 
+04-18 20:53:49.968   663   840 E         : akm_log AKM_SetData time_stamp = 624905122638786, stype = 2
+04-18 20:53:49.968   663   840 E         : set_acc，-0.881000,0.059000,9.780000
+04-18 20:53:49.968   663   840 E         : PGLILIakm_log moving_vx = 1.359375,akm_log moving_vy = 0.250000,akm_log moving_vz = 1.234375
+04-18 20:53:49.968   663   840 E         : akm_log PGLILImoving_vx = 1.359375
+04-18 20:53:49.968   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.968   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.968   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.968   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905122638786, stype = 2
+04-18 20:53:49.968   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905122638786, stype =4, , 
+04-18 20:53:49.968   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 1, 13
+04-18 20:53:49.968   663   840 E         : akm_log AKM_GetData time_stamp11=624905122638786, stype =4
+04-18 20:53:49.968   663   840 E         : PGLILI TimeStamp:624905122638786, PGLILI Gyro data:-0.001824, 0.001442,0.013609 , 
+04-18 20:53:49.968   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:49.968   663   840 E         : PGLILI TimeStamp:624905143596055, PGLILI_set_acc:-0.878000, 0.057000,9.795000 , 
+04-18 20:53:49.968   663   840 E         : akm_log AKM_SetData time_stamp = 624905143596055, stype = 2
+04-18 20:53:49.968   663   840 E         : set_acc，-0.878000,0.057000,9.795000
+04-18 20:53:49.968   663   840 E         : PGLILIakm_log moving_vx = 1.359375,akm_log moving_vy = 0.250000,akm_log moving_vz = 0.750000
+04-18 20:53:49.968   663   840 E         : akm_log PGLILImoving_vx = 1.359375
+04-18 20:53:49.968   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:49.968   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:49.968   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:49.968   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905143596055, stype = 2
+04-18 20:53:49.968   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905143596055, stype =4, , 
+04-18 20:53:49.968   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 1, 13
+04-18 20:53:49.968   663   840 E         : akm_log AKM_GetData time_stamp11=624905143596055, stype =4
+04-18 20:53:49.968   663   840 E         : PGLILI TimeStamp:624905143596055, PGLILI Gyro data:-0.001824, 0.001442,0.013609 , 
+04-18 20:53:50.001   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:50.001   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:50.001   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:50.010   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.010   663   840 E         : PGLILI TimeStamp:624905164551553, PGLILI_set_acc:-0.893000, 0.043000,9.756000 , 
+04-18 20:53:50.010   663   840 E         : akm_log AKM_SetData time_stamp = 624905164551553, stype = 2
+04-18 20:53:50.010   663   840 E         : set_acc，-0.893000,0.043000,9.756000
+04-18 20:53:50.010   663   840 E         : PGLILIakm_log moving_vx = 1.359375,akm_log moving_vy = 0.250000,akm_log moving_vz = 0.984375
+04-18 20:53:50.010   663   840 E         : akm_log PGLILImoving_vx = 1.359375
+04-18 20:53:50.010   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.010   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.010   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.010   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905164551553, stype = 2
+04-18 20:53:50.010   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905164551553, stype =4, , 
+04-18 20:53:50.010   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 1, 13
+04-18 20:53:50.010   663   840 E         : akm_log AKM_GetData time_stamp11=624905164551553, stype =4
+04-18 20:53:50.010   663   840 E         : PGLILI TimeStamp:624905164551553, PGLILI Gyro data:-0.001824, 0.001442,0.013609 , 
+04-18 20:53:50.010   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.010   663   840 E         : PGLILI TimeStamp:624905185507094, PGLILI_set_acc:-0.897000, 0.038000,9.785000 , 
+04-18 20:53:50.010   663   840 E         : akm_log AKM_SetData time_stamp = 624905185507094, stype = 2
+04-18 20:53:50.010   663   840 E         : set_acc，-0.897000,0.038000,9.785000
+04-18 20:53:50.010   663   840 E         : PGLILIakm_log moving_vx = 1.000000,akm_log moving_vy = 0.484375,akm_log moving_vz = 1.000000
+04-18 20:53:50.010   663   840 E         : akm_log PGLILImoving_vx = 1.000000
+04-18 20:53:50.010   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.010   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.010   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.010   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905185507094, stype = 2
+04-18 20:53:50.010   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905185507094, stype =4, , 
+04-18 20:53:50.010   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 1, 13
+04-18 20:53:50.010   663   840 E         : akm_log AKM_GetData time_stamp11=624905185507094, stype =4
+04-18 20:53:50.010   663   840 E         : PGLILI TimeStamp:624905185507094, PGLILI Gyro data:-0.001824, 0.001442,0.013609 , 
+04-18 20:53:50.013   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.013   663   840 E         : akm_log AKM_SetData time_stamp = 624905189886819, stype = 1
+04-18 20:53:50.013   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 999
+04-18 20:53:50.013   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905189886819, stype = 1
+04-18 20:53:50.014   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 15, 0, 0, 9, dt: 999
+04-18 20:53:50.014   663   840 E         : akm_log pg_mag(uT): 999, -103, 944, 240, -65, 2, dt: 718
+04-18 20:53:50.014   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.014   663   840 E         : akm_log pg_gyr(d/s*16*1000): -105, 76, 721, dt: 999
+04-18 20:53:50.014   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.014   663   840 E         : PGLILI TimeStamp:624905189886819, PGLILI Mag data:-117.450005, 44.250000,-434.400024 , 
+04-18 20:53:50.014   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905185507094, stype =1, , 
+04-18 20:53:50.014   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.014   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.014   663   840 E         : akm_log AKM_GetData time_stamp11=624905189886819, stype =1
+04-18 20:53:50.014   663   840 E         : akm_log akm_wrapper_calibrate is -6.180000, 56.639999, 14.400000
+04-18 20:53:50.014   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.052   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.052   663   840 E         : PGLILI TimeStamp:624905206463572, PGLILI_set_acc:-0.883000, 0.062000,9.771000 , 
+04-18 20:53:50.052   663   840 E         : akm_log AKM_SetData time_stamp = 624905206463572, stype = 2
+04-18 20:53:50.052   663   840 E         : set_acc，-0.883000,0.062000,9.771000
+04-18 20:53:50.052   663   840 E         : PGLILIakm_log moving_vx = 0.859375,akm_log moving_vy = 0.484375,akm_log moving_vz = 1.000000
+04-18 20:53:50.052   663   840 E         : akm_log PGLILImoving_vx = 0.859375
+04-18 20:53:50.052   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.052   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.052   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.052   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905206463572, stype = 2
+04-18 20:53:50.052   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905206463572, stype =4, , 
+04-18 20:53:50.052   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 1, 12
+04-18 20:53:50.052   663   840 E         : akm_log AKM_GetData time_stamp11=624905206463572, stype =4
+04-18 20:53:50.052   663   840 E         : PGLILI TimeStamp:624905206463572, PGLILI Gyro data:-0.001833, 0.001332,0.012597 , 
+04-18 20:53:50.052   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.052   663   840 E         : PGLILI TimeStamp:624905227420031, PGLILI_set_acc:-0.866000, 0.088000,9.766000 , 
+04-18 20:53:50.052   663   840 E         : akm_log AKM_SetData time_stamp = 624905227420031, stype = 2
+04-18 20:53:50.052   663   840 E         : set_acc，-0.866000,0.088000,9.766000
+04-18 20:53:50.052   663   840 E         : PGLILIakm_log moving_vx = 0.859375,akm_log moving_vy = 1.187500,akm_log moving_vz = 0.984375
+04-18 20:53:50.052   663   840 E         : akm_log PGLILImoving_vx = 0.859375
+04-18 20:53:50.052   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.052   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.052   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.052   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905227420031, stype = 2
+04-18 20:53:50.052   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905227420031, stype =4, , 
+04-18 20:53:50.052   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 1, 12
+04-18 20:53:50.052   663   840 E         : akm_log AKM_GetData time_stamp11=624905227420031, stype =4
+04-18 20:53:50.052   663   840 E         : PGLILI TimeStamp:624905227420031, PGLILI Gyro data:-0.001833, 0.001332,0.012597 , 
+04-18 20:53:50.076   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.076   663   840 E         : akm_log AKM_SetData time_stamp = 624905252386852, stype = 1
+04-18 20:53:50.076   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1000
+04-18 20:53:50.076   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905252386852, stype = 1
+04-18 20:53:50.076   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 14, 0, 0, 9, dt: 1000
+04-18 20:53:50.076   663   840 E         : akm_log pg_mag(uT): 1000, -105, 944, 239, -63, 6, dt: 717
+04-18 20:53:50.076   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.076   663   840 E         : akm_log pg_gyr(d/s*16*1000): -95, 52, 664, dt: 1000
+04-18 20:53:50.076   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.076   663   840 E         : PGLILI TimeStamp:624905252386852, PGLILI Mag data:-119.700005, 43.800003,-436.350006 , 
+04-18 20:53:50.076   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905227420031, stype =1, , 
+04-18 20:53:50.076   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.076   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.076   663   840 E         : akm_log AKM_GetData time_stamp11=624905252386852, stype =1
+04-18 20:53:50.076   663   840 E         : akm_log akm_wrapper_calibrate is -6.300000, 56.639999, 14.340000
+04-18 20:53:50.076   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.093   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.094   663   840 E         : PGLILI TimeStamp:624905248377717, PGLILI_set_acc:-0.900000, 0.064000,9.785000 , 
+04-18 20:53:50.094   663   840 E         : akm_log AKM_SetData time_stamp = 624905248377717, stype = 2
+04-18 20:53:50.094   663   840 E         : set_acc，-0.900000,0.064000,9.785000
+04-18 20:53:50.094   663   840 E         : PGLILIakm_log moving_vx = 1.359375,akm_log moving_vy = 1.109375,akm_log moving_vz = 0.734375
+04-18 20:53:50.094   663   840 E         : akm_log PGLILImoving_vx = 1.359375
+04-18 20:53:50.094   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.094   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.094   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.094   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905248377717, stype = 2
+04-18 20:53:50.094   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905248377717, stype =4, , 
+04-18 20:53:50.094   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 11
+04-18 20:53:50.094   663   840 E         : akm_log AKM_GetData time_stamp11=624905248377717, stype =4
+04-18 20:53:50.094   663   840 E         : PGLILI TimeStamp:624905248377717, PGLILI Gyro data:-0.001668, 0.000908,0.011599 , 
+04-18 20:53:50.094   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.094   663   840 E         : PGLILI TimeStamp:624905269335372, PGLILI_set_acc:-0.902000, 0.076000,9.790000 , 
+04-18 20:53:50.094   663   840 E         : akm_log AKM_SetData time_stamp = 624905269335372, stype = 2
+04-18 20:53:50.094   663   840 E         : set_acc，-0.902000,0.076000,9.790000
+04-18 20:53:50.094   663   840 E         : PGLILIakm_log moving_vx = 0.984375,akm_log moving_vy = 1.250000,akm_log moving_vz = 0.734375
+04-18 20:53:50.094   663   840 E         : akm_log PGLILImoving_vx = 0.984375
+04-18 20:53:50.094   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.094   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.094   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.094   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905269335372, stype = 2
+04-18 20:53:50.094   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905269335372, stype =4, , 
+04-18 20:53:50.094   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 11
+04-18 20:53:50.094   663   840 E         : akm_log AKM_GetData time_stamp11=624905269335372, stype =4
+04-18 20:53:50.094   663   840 E         : PGLILI TimeStamp:624905269335372, PGLILI Gyro data:-0.001668, 0.000908,0.011599 , 
+04-18 20:53:50.118   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:50.118   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:50.118   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:50.135   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.136   663   840 E         : PGLILI TimeStamp:624905290291251, PGLILI_set_acc:-0.869000, 0.045000,9.756000 , 
+04-18 20:53:50.136   663   840 E         : akm_log AKM_SetData time_stamp = 624905290291251, stype = 2
+04-18 20:53:50.136   663   840 E         : set_acc，-0.869000,0.045000,9.756000
+04-18 20:53:50.136   663   840 E         : PGLILIakm_log moving_vx = 1.250000,akm_log moving_vy = 1.359375,akm_log moving_vz = 0.984375
+04-18 20:53:50.136   663   840 E         : akm_log PGLILImoving_vx = 1.250000
+04-18 20:53:50.136   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.136   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.136   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.136   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905290291251, stype = 2
+04-18 20:53:50.136   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905290291251, stype =4, , 
+04-18 20:53:50.136   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 11
+04-18 20:53:50.136   663   840 E         : akm_log AKM_GetData time_stamp11=624905290291251, stype =4
+04-18 20:53:50.136   663   840 E         : PGLILI TimeStamp:624905290291251, PGLILI Gyro data:-0.001668, 0.000908,0.011599 , 
+04-18 20:53:50.136   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.136   663   840 E         : PGLILI TimeStamp:624905311247138, PGLILI_set_acc:-0.933000, 0.038000,9.768000 , 
+04-18 20:53:50.136   663   840 E         : akm_log AKM_SetData time_stamp = 624905311247138, stype = 2
+04-18 20:53:50.136   663   840 E         : set_acc，-0.933000,0.038000,9.768000
+04-18 20:53:50.136   663   840 E         : PGLILIakm_log moving_vx = 2.500000,akm_log moving_vy = 1.734375,akm_log moving_vz = 0.609375
+04-18 20:53:50.136   663   840 E         : akm_log PGLILImoving_vx = 2.500000
+04-18 20:53:50.136   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.136   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.136   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.136   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905311247138, stype = 2
+04-18 20:53:50.136   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905311247138, stype =4, , 
+04-18 20:53:50.136   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 11
+04-18 20:53:50.136   663   840 E         : akm_log AKM_GetData time_stamp11=624905311247138, stype =4
+04-18 20:53:50.136   663   840 E         : PGLILI TimeStamp:624905311247138, PGLILI Gyro data:-0.001668, 0.000908,0.011599 , 
+04-18 20:53:50.138   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.138   663   840 E         : akm_log AKM_SetData time_stamp = 624905314886862, stype = 1
+04-18 20:53:50.138   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1000
+04-18 20:53:50.138   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905314886862, stype = 1
+04-18 20:53:50.138   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 15, 0, 0, 9, dt: 1000
+04-18 20:53:50.138   663   840 E         : akm_log pg_mag(uT): 1000, -104, 944, 240, -68, 2, dt: 717
+04-18 20:53:50.139   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.139   663   840 E         : akm_log pg_gyr(d/s*16*1000): -87, 48, 618, dt: 1000
+04-18 20:53:50.139   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.139   663   840 E         : PGLILI TimeStamp:624905314886862, PGLILI Mag data:-118.800003, 44.700001,-434.700012 , 
+04-18 20:53:50.139   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905311247138, stype =1, , 
+04-18 20:53:50.139   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.139   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.139   663   840 E         : akm_log AKM_GetData time_stamp11=624905314886862, stype =1
+04-18 20:53:50.139   663   840 E         : akm_log akm_wrapper_calibrate is -6.240000, 56.639999, 14.400000
+04-18 20:53:50.139   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.177   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.178   663   840 E         : PGLILI TimeStamp:624905332205870, PGLILI_set_acc:-0.895000, 0.069000,9.840000 , 
+04-18 20:53:50.178   663   840 E         : akm_log AKM_SetData time_stamp = 624905332205870, stype = 2
+04-18 20:53:50.178   663   840 E         : set_acc，-0.895000,0.069000,9.840000
+04-18 20:53:50.178   663   840 E         : PGLILIakm_log moving_vx = 2.500000,akm_log moving_vy = 1.859375,akm_log moving_vz = 2.859375
+04-18 20:53:50.178   663   840 E         : akm_log PGLILImoving_vx = 2.500000
+04-18 20:53:50.178   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.178   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.178   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.178   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905332205870, stype = 2
+04-18 20:53:50.178   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905332205870, stype =4, , 
+04-18 20:53:50.178   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 10
+04-18 20:53:50.178   663   840 E         : akm_log AKM_GetData time_stamp11=624905332205870, stype =4
+04-18 20:53:50.178   663   840 E         : PGLILI TimeStamp:624905332205870, PGLILI Gyro data:-0.001530, 0.000853,0.010802 , 
+04-18 20:53:50.178   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.178   663   840 E         : PGLILI TimeStamp:624905353164599, PGLILI_set_acc:-0.902000, 0.071000,9.771000 , 
+04-18 20:53:50.178   663   840 E         : akm_log AKM_SetData time_stamp = 624905353164599, stype = 2
+04-18 20:53:50.178   663   840 E         : set_acc，-0.902000,0.071000,9.771000
+04-18 20:53:50.178   663   840 E         : PGLILIakm_log moving_vx = 2.609375,akm_log moving_vy = 1.437500,akm_log moving_vz = 2.937500
+04-18 20:53:50.178   663   840 E         : akm_log PGLILImoving_vx = 2.609375
+04-18 20:53:50.178   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.178   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.178   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.178   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905353164599, stype = 2
+04-18 20:53:50.178   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905353164599, stype =4, , 
+04-18 20:53:50.178   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 10
+04-18 20:53:50.178   663   840 E         : akm_log AKM_GetData time_stamp11=624905353164599, stype =4
+04-18 20:53:50.178   663   840 E         : PGLILI TimeStamp:624905353164599, PGLILI Gyro data:-0.001530, 0.000853,0.010802 , 
+04-18 20:53:50.187   664   664 W camerahalserver: type=1400 audit(0.0:723260): avc: denied { search } for name="0" dev="mmcblk0p46" ino=2686979 scontext=u:r:mtk_hal_camera:s0 tcontext=u:object_r:media_rw_data_file:s0 tclass=dir permissive=0
+04-18 20:53:50.192   664  8050 E lsc_nvram: [do_mkdir] fail to mkdir [/sdcard/shading_otp]: 13[Permission denied] (do_mkdir){#65:vendor/mediatek/proprietary/hardware/mtkcam/aaa/source/isp_40/lsc_mgr/LscUtil.h}
+04-18 20:53:50.192   664 26764 E lsc_nvram: [do_mkdir] fail to mkdir [/sdcard/shading_otp]: 13[Permission denied] (do_mkdir){#65:vendor/mediatek/proprietary/hardware/mtkcam/aaa/source/isp_40/lsc_mgr/LscUtil.h}
+04-18 20:53:50.187   664   664 W camerahalserver: type=1400 audit(0.0:723261): avc: denied { search } for name="0" dev="mmcblk0p46" ino=2686979 scontext=u:r:mtk_hal_camera:s0 tcontext=u:object_r:media_rw_data_file:s0 tclass=dir permissive=0
+04-18 20:53:50.187   664   664 I chatty  : uid=1047(cameraserver) /vendor/bin/hw/camerahalserver identical 1 line
+04-18 20:53:50.187   664   664 W camerahalserver: type=1400 audit(0.0:723263): avc: denied { search } for name="0" dev="mmcblk0p46" ino=2686979 scontext=u:r:mtk_hal_camera:s0 tcontext=u:object_r:media_rw_data_file:s0 tclass=dir permissive=0
+04-18 20:53:50.201   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.201   663   840 E         : akm_log AKM_SetData time_stamp = 624905377386861, stype = 1
+04-18 20:53:50.201   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1000
+04-18 20:53:50.201   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905377386861, stype = 1
+04-18 20:53:50.201   663   840 E         : akm_log pg_mag_lili(uT): -6, 58, 15, 0, 0, 9, dt: 1000
+04-18 20:53:50.201   663   840 E         : akm_log pg_mag(uT): 1000, -108, 942, 243, -66, 5, dt: 717
+04-18 20:53:50.201   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.201   663   840 E         : akm_log pg_gyr(d/s*16*1000): -79, 43, 566, dt: 1000
+04-18 20:53:50.201   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.201   663   840 E         : PGLILI TimeStamp:624905377386861, PGLILI Mag data:-119.250008, 43.500000,-433.950012 , 
+04-18 20:53:50.201   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905353164599, stype =1, , 
+04-18 20:53:50.201   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.201   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.201   663   840 E         : akm_log AKM_GetData time_stamp11=624905377386861, stype =1
+04-18 20:53:50.201   663   840 E         : akm_log akm_wrapper_calibrate is -6.480000, 56.520000, 14.580000
+04-18 20:53:50.201   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.219   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.219   663   840 E         : PGLILI TimeStamp:624905374124774, PGLILI_set_acc:-0.893000, 0.083000,9.730000 , 
+04-18 20:53:50.219   663   840 E         : akm_log AKM_SetData time_stamp = 624905374124774, stype = 2
+04-18 20:53:50.219   663   840 E         : set_acc，-0.893000,0.083000,9.730000
+04-18 20:53:50.219   663   840 E         : PGLILIakm_log moving_vx = 2.437500,akm_log moving_vy = 1.750000,akm_log moving_vz = 4.484375
+04-18 20:53:50.219   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:50.219   663   840 E         : akm_log PGLILImoving_vx = 2.437500
+04-18 20:53:50.220   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.220   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.220   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.220   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905374124774, stype = 2
+04-18 20:53:50.220   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905374124774, stype =4, , 
+04-18 20:53:50.220   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 9
+04-18 20:53:50.220   663   840 E         : akm_log AKM_GetData time_stamp11=624905374124774, stype =4
+04-18 20:53:50.220   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:50.220   663   840 E         : PGLILI TimeStamp:624905374124774, PGLILI Gyro data:-0.001392, 0.000767,0.009880 , 
+04-18 20:53:50.220   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.220   663   840 E         : PGLILI TimeStamp:624905395084969, PGLILI_set_acc:-0.900000, 0.069000,9.785000 , 
+04-18 20:53:50.220   663   840 E         : akm_log AKM_SetData time_stamp = 624905395084969, stype = 2
+04-18 20:53:50.220   663   840 E         : set_acc，-0.900000,0.069000,9.785000
+04-18 20:53:50.220   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:50.220   663   840 E         : PGLILIakm_log moving_vx = 1.734375,akm_log moving_vy = 1.484375,akm_log moving_vz = 4.500000
+04-18 20:53:50.220   663   840 E         : akm_log PGLILImoving_vx = 1.734375
+04-18 20:53:50.220   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.220   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.220   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.220   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905395084969, stype = 2
+04-18 20:53:50.220   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905395084969, stype =4, , 
+04-18 20:53:50.220   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 9
+04-18 20:53:50.220   663   840 E         : akm_log AKM_GetData time_stamp11=624905395084969, stype =4
+04-18 20:53:50.220   663   840 E         : PGLILI TimeStamp:624905395084969, PGLILI Gyro data:-0.001392, 0.000767,0.009880 , 
+04-18 20:53:50.261   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.261   663   840 E         : PGLILI TimeStamp:624905416045068, PGLILI_set_acc:-0.861000, 0.071000,9.759000 , 
+04-18 20:53:50.261   663   840 E         : akm_log AKM_SetData time_stamp = 624905416045068, stype = 2
+04-18 20:53:50.261   663   840 E         : set_acc，-0.861000,0.071000,9.759000
+04-18 20:53:50.261   663   840 E         : PGLILIakm_log moving_vx = 2.437500,akm_log moving_vy = 1.500000,akm_log moving_vz = 4.687500
+04-18 20:53:50.261   663   840 E         : akm_log PGLILImoving_vx = 2.437500
+04-18 20:53:50.261   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.261   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.261   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.262   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905416045068, stype = 2
+04-18 20:53:50.262   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905416045068, stype =4, , 
+04-18 20:53:50.262   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 9
+04-18 20:53:50.262   663   840 E         : akm_log AKM_GetData time_stamp11=624905416045068, stype =4
+04-18 20:53:50.262   663   840 E         : PGLILI TimeStamp:624905416045068, PGLILI Gyro data:-0.001392, 0.000767,0.009880 , 
+04-18 20:53:50.262   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.262   663   840 E         : PGLILI TimeStamp:624905437005185, PGLILI_set_acc:-0.885000, 0.047000,9.708000 , 
+04-18 20:53:50.262   663   840 E         : akm_log AKM_SetData time_stamp = 624905437005185, stype = 2
+04-18 20:53:50.262   663   840 E         : set_acc，-0.885000,0.047000,9.708000
+04-18 20:53:50.262   663   840 E         : PGLILIakm_log moving_vx = 2.500000,akm_log moving_vy = 1.687500,akm_log moving_vz = 7.500000
+04-18 20:53:50.262   663   840 E         : akm_log PGLILImoving_vx = 2.500000
+04-18 20:53:50.262   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.262   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.262   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.262   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905437005185, stype = 2
+04-18 20:53:50.262   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905437005185, stype =4, , 
+04-18 20:53:50.262   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 9
+04-18 20:53:50.262   663   840 E         : akm_log AKM_GetData time_stamp11=624905437005185, stype =4
+04-18 20:53:50.262   663   840 E         : PGLILI TimeStamp:624905437005185, PGLILI Gyro data:-0.001392, 0.000767,0.009880 , 
+04-18 20:53:50.263   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.263   663   840 E         : akm_log AKM_SetData time_stamp = 624905439886832, stype = 1
+04-18 20:53:50.263   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 999
+04-18 20:53:50.264   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905439886832, stype = 1
+04-18 20:53:50.264   663   840 E         : akm_log pg_mag_lili(uT): -6, 58, 14, 0, 0, 9, dt: 999
+04-18 20:53:50.264   663   840 E         : akm_log pg_mag(uT): 999, -111, 942, 239, -64, 3, dt: 712
+04-18 20:53:50.264   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.264   663   840 E         : akm_log pg_gyr(d/s*16*1000): -71, 40, 507, dt: 999
+04-18 20:53:50.264   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.264   663   840 E         : PGLILI TimeStamp:624905439886832, PGLILI Mag data:-120.600006, 43.950001,-436.200012 , 
+04-18 20:53:50.264   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905437005185, stype =1, , 
+04-18 20:53:50.264   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.264   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.264   663   840 E         : akm_log AKM_GetData time_stamp11=624905439886832, stype =1
+04-18 20:53:50.264   663   840 E         : akm_log akm_wrapper_calibrate is -6.660000, 56.520000, 14.340000
+04-18 20:53:50.264   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.303   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.303   663   840 E         : PGLILI TimeStamp:624905457961395, PGLILI_set_acc:-0.897000, 0.064000,9.739000 , 
+04-18 20:53:50.303   663   840 E         : akm_log AKM_SetData time_stamp = 624905457961395, stype = 2
+04-18 20:53:50.303   663   840 E         : set_acc，-0.897000,0.064000,9.739000
+04-18 20:53:50.303   663   840 E         : PGLILIakm_log moving_vx = 1.937500,akm_log moving_vy = 1.484375,akm_log moving_vz = 7.734375
+04-18 20:53:50.303   663   840 E         : akm_log PGLILImoving_vx = 1.937500
+04-18 20:53:50.303   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.303   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.303   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.303   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905457961395, stype = 2
+04-18 20:53:50.303   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905457961395, stype =4, , 
+04-18 20:53:50.304   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 8
+04-18 20:53:50.304   663   840 E         : akm_log AKM_GetData time_stamp11=624905457961395, stype =4
+04-18 20:53:50.304   663   840 E         : PGLILI TimeStamp:624905457961395, PGLILI Gyro data:-0.001249, 0.000716,0.008862 , 
+04-18 20:53:50.304   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.304   663   840 E         : PGLILI TimeStamp:624905478917590, PGLILI_set_acc:-0.914000, 0.102000,9.718000 , 
+04-18 20:53:50.304   663   840 E         : akm_log AKM_SetData time_stamp = 624905478917590, stype = 2
+04-18 20:53:50.304   663   840 E         : set_acc，-0.914000,0.102000,9.718000
+04-18 20:53:50.304   663   840 E         : PGLILIakm_log moving_vx = 1.359375,akm_log moving_vy = 1.250000,akm_log moving_vz = 8.859375
+04-18 20:53:50.304   663   840 E         : akm_log PGLILImoving_vx = 1.359375
+04-18 20:53:50.304   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.304   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.304   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.304   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905478917590, stype = 2
+04-18 20:53:50.304   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905478917590, stype =4, , 
+04-18 20:53:50.304   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 8
+04-18 20:53:50.305   663   840 E         : akm_log AKM_GetData time_stamp11=624905478917590, stype =4
+04-18 20:53:50.305   663   840 E         : PGLILI TimeStamp:624905478917590, PGLILI Gyro data:-0.001249, 0.000716,0.008862 , 
+04-18 20:53:50.326   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.326   663   840 E         : akm_log AKM_SetData time_stamp = 624905502386866, stype = 1
+04-18 20:53:50.326   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1000
+04-18 20:53:50.326   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905502386866, stype = 1
+04-18 20:53:50.326   663   840 E         : akm_log pg_mag_lili(uT): -6, 58, 15, 0, 0, 9, dt: 1000
+04-18 20:53:50.326   663   840 E         : akm_log pg_mag(uT): 1000, -111, 941, 241, -67, 7, dt: 713
+04-18 20:53:50.326   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.326   663   840 E         : akm_log pg_gyr(d/s*16*1000): -61, 41, 443, dt: 1000
+04-18 20:53:50.326   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.326   663   840 E         : PGLILI TimeStamp:624905502386866, PGLILI Mag data:-118.500008, 43.950001,-434.700012 , 
+04-18 20:53:50.326   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905478917590, stype =1, , 
+04-18 20:53:50.326   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.326   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.326   663   840 E         : akm_log AKM_GetData time_stamp11=624905502386866, stype =1
+04-18 20:53:50.326   663   840 E         : akm_log akm_wrapper_calibrate is -6.660000, 56.459999, 14.460000
+04-18 20:53:50.326   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.336   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:50.336   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:50.336   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:50.345   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.345   663   840 E         : PGLILI TimeStamp:624905499878357, PGLILI_set_acc:-0.907000, 0.110000,9.814000 , 
+04-18 20:53:50.345   663   840 E         : akm_log AKM_SetData time_stamp = 624905499878357, stype = 2
+04-18 20:53:50.345   663   840 E         : set_acc，-0.907000,0.110000,9.814000
+04-18 20:53:50.345   663   840 E         : PGLILIakm_log moving_vx = 1.437500,akm_log moving_vy = 2.234375,akm_log moving_vz = 6.234375
+04-18 20:53:50.345   663   840 E         : akm_log PGLILImoving_vx = 1.437500
+04-18 20:53:50.345   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.345   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.345   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.345   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905499878357, stype = 2
+04-18 20:53:50.345   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905499878357, stype =4, , 
+04-18 20:53:50.345   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 7
+04-18 20:53:50.345   663   840 E         : akm_log AKM_GetData time_stamp11=624905499878357, stype =4
+04-18 20:53:50.345   663   840 E         : PGLILI TimeStamp:624905499878357, PGLILI Gyro data:-0.001066, 0.000721,0.007747 , 
+04-18 20:53:50.346   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.346   663   840 E         : PGLILI TimeStamp:624905520839084, PGLILI_set_acc:-0.909000, 0.086000,9.821000 , 
+04-18 20:53:50.346   663   840 E         : akm_log AKM_SetData time_stamp = 624905520839084, stype = 2
+04-18 20:53:50.346   663   840 E         : set_acc，-0.909000,0.086000,9.821000
+04-18 20:53:50.346   663   840 E         : PGLILIakm_log moving_vx = 1.437500,akm_log moving_vy = 2.250000,akm_log moving_vz = 9.359375
+04-18 20:53:50.346   663   840 E         : akm_log PGLILImoving_vx = 1.437500
+04-18 20:53:50.346   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.346   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.346   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.346   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905520839084, stype = 2
+04-18 20:53:50.346   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905520839084, stype =4, , 
+04-18 20:53:50.346   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 7
+04-18 20:53:50.346   663   840 E         : akm_log AKM_GetData time_stamp11=624905520839084, stype =4
+04-18 20:53:50.346   663   840 E         : PGLILI TimeStamp:624905520839084, PGLILI Gyro data:-0.001066, 0.000721,0.007747 , 
+04-18 20:53:50.387   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.387   663   840 E         : PGLILI TimeStamp:624905541799033, PGLILI_set_acc:-0.890000, 0.055000,9.783000 , 
+04-18 20:53:50.387   663   840 E         : akm_log AKM_SetData time_stamp = 624905541799033, stype = 2
+04-18 20:53:50.387   663   840 E         : set_acc，-0.890000,0.055000,9.783000
+04-18 20:53:50.387   663   840 E         : PGLILIakm_log moving_vx = 1.437500,akm_log moving_vy = 2.437500,akm_log moving_vz = 8.984375
+04-18 20:53:50.387   663   840 E         : akm_log PGLILImoving_vx = 1.437500
+04-18 20:53:50.387   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.387   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.387   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.387   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905541799033, stype = 2
+04-18 20:53:50.387   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905541799033, stype =4, , 
+04-18 20:53:50.387   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 7
+04-18 20:53:50.387   663   840 E         : akm_log AKM_GetData time_stamp11=624905541799033, stype =4
+04-18 20:53:50.388   663   840 E         : PGLILI TimeStamp:624905541799033, PGLILI Gyro data:-0.001066, 0.000721,0.007747 , 
+04-18 20:53:50.388   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.388   663   840 E         : PGLILI TimeStamp:624905562759036, PGLILI_set_acc:-0.871000, 0.040000,9.771000 , 
+04-18 20:53:50.388   663   840 E         : akm_log AKM_SetData time_stamp = 624905562759036, stype = 2
+04-18 20:53:50.388   663   840 E         : set_acc，-0.871000,0.040000,9.771000
+04-18 20:53:50.388   663   840 E         : PGLILIakm_log moving_vx = 1.859375,akm_log moving_vy = 3.609375,akm_log moving_vz = 8.750000
+04-18 20:53:50.388   663   840 E         : akm_log PGLILImoving_vx = 1.859375
+04-18 20:53:50.388   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.388   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.388   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.388   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905562759036, stype = 2
+04-18 20:53:50.388   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905562759036, stype =4, , 
+04-18 20:53:50.388   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): -1, 0, 7
+04-18 20:53:50.388   663   840 E         : akm_log AKM_GetData time_stamp11=624905562759036, stype =4
+04-18 20:53:50.388   663   840 E         : PGLILI TimeStamp:624905562759036, PGLILI Gyro data:-0.001066, 0.000721,0.007747 , 
+04-18 20:53:50.388   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.388   663   840 E         : akm_log AKM_SetData time_stamp = 624905564779529, stype = 1
+04-18 20:53:50.388   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 998
+04-18 20:53:50.388   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905564779529, stype = 1
+04-18 20:53:50.388   663   840 E         : akm_log pg_mag_lili(uT): -6, 58, 15, 0, 0, 9, dt: 998
+04-18 20:53:50.388   663   840 E         : akm_log pg_mag(uT): 998, -110, 942, 245, -63, 2, dt: 717
+04-18 20:53:50.388   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.388   663   840 E         : akm_log pg_gyr(d/s*16*1000): -53, 44, 392, dt: 998
+04-18 20:53:50.388   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.388   663   840 E         : PGLILI TimeStamp:624905564779529, PGLILI Mag data:-118.350006, 44.850002,-433.500031 , 
+04-18 20:53:50.388   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905562759036, stype =1, , 
+04-18 20:53:50.388   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.388   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.388   663   840 E         : akm_log AKM_GetData time_stamp11=624905564779529, stype =1
+04-18 20:53:50.388   663   840 E         : akm_log akm_wrapper_calibrate is -6.600000, 56.520000, 14.700000
+04-18 20:53:50.389   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.399   509 13238 I hwcomposer: [HWCDisplay] [Display_0 (type:1)] fps:60.137356,dur:1014.34,max:17.15,min:16.09  
+04-18 20:53:50.429   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.429   663   840 E         : PGLILI TimeStamp:624905583725260, PGLILI_set_acc:-0.866000, 0.035000,9.778000 , 
+04-18 20:53:50.429   663   840 E         : akm_log AKM_SetData time_stamp = 624905583725260, stype = 2
+04-18 20:53:50.429   663   840 E         : set_acc，-0.866000,0.035000,9.778000
+04-18 20:53:50.429   663   840 E         : PGLILIakm_log moving_vx = 1.859375,akm_log moving_vy = 4.500000,akm_log moving_vz = 8.734375
+04-18 20:53:50.429   663   840 E         : akm_log PGLILImoving_vx = 1.859375
+04-18 20:53:50.429   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.429   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.429   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.429   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905583725260, stype = 2
+04-18 20:53:50.430   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905583725260, stype =4, , 
+04-18 20:53:50.430   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 6
+04-18 20:53:50.430   663   840 E         : akm_log AKM_GetData time_stamp11=624905583725260, stype =4
+04-18 20:53:50.430   663   840 E         : PGLILI TimeStamp:624905583725260, PGLILI Gyro data:-0.000940, 0.000769,0.006842 , 
+04-18 20:53:50.430   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.430   663   840 E         : PGLILI TimeStamp:624905604691451, PGLILI_set_acc:-0.821000, 0.062000,9.766000 , 
+04-18 20:53:50.430   663   840 E         : akm_log AKM_SetData time_stamp = 624905604691451, stype = 2
+04-18 20:53:50.430   663   840 E         : set_acc，-0.821000,0.062000,9.766000
+04-18 20:53:50.430   663   840 E         : PGLILIakm_log moving_vx = 4.484375,akm_log moving_vy = 4.234375,akm_log moving_vz = 5.687500
+04-18 20:53:50.430   663   840 E         : akm_log PGLILImoving_vx = 4.484375
+04-18 20:53:50.430   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.430   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.430   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.430   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905604691451, stype = 2
+04-18 20:53:50.430   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905604691451, stype =4, , 
+04-18 20:53:50.430   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 6
+04-18 20:53:50.430   663   840 E         : akm_log AKM_GetData time_stamp11=624905604691451, stype =4
+04-18 20:53:50.430   663   840 E         : PGLILI TimeStamp:624905604691451, PGLILI Gyro data:-0.000940, 0.000769,0.006842 , 
+04-18 20:53:50.436   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:50.436   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:50.436   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:50.451   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.451   663   840 E         : akm_log AKM_SetData time_stamp = 624905627279563, stype = 1
+04-18 20:53:50.451   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1000
+04-18 20:53:50.451   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905627279563, stype = 1
+04-18 20:53:50.451   663   840 E         : akm_log pg_mag_lili(uT): -6, 58, 15, 0, 0, 9, dt: 1000
+04-18 20:53:50.451   663   840 E         : akm_log pg_mag(uT): 1000, -108, 937, 245, -60, 4, dt: 717
+04-18 20:53:50.451   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.451   663   840 E         : akm_log pg_gyr(d/s*16*1000): -45, 44, 346, dt: 1000
+04-18 20:53:50.451   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.451   663   840 E         : PGLILI TimeStamp:624905627279563, PGLILI Mag data:-117.900002, 43.050003,-433.800018 , 
+04-18 20:53:50.451   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905604691451, stype =1, , 
+04-18 20:53:50.451   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.451   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.451   663   840 E         : akm_log AKM_GetData time_stamp11=624905627279563, stype =1
+04-18 20:53:50.451   663   840 E         : akm_log akm_wrapper_calibrate is -6.480000, 56.219997, 14.700000
+04-18 20:53:50.451   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.471   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.471   663   840 E         : PGLILI TimeStamp:624905625658050, PGLILI_set_acc:-0.888000, 0.019000,9.775000 , 
+04-18 20:53:50.471   663   840 E         : akm_log AKM_SetData time_stamp = 624905625658050, stype = 2
+04-18 20:53:50.471   663   840 E         : set_acc，-0.888000,0.019000,9.775000
+04-18 20:53:50.471   663   840 E         : PGLILIakm_log moving_vx = 4.484375,akm_log moving_vy = 5.687500,akm_log moving_vz = 5.000000
+04-18 20:53:50.471   663   840 E         : akm_log PGLILImoving_vx = 4.484375
+04-18 20:53:50.471   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.471   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.471   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.471   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905625658050, stype = 2
+04-18 20:53:50.471   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905625658050, stype =4, , 
+04-18 20:53:50.471   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 6
+04-18 20:53:50.471   663   840 E         : akm_log AKM_GetData time_stamp11=624905625658050, stype =4
+04-18 20:53:50.471   663   840 E         : PGLILI TimeStamp:624905625658050, PGLILI Gyro data:-0.000802, 0.000774,0.006054 , 
+04-18 20:53:50.471   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.471   663   840 E         : PGLILI TimeStamp:624905646624667, PGLILI_set_acc:-0.885000, 0.067000,9.773000 , 
+04-18 20:53:50.471   663   840 E         : akm_log AKM_SetData time_stamp = 624905646624667, stype = 2
+04-18 20:53:50.471   663   840 E         : set_acc，-0.885000,0.067000,9.773000
+04-18 20:53:50.471   663   840 E         : PGLILIakm_log moving_vx = 3.500000,akm_log moving_vy = 4.609375,akm_log moving_vz = 2.250000
+04-18 20:53:50.471   663   840 E         : akm_log PGLILImoving_vx = 3.500000
+04-18 20:53:50.471   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.471   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.471   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.471   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905646624667, stype = 2
+04-18 20:53:50.471   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905646624667, stype =4, , 
+04-18 20:53:50.471   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 6
+04-18 20:53:50.471   663   840 E         : akm_log AKM_GetData time_stamp11=624905646624667, stype =4
+04-18 20:53:50.471   663   840 E         : PGLILI TimeStamp:624905646624667, PGLILI Gyro data:-0.000802, 0.000774,0.006054 , 
+04-18 20:53:50.513   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.513   663   840 E         : akm_log AKM_SetData time_stamp = 624905689672370, stype = 1
+04-18 20:53:50.513   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 998
+04-18 20:53:50.513   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905689672370, stype = 1
+04-18 20:53:50.513   663   840 E         : akm_log pg_mag_lili(uT): -6, 58, 15, 0, 0, 9, dt: 998
+04-18 20:53:50.513   663   840 E         : akm_log pg_mag(uT): 998, -109, 937, 248, -64, 4, dt: 717
+04-18 20:53:50.513   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.513   663   840 E         : akm_log pg_gyr(d/s*16*1000): -28, 41, 292, dt: 998
+04-18 20:53:50.513   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.513   663   840 E         : PGLILI TimeStamp:624905689672370, PGLILI Mag data:-117.750008, 44.250000,-433.650024 , 
+04-18 20:53:50.513   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905646624667, stype =1, , 
+04-18 20:53:50.513   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 14, Lv: 3
+04-18 20:53:50.514   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.514   663   840 E         : akm_log AKM_GetData time_stamp11=624905689672370, stype =1
+04-18 20:53:50.514   663   840 E         : akm_log akm_wrapper_calibrate is -6.540000, 56.219997, 14.880000
+04-18 20:53:50.514   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.514   663   840 E         : PGLILI TimeStamp:624905667586702, PGLILI_set_acc:-0.890000, 0.064000,9.768000 , 
+04-18 20:53:50.514   663   840 E         : akm_log AKM_SetData time_stamp = 624905667586702, stype = 2
+04-18 20:53:50.514   663   840 E         : set_acc，-0.890000,0.064000,9.768000
+04-18 20:53:50.514   663   840 E         : PGLILIakm_log moving_vx = 3.109375,akm_log moving_vy = 2.234375,akm_log moving_vz = 1.734375
+04-18 20:53:50.514   663   840 E         : akm_log PGLILImoving_vx = 3.109375
+04-18 20:53:50.514   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.514   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.514   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.514   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905667586702, stype = 2
+04-18 20:53:50.514   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905667586702, stype =4, , 
+04-18 20:53:50.514   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 5
+04-18 20:53:50.514   663   840 E         : akm_log AKM_GetData time_stamp11=624905667586702, stype =4
+04-18 20:53:50.514   663   840 E         : PGLILI TimeStamp:624905667586702, PGLILI Gyro data:-0.000505, 0.000719,0.005112 , 
+04-18 20:53:50.514   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.514   663   840 E         : PGLILI TimeStamp:624905688548705, PGLILI_set_acc:-0.873000, 0.052000,9.826000 , 
+04-18 20:53:50.514   663   840 E         : akm_log AKM_SetData time_stamp = 624905688548705, stype = 2
+04-18 20:53:50.514   663   840 E         : set_acc，-0.873000,0.052000,9.826000
+04-18 20:53:50.514   663   840 E         : PGLILIakm_log moving_vx = 2.484375,akm_log moving_vy = 1.250000,akm_log moving_vz = 1.734375
+04-18 20:53:50.514   663   840 E         : akm_log PGLILImoving_vx = 2.484375
+04-18 20:53:50.514   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.514   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.514   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.514   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905688548705, stype = 2
+04-18 20:53:50.514   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905688548705, stype =4, , 
+04-18 20:53:50.514   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 5
+04-18 20:53:50.514   663   840 E         : akm_log AKM_GetData time_stamp11=624905688548705, stype =4
+04-18 20:53:50.514   663   840 E         : PGLILI TimeStamp:624905688548705, PGLILI Gyro data:-0.000505, 0.000719,0.005112 , 
+04-18 20:53:50.514   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.552   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:50.552   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:50.552   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:50.555   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.555   663   840 E         : PGLILI TimeStamp:624905709506232, PGLILI_set_acc:-0.881000, 0.035000,9.802000 , 
+04-18 20:53:50.555   663   840 E         : akm_log AKM_SetData time_stamp = 624905709506232, stype = 2
+04-18 20:53:50.555   663   840 E         : set_acc，-0.881000,0.035000,9.802000
+04-18 20:53:50.555   663   840 E         : PGLILIakm_log moving_vx = 2.250000,akm_log moving_vy = 1.187500,akm_log moving_vz = 1.937500
+04-18 20:53:50.555   663   840 E         : akm_log PGLILImoving_vx = 2.250000
+04-18 20:53:50.555   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.555   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.555   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.555   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905709506232, stype = 2
+04-18 20:53:50.555   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905709506232, stype =4, , 
+04-18 20:53:50.555   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 5
+04-18 20:53:50.555   663   840 E         : akm_log AKM_GetData time_stamp11=624905709506232, stype =4
+04-18 20:53:50.555   663   840 E         : PGLILI TimeStamp:624905709506232, PGLILI Gyro data:-0.000505, 0.000719,0.005112 , 
+04-18 20:53:50.555   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.555   663   840 E         : PGLILI TimeStamp:624905730463773, PGLILI_set_acc:-0.895000, 0.059000,9.804000 , 
+04-18 20:53:50.555   663   840 E         : akm_log AKM_SetData time_stamp = 624905730463773, stype = 2
+04-18 20:53:50.555   663   840 E         : set_acc，-0.895000,0.059000,9.804000
+04-18 20:53:50.555   663   840 E         : PGLILIakm_log moving_vx = 2.437500,akm_log moving_vy = 1.250000,akm_log moving_vz = 2.000000
+04-18 20:53:50.555   663   840 E         : akm_log PGLILImoving_vx = 2.437500
+04-18 20:53:50.555   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.555   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.555   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.555   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905730463773, stype = 2
+04-18 20:53:50.555   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905730463773, stype =4, , 
+04-18 20:53:50.555   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 5
+04-18 20:53:50.555   663   840 E         : akm_log AKM_GetData time_stamp11=624905730463773, stype =4
+04-18 20:53:50.555   663   840 E         : PGLILI TimeStamp:624905730463773, PGLILI Gyro data:-0.000505, 0.000719,0.005112 , 
+04-18 20:53:50.576   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.576   663   840 E         : akm_log AKM_SetData time_stamp = 624905752172346, stype = 1
+04-18 20:53:50.576   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 999
+04-18 20:53:50.576   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905752172346, stype = 1
+04-18 20:53:50.576   663   840 E         : akm_log pg_mag_lili(uT): -6, 58, 15, 0, 0, 9, dt: 999
+04-18 20:53:50.576   663   840 E         : akm_log pg_mag(uT): 999, -108, 940, 254, -65, 4, dt: 719
+04-18 20:53:50.576   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.576   663   840 E         : akm_log pg_gyr(d/s*16*1000): -19, 46, 231, dt: 999
+04-18 20:53:50.576   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.576   663   840 E         : PGLILI TimeStamp:624905752172346, PGLILI Mag data:-118.800003, 45.000000,-433.650024 , 
+04-18 20:53:50.576   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905730463773, stype =1, , 
+04-18 20:53:50.576   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 15, Lv: 3
+04-18 20:53:50.576   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.576   663   840 E         : akm_log AKM_GetData time_stamp11=624905752172346, stype =1
+04-18 20:53:50.576   663   840 E         : akm_log akm_wrapper_calibrate is -6.480000, 56.399998, 15.240000
+04-18 20:53:50.576   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.597   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.597   663   840 E         : PGLILI TimeStamp:624905751426030, PGLILI_set_acc:-0.881000, 0.043000,9.766000 , 
+04-18 20:53:50.597   663   840 E         : akm_log AKM_SetData time_stamp = 624905751426030, stype = 2
+04-18 20:53:50.597   663   840 E         : set_acc，-0.881000,0.043000,9.766000
+04-18 20:53:50.597   663   840 E         : PGLILIakm_log moving_vx = 2.359375,akm_log moving_vy = 1.109375,akm_log moving_vz = 2.000000
+04-18 20:53:50.597   663   840 E         : akm_log PGLILImoving_vx = 2.359375
+04-18 20:53:50.597   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.597   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.597   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.597   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905751426030, stype = 2
+04-18 20:53:50.597   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905751426030, stype =4, , 
+04-18 20:53:50.597   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 4
+04-18 20:53:50.597   663   840 E         : akm_log AKM_GetData time_stamp11=624905751426030, stype =4
+04-18 20:53:50.597   663   840 E         : PGLILI TimeStamp:624905751426030, PGLILI Gyro data:-0.000335, 0.000817,0.004044 , 
+04-18 20:53:50.597   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.597   663   840 E         : PGLILI TimeStamp:624905772388297, PGLILI_set_acc:-0.869000, 0.007000,9.787000 , 
+04-18 20:53:50.597   663   840 E         : akm_log AKM_SetData time_stamp = 624905772388297, stype = 2
+04-18 20:53:50.597   663   840 E         : set_acc，-0.869000,0.007000,9.787000
+04-18 20:53:50.597   663   840 E         : PGLILIakm_log moving_vx = 0.437500,akm_log moving_vy = 1.984375,akm_log moving_vz = 1.859375
+04-18 20:53:50.597   663   840 E         : akm_log PGLILImoving_vx = 0.437500
+04-18 20:53:50.597   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.597   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.597   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.597   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905772388297, stype = 2
+04-18 20:53:50.597   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905772388297, stype =4, , 
+04-18 20:53:50.597   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 4
+04-18 20:53:50.597   663   840 E         : akm_log AKM_GetData time_stamp11=624905772388297, stype =4
+04-18 20:53:50.597   663   840 E         : PGLILI TimeStamp:624905772388297, PGLILI Gyro data:-0.000335, 0.000817,0.004044 , 
+04-18 20:53:50.639   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.639   663   840 E         : akm_log AKM_SetData time_stamp = 624905814758904, stype = 1
+04-18 20:53:50.639   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1001
+04-18 20:53:50.639   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905814758904, stype = 1
+04-18 20:53:50.639   663   840 E         : akm_log pg_mag_lili(uT): -6, 58, 15, 0, 0, 9, dt: 1001
+04-18 20:53:50.639   663   840 E         : akm_log pg_mag(uT): 1001, -105, 941, 251, -63, 0, dt: 718
+04-18 20:53:50.639   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.639   663   840 E         : akm_log pg_gyr(d/s*16*1000): -16, 32, 163, dt: 1001
+04-18 20:53:50.639   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.639   663   840 E         : PGLILI TimeStamp:624905814758904, PGLILI Mag data:-117.900002, 45.150002,-435.600006 , 
+04-18 20:53:50.639   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905772388297, stype =1, , 
+04-18 20:53:50.639   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 15, Lv: 3
+04-18 20:53:50.639   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.639   663   840 E         : akm_log AKM_GetData time_stamp11=624905814758904, stype =1
+04-18 20:53:50.639   663   840 E         : akm_log akm_wrapper_calibrate is -6.300000, 56.459999, 15.059999
+04-18 20:53:50.639   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.639   663   840 E         : PGLILI TimeStamp:624905793347257, PGLILI_set_acc:-0.869000, 0.043000,9.759000 , 
+04-18 20:53:50.639   663   840 E         : akm_log AKM_SetData time_stamp = 624905793347257, stype = 2
+04-18 20:53:50.639   663   840 E         : set_acc，-0.869000,0.043000,9.759000
+04-18 20:53:50.639   663   840 E         : PGLILIakm_log moving_vx = 0.500000,akm_log moving_vy = 1.609375,akm_log moving_vz = 2.250000
+04-18 20:53:50.639   663   840 E         : akm_log PGLILImoving_vx = 0.500000
+04-18 20:53:50.639   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.639   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.639   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.639   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905793347257, stype = 2
+04-18 20:53:50.639   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905793347257, stype =4, , 
+04-18 20:53:50.639   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 2
+04-18 20:53:50.639   663   840 E         : akm_log AKM_GetData time_stamp11=624905793347257, stype =4
+04-18 20:53:50.639   663   840 E         : PGLILI TimeStamp:624905793347257, PGLILI Gyro data:-0.000289, 0.000559,0.002856 , 
+04-18 20:53:50.639   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.640   663   840 E         : PGLILI TimeStamp:624905814306220, PGLILI_set_acc:-0.883000, 0.052000,9.783000 , 
+04-18 20:53:50.640   663   840 E         : akm_log AKM_SetData time_stamp = 624905814306220, stype = 2
+04-18 20:53:50.640   663   840 E         : set_acc，-0.883000,0.052000,9.783000
+04-18 20:53:50.640   663   840 E         : PGLILIakm_log moving_vx = 0.500000,akm_log moving_vy = 1.437500,akm_log moving_vz = 2.109375
+04-18 20:53:50.640   663   840 E         : akm_log PGLILImoving_vx = 0.500000
+04-18 20:53:50.640   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.640   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.640   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.640   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905814306220, stype = 2
+04-18 20:53:50.640   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905814306220, stype =4, , 
+04-18 20:53:50.640   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 2
+04-18 20:53:50.640   663   840 E         : akm_log AKM_GetData time_stamp11=624905814306220, stype =4
+04-18 20:53:50.640   663   840 E         : PGLILI TimeStamp:624905814306220, PGLILI Gyro data:-0.000289, 0.000559,0.002856 , 
+04-18 20:53:50.640   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.652   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:50.652   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:50.652   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:50.680   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.681   663   840 E         : PGLILI TimeStamp:624905835263775, PGLILI_set_acc:-0.907000, 0.047000,9.754000 , 
+04-18 20:53:50.681   663   840 E         : akm_log AKM_SetData time_stamp = 624905835263775, stype = 2
+04-18 20:53:50.681   663   840 E         : set_acc，-0.907000,0.047000,9.754000
+04-18 20:53:50.681   663   840 E         : PGLILIakm_log moving_vx = 0.859375,akm_log moving_vy = 1.234375,akm_log moving_vz = 2.500000
+04-18 20:53:50.681   663   840 E         : akm_log PGLILImoving_vx = 0.859375
+04-18 20:53:50.681   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.681   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.681   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.681   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905835263775, stype = 2
+04-18 20:53:50.681   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905835263775, stype =4, , 
+04-18 20:53:50.681   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 2
+04-18 20:53:50.681   663   840 E         : akm_log AKM_GetData time_stamp11=624905835263775, stype =4
+04-18 20:53:50.681   663   840 E         : PGLILI TimeStamp:624905835263775, PGLILI Gyro data:-0.000289, 0.000559,0.002856 , 
+04-18 20:53:50.681   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.681   663   840 E         : PGLILI TimeStamp:624905856221316, PGLILI_set_acc:-0.881000, 0.059000,9.795000 , 
+04-18 20:53:50.681   663   840 E         : akm_log AKM_SetData time_stamp = 624905856221316, stype = 2
+04-18 20:53:50.681   663   840 E         : set_acc，-0.881000,0.059000,9.795000
+04-18 20:53:50.681   663   840 E         : PGLILIakm_log moving_vx = 0.859375,akm_log moving_vy = 1.437500,akm_log moving_vz = 1.437500
+04-18 20:53:50.681   663   840 E         : akm_log PGLILImoving_vx = 0.859375
+04-18 20:53:50.681   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.681   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.681   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.681   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905856221316, stype = 2
+04-18 20:53:50.681   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905856221316, stype =4, , 
+04-18 20:53:50.681   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 2
+04-18 20:53:50.681   663   840 E         : akm_log AKM_GetData time_stamp11=624905856221316, stype =4
+04-18 20:53:50.681   663   840 E         : PGLILI TimeStamp:624905856221316, PGLILI Gyro data:-0.000289, 0.000559,0.002856 , 
+04-18 20:53:50.701   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.701   663   840 E         : akm_log AKM_SetData time_stamp = 624905877258919, stype = 1
+04-18 20:53:50.701   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1000
+04-18 20:53:50.701   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905877258919, stype = 1
+04-18 20:53:50.701   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 15, 0, 0, 9, dt: 1000
+04-18 20:53:50.701   663   840 E         : akm_log pg_mag(uT): 1000, -104, 944, 250, -64, 4, dt: 719
+04-18 20:53:50.701   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.701   663   840 E         : akm_log pg_gyr(d/s*16*1000): -18, 27, 130, dt: 1000
+04-18 20:53:50.701   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.701   663   840 E         : PGLILI TimeStamp:624905877258919, PGLILI Mag data:-118.350006, 44.850002,-434.850006 , 
+04-18 20:53:50.701   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905856221316, stype =1, , 
+04-18 20:53:50.701   663   840 E         : akm_log akl_getv_mag(uT) : -6, 56, 15, Lv: 3
+04-18 20:53:50.701   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.701   663   840 E         : akm_log AKM_GetData time_stamp11=624905877258919, stype =1
+04-18 20:53:50.701   663   840 E         : akm_log akm_wrapper_calibrate is -6.240000, 56.639999, 15.000000
+04-18 20:53:50.701   663   840 E         : akm_log Enter wrapper_set_magNull
+04-18 20:53:50.722   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.722   663   840 E         : PGLILI TimeStamp:624905877182533, PGLILI_set_acc:-0.849000, 0.043000,9.804000 , 
+04-18 20:53:50.722   663   840 E         : akm_log AKM_SetData time_stamp = 624905877182533, stype = 2
+04-18 20:53:50.722   663   840 E         : set_acc，-0.849000,0.043000,9.804000
+04-18 20:53:50.723   663   840 E         : PGLILIakm_log moving_vx = 1.359375,akm_log moving_vy = 1.359375,akm_log moving_vz = 1.437500
+04-18 20:53:50.723   663   840 E         : akm_log PGLILImoving_vx = 1.359375
+04-18 20:53:50.723   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.723   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.723   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.723   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905877182533, stype = 2
+04-18 20:53:50.723   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905877182533, stype =4, , 
+04-18 20:53:50.723   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 2
+04-18 20:53:50.723   663   840 E         : akm_log AKM_GetData time_stamp11=624905877182533, stype =4
+04-18 20:53:50.723   663   840 E         : PGLILI TimeStamp:624905877182533, PGLILI Gyro data:-0.000318, 0.000482,0.002273 , 
+04-18 20:53:50.723   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.723   663   840 E         : PGLILI TimeStamp:624905898143724, PGLILI_set_acc:-0.881000, 0.028000,9.727000 , 
+04-18 20:53:50.723   663   840 E         : akm_log AKM_SetData time_stamp = 624905898143724, stype = 2
+04-18 20:53:50.723   663   840 E         : set_acc，-0.881000,0.028000,9.727000
+04-18 20:53:50.723   663   840 E         : PGLILIakm_log moving_vx = 1.187500,akm_log moving_vy = 1.234375,akm_log moving_vz = 2.609375
+04-18 20:53:50.723   663   840 E         : akm_log PGLILImoving_vx = 1.187500
+04-18 20:53:50.723   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.723   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.723   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.723   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905898143724, stype = 2
+04-18 20:53:50.723   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905898143724, stype =4, , 
+04-18 20:53:50.723   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 2
+04-18 20:53:50.723   663   840 E         : akm_log AKM_GetData time_stamp11=624905898143724, stype =4
+04-18 20:53:50.723   663   840 E         : PGLILI TimeStamp:624905898143724, PGLILI Gyro data:-0.000318, 0.000482,0.002273 , 
+04-18 20:53:50.752   552   552 I SurfaceFlinger: screenshot (com.android.systemui.ImageWallpaper#0)
+04-18 20:53:50.752   552   552 I SurfaceFlinger: screenshot (com.miui.home/com.miui.home.launcher.Launcher#0)
+04-18 20:53:50.752   552   552 I SurfaceFlinger: screenshot (Dim Layer for - Task=3330#0)
+04-18 20:53:50.764   663   840 E         : akm_log Enter wrapper_set_mag
+04-18 20:53:50.764   663   840 E         : akm_log AKM_SetData time_stamp = 624905939866182, stype = 1
+04-18 20:53:50.764   663   840 E         : akm_log setv_mag-hdt_ag(msQ4) = 1001
+04-18 20:53:50.764   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905939866182, stype = 1
+04-18 20:53:50.764   663   840 E         : akm_log pg_mag_lili(uT): -6, 59, 15, 0, 0, 9, dt: 1001
+04-18 20:53:50.764   663   840 E         : akm_log pg_mag(uT): 1001, -99, 945, 253, -64, 2, dt: 714
+04-18 20:53:50.764   663   840 E         : akm_log akm_pg_amp_limit, akm_d6d_phone_state is 1
+04-18 20:53:50.765   663   840 E         : akm_log pg_gyr(d/s*16*1000): -24, 17, 158, dt: 1001
+04-18 20:53:50.765   663   840 E         : akm_log save data:3,3
+04-18 20:53:50.765   663   840 E         : PGLILI TimeStamp:624905939866182, PGLILI Mag data:-118.650002, 44.400002,-435.300018 , 
+04-18 20:53:50.765   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905898143724, stype =1, , 
+04-18 20:53:50.765   663   840 E         : akm_log akl_getv_mag(uT) : -5, 56, 15, Lv: 3
+04-18 20:53:50.765   663   840 E         : akm_log akl_getv_mag(uT) offset: -112, -12, -449
+04-18 20:53:50.765   663   840 E         : akm_log AKM_GetData time_stamp11=624905939866182, stype =1
+04-18 20:53:50.765   663   840 E         : akm_log akm_wrapper_calibrate is -5.940000, 56.699997, 15.179999
+04-18 20:53:50.765   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.765   663   840 E         : PGLILI TimeStamp:624905919101321, PGLILI_set_acc:-0.859000, 0.009000,9.780000 , 
+04-18 20:53:50.765   663   840 E         : akm_log AKM_SetData time_stamp = 624905919101321, stype = 2
+04-18 20:53:50.765   663   840 E         : set_acc，-0.859000,0.009000,9.780000
+04-18 20:53:50.765   663   840 E         : PGLILIakm_log moving_vx = 1.234375,akm_log moving_vy = 1.937500,akm_log moving_vz = 2.687500
+04-18 20:53:50.765   663   840 E         : akm_log PGLILImoving_vx = 1.234375
+04-18 20:53:50.765   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.765   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.765   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.765   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905919101321, stype = 2
+04-18 20:53:50.765   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905919101321, stype =4, , 
+04-18 20:53:50.765   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 2
+04-18 20:53:50.765   663   840 E         : akm_log AKM_GetData time_stamp11=624905919101321, stype =4
+04-18 20:53:50.765   663   840 E         : PGLILI TimeStamp:624905919101321, PGLILI Gyro data:-0.000434, 0.000298,0.002767 , 
+04-18 20:53:50.765   663   840 E         : akm_log Enter wrapper_set_acc
+04-18 20:53:50.765   663   840 E         : PGLILI TimeStamp:624905940058902, PGLILI_set_acc:-0.859000, 0.033000,9.730000 , 
+04-18 20:53:50.765   663   840 E         : akm_log AKM_SetData time_stamp = 624905940058902, stype = 2
+04-18 20:53:50.765   663   840 E         : set_acc，-0.859000,0.033000,9.730000
+04-18 20:53:50.765   663   840 E         : PGLILIakm_log moving_vx = 1.234375,akm_log moving_vy = 1.250000,akm_log moving_vz = 3.687500
+04-18 20:53:50.765   663   840 E         : akm_log PGLILImoving_vx = 1.234375
+04-18 20:53:50.765   663   840 E         : akm_log detect_phone_state m:1, h:0
+04-18 20:53:50.765   663   840 E         : akm_d6d_phone_state is ,1
+04-18 20:53:50.765   663   840 E         : The vxvyvz parameter are zero by LILI 1022
+04-18 20:53:50.765   663   840 E         : akm_log AKM_SetData time_stamp_afterSetVector = 624905940058902, stype = 2
+04-18 20:53:50.766   663   840 E         : akm_log AKM_GetData lili_time_stamp_GetData:624905940058902, stype =4, , 
+04-18 20:53:50.766   663   840 E         : akm_log akl_getv_gyr(rad/s*1000): 0, 0, 2
+04-18 20:53:50.766   663   840 E         : akm_log AKM_GetData time_stamp11=624905940058902, stype =4
+04-18 20:53:50.766   663   840 E         : PGLILI TimeStamp:624905940058902, PGLILI Gyro data:-0.000434, 0.000298,0.002767 , 
+04-18 20:53:50.766   663   840 E         : akm_log Enter wrapper_set_magNull

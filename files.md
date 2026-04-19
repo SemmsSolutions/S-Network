@@ -1,0 +1,161 @@
+# files.md — BuildConnect Project File Map
+
+## Web App (Angular)
+```
+build-connect-web/
+  src/
+    app/
+      core/
+        guards/
+          auth.guard.ts
+          vendor.guard.ts
+          admin.guard.ts
+        interceptors/
+          auth.interceptor.ts
+        services/
+          supabase.service.ts
+          auth.service.ts
+          search.service.ts
+          business.service.ts
+          lead.service.ts
+          upload.service.ts
+      shared/
+        components/
+          business-card/
+          search-bar/
+          rating-stars/
+          lead-form-modal/
+          portfolio-gallery/
+        pipes/
+          distance.pipe.ts
+          truncate.pipe.ts
+        models/
+          business.model.ts
+          lead.model.ts
+          review.model.ts
+          profile.model.ts
+      modules/
+        auth/
+          login/
+          register/
+        user/
+          home/
+          search-results/
+          business-profile/
+        vendor/
+          dashboard/
+          leads/
+          profile-editor/
+          analytics/
+        admin/
+          approvals/
+          moderation/
+    assets/
+      images/
+      icons/
+    environments/
+      environment.ts
+      environment.prod.ts
+  angular.json
+  package.json
+  tailwind.config.js
+```
+
+## Mobile App (Flutter)
+```
+build-connect-mobile/
+  lib/
+    core/
+      models/
+        business.dart
+        lead.dart
+        review.dart
+        profile.dart
+      services/
+        supabase_service.dart
+        auth_service.dart
+        business_service.dart
+        lead_service.dart
+        geo_service.dart
+        notification_service.dart
+      utils/
+        constants.dart
+        formatters.dart
+    features/
+      auth/
+        login_screen.dart
+        register_screen.dart
+      search/
+        search_screen.dart
+        search_results_screen.dart
+        filter_sheet.dart
+      listing/
+        business_profile_screen.dart
+        portfolio_viewer.dart
+        lead_form_sheet.dart
+      vendor/
+        vendor_dashboard_screen.dart
+        leads/
+          leads_list_screen.dart
+          lead_detail_screen.dart
+        profile/
+          profile_editor_screen.dart
+        analytics/
+          analytics_screen.dart
+      notifications/
+        notifications_screen.dart
+    shared/
+      widgets/
+        business_card_widget.dart
+        rating_bar_widget.dart
+        loading_overlay.dart
+        empty_state_widget.dart
+      theme/
+        app_theme.dart
+        app_colors.dart
+        app_typography.dart
+    main.dart
+    router.dart
+  pubspec.yaml
+  .env
+```
+
+## Backend (Supabase)
+```
+supabase/
+  migrations/
+    001_initial_schema.sql
+    002_rls_policies.sql
+    003_indexes.sql
+    004_seed_categories.sql
+  functions/
+    search-businesses/
+      index.ts
+    create-lead/
+      index.ts
+    update-lead-status/
+      index.ts
+    get-vendor-analytics/
+      index.ts
+    approve-vendor/
+      index.ts
+  storage/
+    buckets.sql
+  config.toml
+```
+
+## Project Root
+```
+build-connect/
+  PRD.md
+  DESIGN_DOC.md
+  TECHSTACK.md
+  files.md
+  commands.md
+  memory.md
+  tools.md
+  README.md
+  build-connect-web/
+  build-connect-mobile/
+  supabase/
+```

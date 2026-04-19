@@ -1,0 +1,64 @@
+﻿node.exe : - 
+Building...
+At line:1 char:1
++ & "C:\Program 
+Files\nodejs/node.exe" 
+"C:\Program 
+Files\nodejs/node_mo 
+...
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~
+~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (- Building...   
+ :String) [], Remot    
+eException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+
+Initial chunk files   | Names                           |  Raw size | Estimated transfer size
+chunk-CTIC5WOE.js     | -                               | 196.66 kB |                43.07 kB
+chunk-NR7HMU4Y.js     | -                               | 164.77 kB |                47.70 kB
+chunk-OIM4X5GJ.js     | -                               |  85.55 kB |                21.37 kB
+styles-5NX6ZVEB.css   | styles                          |  34.40 kB |                 5.37 kB
+polyfills-FFHMD2TL.js | polyfills                       |  33.71 kB |                11.02 kB
+main-TAA2VXBU.js      | main                            |   2.21 kB |               798 bytes
+chunk-BC6VNKZP.js     | -                               |   1.46 kB |               553 bytes
+chunk-B2E3BGWY.js     | -                               | 729 bytes |               729 bytes
+
+                      | Initial total                   | 519.47 kB |               130.56 kB
+
+Lazy chunk files      | Names                           |  Raw size | Estimated transfer size
+chunk-APAW63JJ.js     | -                               |  40.35 kB |                 8.13 kB
+chunk-JJKYSJFD.js     | business-profile-component      |  21.88 kB |                 5.66 kB
+chunk-7CX54FPQ.js     | home-component                  |  16.44 kB |                 4.44 kB
+chunk-P7Y4CSJF.js     | register-component              |  16.02 kB |                 4.06 kB
+chunk-RKK4A4FW.js     | vendors-component               |  13.94 kB |                 3.42 kB
+chunk-NU5XL4U2.js     | search-results-component        |  13.39 kB |                 3.81 kB
+chunk-34W2MZ23.js     | profile-editor-component        |  13.20 kB |                 3.76 kB
+chunk-DNFUHCHN.js     | auth-layout-component           |  10.78 kB |                 2.92 kB
+chunk-JVYMERWJ.js     | verifications-component         |  10.69 kB |                 2.87 kB
+chunk-24JFR54W.js     | dashboard-component             |   9.35 kB |                 2.82 kB
+chunk-Q3MXPFAB.js     | admin-rankings-component        |   8.16 kB |                 2.27 kB
+chunk-J7LTKLZP.js     | leads-component                 |   7.60 kB |                 2.45 kB
+chunk-7WV5QR7D.js     | admin-settings-component        |   6.26 kB |                 1.98 kB
+chunk-W444RDXM.js     | categories-management-component |   6.23 kB |                 2.09 kB
+chunk-DMAND5MF.js     | admin-leads-component           |   5.21 kB |                 1.73 kB
+...and 17 more lazy chunks files. Use "--verbose" to show all the files.
+
+Output location: D:\Semms\Snet\build-connect-web\dist\build-connect-web
+
+Application bundle generation complete. [11.062 seconds]
+
+Γû▓ [WARNING] bundle 
+initial exceeded 
+maximum budget. Budget 
+500.00 kB was not met 
+by 19.47 kB with a 
+total of 519.47 kB.
+
+

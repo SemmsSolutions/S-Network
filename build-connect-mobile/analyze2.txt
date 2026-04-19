@@ -1,0 +1,87 @@
+﻿Resolving dependencies...
+Downloading packages...
+  flutter_dotenv 5.2.1 (6.0.0 available)
+  flutter_lints 3.0.2 (6.0.0 available)
+  flutter_local_notifications 17.2.4 (21.0.0 available)
+  flutter_local_notifications_linux 4.0.1 (8.0.0 available)
+  flutter_local_notifications_platform_interface 7.2.0 (11.0.0 available)
+  flutter_riverpod 2.6.1 (3.3.1 available)
+  geolocator 11.1.0 (14.0.2 available)
+  geolocator_android 4.6.2 (5.0.2 available)
+  geolocator_web 3.0.0 (4.1.3 available)
+  go_router 14.8.1 (17.2.1 available)
+  google_fonts 6.3.3 (8.0.2 available)
+  gotrue 2.19.0 (2.20.0 available)
+  lints 3.0.0 (6.1.0 available)
+  meta 1.17.0 (1.18.2 available)
+  postgrest 2.6.0 (2.7.0 available)
+  realtime_client 2.7.1 (2.7.3 available)
+  riverpod 2.6.1 (3.2.1 available)
+  storage_client 2.5.1 (2.5.2 available)
+  supabase 2.10.4 (2.10.6 available)
+  supabase_flutter 2.12.2 (2.12.4 available)
+  test_api 0.7.10 (0.7.11 available)
+  timezone 0.9.4 (0.11.0 available)
+  vector_math 2.2.0 (2.3.0 available)
+  vm_service 15.0.2 (15.1.0 available)
+Got dependencies!
+24 packages have newer versions incompatible with dependency constraints.
+Try `flutter pub outdated` for more information.
+Analyzing build-connect-mobile...                               
+
+warning - The value of the field '_authSubscription' isn't used - lib\core\services\auth_service.dart:27:23 - unused_field
+   info - The imported package 'shared_preferences' isn't a dependency of the importing package - lib\core\services\recently_viewed_service.dart:2:8 - depend_on_referenced_packages
+   info - The imported package 'shared_preferences' isn't a dependency of the importing package - lib\core\services\search_history_service.dart:2:8 - depend_on_referenced_packages
+   info - The imported package 'file_picker' isn't a dependency of the importing package - lib\core\services\verification_service.dart:2:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:file_picker/file_picker.dart' - lib\core\services\verification_service.dart:2:8 - uri_does_not_exist
+   info - Don't use 'BuildContext's across async gaps - lib\features\auth\register_screen.dart:40:32 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps - lib\features\auth\register_screen.dart:51:9 - use_build_context_synchronously
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\listing\business_profile_screen.dart:107:34 - use_build_context_synchronously
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\listing\business_profile_screen.dart:201:72 - deprecated_member_use
+   info - Unnecessary use of 'toList' in a spread - lib\features\listing\business_profile_screen.dart:280:24 - unnecessary_to_list_in_spreads
+   info - Unnecessary use of 'toList' in a spread - lib\features\listing\business_profile_screen.dart:295:24 - unnecessary_to_list_in_spreads
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\features\listing\lead_form_sheet.dart:105:15 - deprecated_member_use
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\features\search\search_results_screen.dart:174:13 - deprecated_member_use
+   info - Unnecessary use of 'toList' in a spread - lib\features\search\search_results_screen.dart:178:124 - unnecessary_to_list_in_spreads
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\search\search_results_screen.dart:186:13 - deprecated_member_use
+   info - The imported package 'shared_preferences' isn't a dependency of the importing package - lib\features\user\onboarding_screen.dart:3:8 - depend_on_referenced_packages
+   info - Don't use 'BuildContext's across async gaps - lib\features\vendor\lead_detail_screen.dart:47:30 - use_build_context_synchronously
+   info - 'value' is deprecated and shouldn't be used. Use initialValue instead. This will set the initial value for the form field. This feature was deprecated after v3.33.0-1.0.pre - lib\features\vendor\lead_detail_screen.dart:118:15 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\vendor\leads_list_screen.dart:103:76 - deprecated_member_use
+   info - Statements in an if should be enclosed in a block - lib\features\vendor\profile_editor_screen.dart:76:22 - curly_braces_in_flow_control_structures
+   info - Don't use 'BuildContext's across async gaps, guarded by an unrelated 'mounted' check - lib\features\vendor\profile_editor_screen.dart:191:44 - use_build_context_synchronously
+   info - Unnecessary use of 'toList' in a spread - lib\features\vendor\profile_editor_screen.dart:261:20 - unnecessary_to_list_in_spreads
+   info - Unnecessary use of 'toList' in a spread - lib\features\vendor\profile_editor_screen.dart:326:20 - unnecessary_to_list_in_spreads
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\vendor\profile_editor_screen.dart:332:43 - deprecated_member_use
+   info - 'activeColor' is deprecated and shouldn't be used. Use activeThumbColor instead. This feature was deprecated after v3.31.0-2.0.pre - lib\features\vendor\vendor_dashboard_screen.dart:179:20 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\features\vendor\vendor_dashboard_screen.dart:255:41 - deprecated_member_use
+   info - The imported package 'file_picker' isn't a dependency of the importing package - lib\features\vendor\verification\verification_screen.dart:2:8 - depend_on_referenced_packages
+  error - Target of URI doesn't exist: 'package:file_picker/file_picker.dart' - lib\features\vendor\verification\verification_screen.dart:2:8 - uri_does_not_exist
+  error - Undefined name 'FilePicker' - lib\features\vendor\verification\verification_screen.dart:65:26 - undefined_identifier
+  error - Undefined name 'FileType' - lib\features\vendor\verification\verification_screen.dart:65:62 - undefined_identifier
+   info - Use 'const' with the constructor to improve performance - lib\features\vendor\verification\verification_screen.dart:171:16 - prefer_const_constructors
+   info - Use 'const' with the constructor to improve performance - lib\features\vendor\verification\verification_screen.dart:206:16 - prefer_const_constructors
+warning - Unused import: 'package:flutter/material.dart' - lib\router.dart:1:8 - unused_import
+warning - Unused import: 'package:google_fonts/google_fonts.dart' - lib\shared\theme\app_theme.dart:2:8 - unused_import
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\shared\widgets\business_card_widget.dart:97:74 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\shared\widgets\business_card_widget.dart:105:58 - deprecated_member_use
+   info - 'withOpacity' is deprecated and shouldn't be used. Use .withValues() to avoid precision loss - lib\shared\widgets\business_card_widget.dart:105:88 - deprecated_member_use
+  error - The name 'MyApp' isn't a class - test\widget_test.dart:16:35 - creation_with_non_type
+
+flutter : 38 issues 
+found. (ran in 31.3s)
+At line:1 char:1
++ flutter analyze > 
+analyze.txt 2>&1
++ ~~~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (38 issues fou   
+ nd. (ran in 31.3s)    
+:String) [], Remot    
+eException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
