@@ -106,7 +106,7 @@ export class DashboardComponent implements OnInit {
     try {
       const { data: { user } } = await this.supabase.client.auth.getUser();
       if (user) {
-        const { data: b } = await this.supabase.client.from('businesses').select('*, business_images(id), business_faqs(id)').eq('owner_id', user.id).single();
+        const { data: b } = await this.supabase.client.from('businesses').select('*, business_images(id), business_faqs(id)').eq('owner_id', user.id).maybeSingle();
         if (b) {
           this.business = b;
           this.calculateCompleteness(b);

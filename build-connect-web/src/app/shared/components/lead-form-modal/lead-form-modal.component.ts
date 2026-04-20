@@ -112,7 +112,7 @@ export class LeadFormModalComponent implements OnInit {
         .from('profiles')
         .select('name, phone')
         .eq('id', user.id)
-        .single();
+        .maybeSingle();
       if (profile) {
         this.form.patchValue({
           user_name: profile.name || '',

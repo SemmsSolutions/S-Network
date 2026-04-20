@@ -4,10 +4,10 @@ import { FormsModule } from '@angular/forms';
 import { SupabaseService } from '../../../core/services/supabase.service';
 
 @Component({
-    selector: 'app-vendor-reviews',
-    standalone: true,
-    imports: [CommonModule, FormsModule],
-    template: `
+  selector: 'app-vendor-reviews',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  template: `
     <div class="max-w-6xl mx-auto pb-12">
       <div class="flex justify-between items-center mb-8">
         <div>
@@ -84,72 +84,72 @@ import { SupabaseService } from '../../../core/services/supabase.service';
   `
 })
 export class VendorReviewsComponent implements OnInit {
-    loading = true;
-    business: any = null;
-    reviews: any[] = [];
+  loading = true;
+  business: any = null;
+  reviews: any[] = [];
 
-    replyingTo: string | null = null;
-    replyText = '';
-    isSubmitting = false;
+  replyingTo: string | null = null;
+  replyText = '';
+  isSubmitting = false;
 
-    constructor(private supabase: SupabaseService) { }
+  constructor(private supabase: SupabaseService) { }
 
-    async ngOnInit() {
-        await this.loadData();
+  async ngOnInit() {
+    await this.loadData();
+  }
+
+  async loadData() {
+    this.loading = true;
+    try {
+      const { data: { user } } = await this.supabase.client.auth.getUser();
+      if (!user) return;
+
+      const { data: b } = await this.supabase.client.from('businesses').select('id').eq('owner_id', user.id).maybeSingle();
+      if (b) {
+        this.business = b;
+        const { data: rData } = await this.supabase.client
+          .from('reviews')
+          .select('*, profiles(name, avatar_url)')
+          .eq('business_id', b.id)
+          .order('created_at', { ascending: false });
+
+        if (rData) this.reviews = rData;
+      }
+    } catch (e) {
+      console.error(e);
+    } finally {
+      this.loading = false;
     }
+  }
 
-    async loadData() {
-        this.loading = true;
-        try {
-            const { data: { user } } = await this.supabase.client.auth.getUser();
-            if (!user) return;
+  startReply(reviewId: string) {
+    this.replyingTo = reviewId;
+    this.replyText = '';
+  }
 
-            const { data: b } = await this.supabase.client.from('businesses').select('id').eq('owner_id', user.id).single();
-            if (b) {
-                this.business = b;
-                const { data: rData } = await this.supabase.client
-                    .from('reviews')
-                    .select('*, profiles(name, avatar_url)')
-                    .eq('business_id', b.id)
-                    .order('created_at', { ascending: false });
+  async submitReply(reviewId: string) {
+    if (!this.replyText.trim()) return;
+    this.isSubmitting = true;
 
-                if (rData) this.reviews = rData;
-            }
-        } catch (e) {
-            console.error(e);
-        } finally {
-            this.loading = false;
-        }
-    }
+    try {
+      const { error } = await this.supabase.client.functions.invoke('vendor-reply-review', {
+        body: { review_id: reviewId, reply_text: this.replyText.trim() }
+      });
 
-    startReply(reviewId: string) {
-        this.replyingTo = reviewId;
+      if (!error) {
+        // Find and update local review
+        const review = this.reviews.find(r => r.id === reviewId);
+        if (review) review.vendor_reply = this.replyText.trim();
+        this.replyingTo = null;
         this.replyText = '';
+      } else {
+        alert('Failed to post reply. Please try again.');
+      }
+    } catch (e) {
+      console.error(e);
+      alert('An error occurred.');
+    } finally {
+      this.isSubmitting = false;
     }
-
-    async submitReply(reviewId: string) {
-        if (!this.replyText.trim()) return;
-        this.isSubmitting = true;
-
-        try {
-            const { error } = await this.supabase.client.functions.invoke('vendor-reply-review', {
-                body: { review_id: reviewId, reply_text: this.replyText.trim() }
-            });
-
-            if (!error) {
-                // Find and update local review
-                const review = this.reviews.find(r => r.id === reviewId);
-                if (review) review.vendor_reply = this.replyText.trim();
-                this.replyingTo = null;
-                this.replyText = '';
-            } else {
-                alert('Failed to post reply. Please try again.');
-            }
-        } catch (e) {
-            console.error(e);
-            alert('An error occurred.');
-        } finally {
-            this.isSubmitting = false;
-        }
-    }
+  }
 }

@@ -13,7 +13,7 @@ import { NotificationBellComponent } from '../../shared/components/notification-
   template: `
     <div class="min-h-screen flex flex-col bg-surface font-body">
       <!-- Top Navbar -->
-      <nav class="sticky top-0 z-50 bg-gradient-to-r from-[#1A1A2E] to-[#16213E] shadow-lg">
+      <nav class="sticky top-0 z-50 bg-gradient-to-r from-[#0A1628] to-[#0D1F3C] shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div class="flex items-center justify-between h-16">
             <!-- Logo -->

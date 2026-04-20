@@ -76,12 +76,12 @@ import { AuthService } from '../../../core/services/auth.service';
         </div>
       </section>
       <!-- Guest Prompt Banner (only for non-logged-in users) -->
-      <div *ngIf="!currentUser" class="bg-[#1A1A2E] text-white"
+      <div *ngIf="!currentUser" class="bg-[#0A1628] text-white"
            style="display:flex;align-items:center;justify-content:space-between;padding:10px 24px;font-size:14px;">
         <span>🏗️ Join S-Network to submit quotes, save businesses, and more</span>
         <div style="display:flex;gap:12px;">
           <a routerLink="/auth/login" style="border:1px solid rgba(255,255,255,0.3);padding:6px 16px;border-radius:8px;color:white;text-decoration:none;">Login</a>
-          <a routerLink="/auth/register" style="background:#E85D26;padding:6px 16px;border-radius:8px;color:white;text-decoration:none;font-weight:600;">Register Free</a>
+          <a routerLink="/auth/register" style="background:#CC0000;padding:6px 16px;border-radius:8px;color:white;text-decoration:none;font-weight:600;">Register Free</a>
         </div>
       </div>
     </div>

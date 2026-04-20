@@ -89,7 +89,7 @@ export class VendorLayoutComponent implements OnInit, OnDestroy {
       .from('businesses')
       .select('id')
       .eq('owner_id', user.id)
-      .single();
+      .maybeSingle();
 
     if (data && data.id) {
       this.businessId = data.id;

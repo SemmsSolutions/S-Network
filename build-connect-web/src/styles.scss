@@ -5,16 +5,27 @@
 @tailwind utilities;
 
 :root {
-    --primary: #E85D26;
-    --secondary: #1A1A2E;
-    --surface: #F8F5F0;
-    --success: #22C55E;
-    --card-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+    --primary: #CC0000;
+    --primary-dark: #990000;
+    --secondary: #0A1628;
+    --secondary-2: #0D1F3C;
+    --surface: #F5F6FA;
+    --card-bg: #FFFFFF;
+    --text-main: #0A1628;
+    --text-muted: #6B7A99;
+    --border: #E2E8F0;
+    --success: #16A34A;
+    --warning: #D97706;
+    --chrome: #C0C8D8;
+    --glow-red: rgba(204, 0, 0, 0.15);
+    --glow-navy: rgba(10, 22, 40, 0.08);
+    --card-shadow: 0 2px 12px rgba(10, 22, 40, 0.06);
 }
 
 body {
     background: var(--surface);
     font-family: 'DM Sans', sans-serif;
+    color: var(--text-main);
 }
 
 h1,
@@ -35,7 +46,7 @@ h3 {
     transition: background 0.15s;
 
     &:hover {
-        background: #d44e1a;
+        background: var(--primary-dark);
     }
 
     &:disabled {
@@ -44,20 +55,36 @@ h3 {
     }
 }
 
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 2px solid var(--primary);
+    padding: 10px 24px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.15s;
+
+    &:hover {
+        background: #FEE2E2;
+    }
+}
+
 .card {
-    background: white;
+    background: var(--card-bg);
     border-radius: 16px;
     box-shadow: var(--card-shadow);
     overflow: hidden;
 }
 
 .badge-verified {
-    background: #DCFCE7;
-    color: #16A34A;
+    background: #FEE2E2;
+    color: #CC0000;
     font-size: 12px;
     padding: 2px 8px;
     border-radius: 999px;
     font-weight: 600;
+    border: 1px solid rgba(204, 0, 0, 0.2);
 }
 
 .badge-pending {
@@ -70,10 +97,10 @@ h3 {
     color: #1D4ED8;
 }
 
-/* Logo — S and N always red */
+/* Logo — S and N always crimson */
 .logo .s,
 .logo .n {
-    color: #E85D26;
+    color: #CC0000;
     font-weight: 800;
 }
 
@@ -87,7 +114,7 @@ h3 {
     transition: all 0.1s;
 
     &:hover {
-        background: #FFF7ED;
-        color: #E85D26;
+        background: #FEE2E2;
+        color: #CC0000;
     }
 }

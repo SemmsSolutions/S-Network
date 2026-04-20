@@ -156,7 +156,7 @@ export class ProfileEditorComponent implements OnInit {
       .from('businesses')
       .select('*')
       .eq('owner_id', userData.user.id)
-      .single();
+      .maybeSingle();
 
     if (biz) {
       this.businessId = biz.id;
@@ -262,7 +262,7 @@ export class ProfileEditorComponent implements OnInit {
           .from('business_images')
           .insert({ business_id: this.businessId, image_url: publicUrlObj.publicUrl, caption: '' })
           .select()
-          .single();
+          .maybeSingle();
 
         if (newImage) this.portfolioImages.push(newImage);
       }

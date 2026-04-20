@@ -4,10 +4,15 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'router.dart';
+import 'shared/theme/app_theme.dart';
 
 Future<void> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  FlutterError.onError = (details) {
+    FlutterError.presentError(details);
+    debugPrint('FLUTTER ERROR: ${details.exception}');
+  };
 
+  WidgetsFlutterBinding.ensureInitialized();
   await SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
   try {
@@ -20,8 +25,14 @@ Future<void> main() async {
       ),
       debug: false,
     );
-  } catch (e) {
-    debugPrint('Supabase Init Error: $e');
+  } catch (e, stack) {
+    debugPrint('Supabase Init Error: $e\n$stack');
+    runApp(MaterialApp(
+      home: Scaffold(
+        body: Center(child: Text('INIT ERROR: $e', style: const TextStyle(color: Colors.red))),
+      ),
+    ));
+    return;
   }
 
   runApp(const ProviderScope(child: SNetworkApp()));
@@ -32,15 +43,11 @@ class SNetworkApp extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final router = ref.watch(routerProvider);
     return MaterialApp.router(
       title: 'S-Network',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFFE85D26)),
-        useMaterial3: true,
-      ),
-      routerConfig: router,
+      theme: AppTheme.theme,
+      routerConfig: ref.watch(routerProvider),
     );
   }
 }

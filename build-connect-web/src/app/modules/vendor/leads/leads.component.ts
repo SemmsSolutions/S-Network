@@ -123,7 +123,7 @@ export class LeadsInboxComponent implements OnInit {
       .from('businesses')
       .select('id')
       .eq('owner_id', userData.user.id)
-      .single();
+      .maybeSingle();
 
     if (biz) {
       const { data: leadsData } = await this.supabase.client
