@@ -1,0 +1,113 @@
+<header class="navbar-wrapper">
+    <nav class="navbar-main">
+        <div class="navbar-inner">
+
+            <!-- Logo -->
+            <a routerLink="/" class="sn-logo navbar-logo">
+                <span class="red">S</span>-<span class="red">N</span>etwork
+            </a>
+
+            <!-- City Selector -->
+            <div class="city-selector" (click)="toggleCityDropdown()">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
+                    <circle cx="12" cy="9" r="2.5" />
+                </svg>
+                <span>{{ selectedCity || 'Select City' }}</span>
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path d="M6 9l6 6 6-6" />
+                </svg>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="navbar-search">
+                <input type="text" [(ngModel)]="searchQuery" (keyup)="onSearchKeyup($event)" (input)="onSearchInput()"
+                    placeholder="Search for contractors, architects, interior designers..." class="search-input" />
+                <button class="search-mic-btn" (click)="startVoiceSearch()" title="Voice Search">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
+                        <path d="M19 10v2a7 7 0 0 1-14 0v-2M12 19v4M8 23h8" />
+                    </svg>
+                </button>
+                <button class="search-btn btn-red" (click)="doSearch()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="M21 21l-4.35-4.35" />
+                    </svg>
+                </button>
+                <!-- Autocomplete dropdown -->
+                <div class="autocomplete-panel" *ngIf="autocompleteResults.length && searchQuery">
+                    <div class="autocomplete-item" *ngFor="let r of autocompleteResults" (click)="selectSuggestion(r)">
+                        <span class="ac-icon">🔍</span>
+                        <div>
+                            <div class="ac-name">{{ r.name }}</div>
+                            <div class="ac-sub">{{ r.category }} • {{ r.city }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Actions -->
+            <div class="navbar-actions">
+                <!-- Leads (for vendors) -->
+                <a routerLink="/vendor/leads" *ngIf="currentUser?.role === 'vendor'" class="nav-action-btn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path
+                            d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.95 8.81 19.79 19.79 0 01.88 2.18 2 2 0 012.88 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L7.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.92z" />
+                    </svg>
+                    Leads
+                </a>
+
+                <!-- List Your Business -->
+                <a routerLink="/auth/register" *ngIf="!currentUser" class="nav-action-btn nav-free-listing">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z" />
+                        <polyline points="14,2 14,8 20,8" />
+                        <line x1="16" y1="13" x2="8" y2="13" />
+                        <line x1="16" y1="17" x2="8" y2="17" />
+                    </svg>
+                    Free Listing
+                </a>
+
+                <!-- Notifications bell -->
+                <div class="nav-bell" *ngIf="currentUser" (click)="toggleNotifications()">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
+                    </svg>
+                    <span class="bell-badge" *ngIf="unreadCount > 0">{{ unreadCount }}</span>
+                </div>
+
+                <!-- Login/User -->
+                <ng-container *ngIf="!currentUser; else userMenu">
+                    <button class="btn-navy login-btn" (click)="goToLogin()">Login / Sign Up</button>
+                </ng-container>
+                <ng-template #userMenu>
+                    <div class="user-avatar-menu" (click)="toggleUserMenu()">
+                        <div class="avatar-circle">{{ currentUser.user_metadata?.full_name?.charAt(0) ||
+                            currentUser.email?.charAt(0) | uppercase }}</div>
+                        <span class="user-name-sm">{{ currentUser.user_metadata?.full_name?.split(' ')[0] || 'User'
+                            }}</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5">
+                            <path d="M6 9l6 6 6-6" />
+                        </svg>
+                        <div class="user-dropdown" *ngIf="showUserMenu">
+                            <a routerLink="/vendor/dashboard" *ngIf="currentUser.role === 'vendor'" class="dd-item">📊
+                                Dashboard</a>
+                            <a routerLink="/vendor/leads" *ngIf="currentUser.role === 'vendor'" class="dd-item">📋 My
+                                Leads</a>
+                            <a routerLink="/admin" *ngIf="currentUser.role === 'admin'" class="dd-item">⚙️ Admin
+                                Panel</a>
+                            <a routerLink="/profile" *ngIf="currentUser.role === 'user'" class="dd-item">👤 My
+                                Profile</a>
+                            <a routerLink="/saved" *ngIf="currentUser.role === 'user'" class="dd-item">❤️ Saved</a>
+                            <hr>
+                            <button (click)="authService.logout()" class="dd-item logout">🚪 Logout</button>
+                        </div>
+                    </div>
+                </ng-template>
+            </div>
+        </div>
+    </nav>
+</header>

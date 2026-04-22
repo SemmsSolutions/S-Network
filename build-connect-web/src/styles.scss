@@ -1,120 +1,244 @@
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-    --primary: #CC0000;
-    --primary-dark: #990000;
-    --secondary: #0A1628;
-    --secondary-2: #0D1F3C;
-    --surface: #F5F6FA;
-    --card-bg: #FFFFFF;
-    --text-main: #0A1628;
-    --text-muted: #6B7A99;
-    --border: #E2E8F0;
-    --success: #16A34A;
-    --warning: #D97706;
-    --chrome: #C0C8D8;
-    --glow-red: rgba(204, 0, 0, 0.15);
-    --glow-navy: rgba(10, 22, 40, 0.08);
-    --card-shadow: 0 2px 12px rgba(10, 22, 40, 0.06);
+    /* S-Network Design Tokens */
+    --red: #CC0000;
+    --red-dark: #990000;
+    --red-light: #FFEBEB;
+    --navy: #0A1628;
+    --navy-2: #0D1F3C;
+    --navy-light: #1B3A5C;
+    --white: #FFFFFF;
+    --surface: #F7F8FC;
+    --surface-2: #ECEEF5;
+    --text-1: #1A1A2E;
+    --text-2: #444B5D;
+    --text-3: #7B8299;
+    --border: #E2E6F0;
+    --shadow-sm: 0 1px 4px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.10);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     background: var(--surface);
-    font-family: 'DM Sans', sans-serif;
-    color: var(--text-main);
+    color: var(--text-1);
+    font-size: 14px;
+    line-height: 1.5;
 }
 
-h1,
-h2,
+/* Typography */
+h1 {
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
 h3 {
-    font-family: 'Syne', sans-serif;
-    color: var(--secondary);
+    font-size: 1.125rem;
+    font-weight: 600;
 }
 
-.btn-primary {
-    background: var(--primary);
+/* Buttons */
+.btn-red {
+    background: var(--red);
     color: white;
     border: none;
-    padding: 10px 24px;
-    border-radius: 12px;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
     font-weight: 600;
+    font-size: 14px;
     cursor: pointer;
-    transition: background 0.15s;
+    transition: background 0.15s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
 
     &:hover {
-        background: var(--primary-dark);
+        background: var(--red-dark);
     }
 
-    &:disabled {
-        opacity: 0.6;
-        cursor: not-allowed;
+    &:active {
+        transform: scale(0.98);
     }
 }
 
-.btn-secondary {
+.btn-navy {
+    background: var(--navy);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+
+    &:hover {
+        background: var(--navy-2);
+    }
+}
+
+.btn-outline {
     background: transparent;
-    color: var(--primary);
-    border: 2px solid var(--primary);
-    padding: 10px 24px;
-    border-radius: 12px;
+    color: var(--red);
+    border: 1.5px solid var(--red);
+    padding: 9px 20px;
+    border-radius: var(--radius-sm);
     font-weight: 600;
     cursor: pointer;
-    transition: all 0.15s;
 
     &:hover {
-        background: #FEE2E2;
+        background: var(--red-light);
     }
 }
 
+.btn-green {
+    background: #16A34A;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* Cards */
 .card {
-    background: var(--card-bg);
-    border-radius: 16px;
-    box-shadow: var(--card-shadow);
+    background: var(--white);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
     overflow: hidden;
 }
 
-.badge-verified {
-    background: #FEE2E2;
-    color: #CC0000;
-    font-size: 12px;
-    padding: 2px 8px;
-    border-radius: 999px;
-    font-weight: 600;
-    border: 1px solid rgba(204, 0, 0, 0.2);
+.card-hover {
+    transition: box-shadow 0.2s, transform 0.2s;
+
+    &:hover {
+        box-shadow: var(--shadow-md);
+        transform: translateY(-2px);
+    }
 }
 
-.badge-pending {
-    background: #FEF3C7;
-    color: #D97706;
+/* Section */
+.section {
+    padding: 32px 0;
+}
+
+.section-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-1);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 3px solid var(--red);
+    display: inline-block;
+}
+
+.container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* Chips/Badges */
+.badge-verified {
+    background: #DCFCE7;
+    color: #16A34A;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-weight: 600;
 }
 
 .badge-new {
     background: #DBEAFE;
     color: #1D4ED8;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
 }
 
-/* Logo — S and N always crimson */
-.logo .s,
-.logo .n {
-    color: #CC0000;
-    font-weight: 800;
+.badge-premium {
+    background: #FEF3C7;
+    color: #92400E;
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
 }
 
-/* Menu Item utility */
-.menu-item {
-    display: block;
-    padding: 8px 16px;
+.badge-red {
+    background: var(--red-light);
+    color: var(--red);
+    font-size: 11px;
+    padding: 3px 8px;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+/* Stars */
+.stars-green {
+    color: #16A34A;
+    font-weight: 700;
+    background: #DCFCE7;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* Input */
+.form-input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
     font-size: 14px;
-    color: #374151;
-    cursor: pointer;
-    transition: all 0.1s;
+    transition: border-color 0.15s;
 
-    &:hover {
-        background: #FEE2E2;
-        color: #CC0000;
+    &:focus {
+        outline: none;
+        border-color: var(--red);
+        box-shadow: 0 0 0 3px rgba(204, 0, 0, 0.08);
     }
+}
+
+/* Logo */
+.sn-logo {
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 1.5rem;
+    letter-spacing: -0.5px;
+}
+
+.sn-logo .red {
+    color: var(--red);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--surface-2);
+    border-radius: 3px;
 }
