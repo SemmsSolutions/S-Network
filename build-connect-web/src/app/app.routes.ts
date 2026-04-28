@@ -15,6 +15,7 @@ export const routes: Routes = [
         path: '',
         loadComponent: () => import('./layouts/auth-layout/auth-layout.component').then(m => m.AuthLayoutComponent),
         children: [
+            { path: '', redirectTo: 'home', pathMatch: 'full' },
             // PUBLIC — no login required
             {
                 path: 'home',
@@ -64,6 +65,14 @@ export const routes: Routes = [
     {
         path: 'terms',
         loadComponent: () => import('./modules/legal/terms.component').then(m => m.TermsComponent)
+    },
+    {
+        path: 'about',
+        loadComponent: () => import('./modules/legal/about.component').then(m => m.AboutComponent)
+    },
+    {
+        path: 'contact',
+        loadComponent: () => import('./modules/legal/contact.component').then(m => m.ContactComponent)
     },
 
     // Root redirect — home is now public

@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule, Router } from '@angular/router';
 import { AuthService } from '../../../core/services/auth.service';
 import { SupabaseService } from '../../../core/services/supabase.service';
+import { CityService } from '../../../core/services/city.service';
+import { CityDropdownComponent } from '../city-dropdown/city-dropdown.component';
 
 @Component({
     selector: 'app-navbar',
     standalone: true,
-    imports: [CommonModule, FormsModule, RouterModule],
+    imports: [CommonModule, FormsModule, RouterModule, CityDropdownComponent],
     templateUrl: './navbar.component.html',
     styleUrls: ['./navbar.component.scss']
 })
@@ -24,11 +26,17 @@ export class NavbarComponent implements OnInit {
     constructor(
         public authService: AuthService,
         private supabase: SupabaseService,
-        private router: Router
+        private router: Router,
+        private cityService: CityService
     ) { }
 
     ngOnInit() {
-        this.selectedCity = localStorage.getItem('snet_city') || 'Chennai';
+        this.cityService.city$.subscribe(city => {
+            this.selectedCity = city;
+        });
+        if (!this.selectedCity) {
+            this.selectedCity = localStorage.getItem('snet_city') || 'Chennai';
+        }
         this.loadNotifications();
     }
 
@@ -36,12 +44,9 @@ export class NavbarComponent implements OnInit {
         return this.authService.currentUser;
     }
 
-    toggleCityDropdown() {
-        // Basic implementation for now, could be a modal
-        const cities = ['Chennai', 'Mumbai', 'Bangalore', 'Delhi', 'Hyderabad', 'Pune'];
-        const currentIdx = cities.indexOf(this.selectedCity);
-        this.selectedCity = cities[(currentIdx + 1) % cities.length];
-        localStorage.setItem('snet_city', this.selectedCity);
+    onCityChange(city: string): void {
+        this.selectedCity = city;
+        this.cityService.setCity(city);
     }
 
     onSearchKeyup(event: any) {

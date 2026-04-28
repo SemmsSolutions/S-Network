@@ -22,7 +22,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
       <div class="breadcrumb-bar bg-white border-b border-gray-200 py-2">
         <div class="max-w-7xl mx-auto px-4 md:px-8 text-sm text-gray-500">
           <nav class="flex gap-2 items-center flex-wrap">
-            <a routerLink="/" class="hover:text-primary transition">Home</a> &rsaquo;
+            <a routerLink="/home" class="hover:text-primary transition">Home</a> &rsaquo;
             <a [routerLink]="['/search']" [queryParams]="{category: business?.categories?.slug}" class="hover:text-primary transition">{{ business?.categories?.name }}</a> &rsaquo;
             <a [routerLink]="['/search']" [queryParams]="{city: business?.city}" class="hover:text-primary transition">{{ business?.city }}</a> &rsaquo;
             <span class="text-gray-800 font-medium">{{ business?.name }}</span>
@@ -35,7 +35,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
         <div class="max-w-7xl mx-auto px-4 md:px-8">
           <div class="gallery-mosaic grid grid-cols-1 md:grid-cols-2 gap-2 h-[300px] md:h-[400px] rounded-xl overflow-hidden">
             <div class="gallery-main h-full w-full bg-gray-100 cursor-pointer relative group">
-              <img [src]="images[0] || 'assets/images/placeholder-business.jpg'"
+              <img [src]="images[0] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80'"
                    [alt]="business?.name" loading="lazy" (click)="openLightbox(0)" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
             </div>
             <div class="gallery-grid hidden md:grid grid-cols-2 grid-rows-2 gap-2 h-full">
@@ -444,7 +444,7 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
       <div class="text-6xl mb-4">🔍</div>
       <h2 class="text-2xl font-bold font-heading text-navy">Business Not Found</h2>
       <p class="text-gray-500 font-medium mt-2 mb-6">The listing you are looking for does not exist or has been removed.</p>
-      <a routerLink="/" class="text-primary font-bold hover:underline">Return to Home</a>
+      <a routerLink="/home" class="text-primary font-bold hover:underline">Return to Home</a>
     </div>
     <div *ngIf="loading" class="min-h-screen flex items-center justify-center bg-surface">
       <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
@@ -506,25 +506,52 @@ export class BusinessProfileComponent implements OnInit {
   ) { }
 
   async ngOnInit() {
-    const id = this.route.snapshot.paramMap.get('id') || this.route.snapshot.paramMap.get('slug');
     await this.checkAuth();
-    if (id) await this.loadBusiness(id);
+    // Re-run on every navigation to this route (fixes stale data)
+    this.route.paramMap.subscribe(async params => {
+      const slugOrId = params.get('id') || params.get('slug');
+      if (slugOrId) {
+        this.resetState();
+        await this.loadBusiness(slugOrId);
+      }
+    });
+  }
+
+  resetState(): void {
+    this.business = null;
+    this.images = [];
+    this.emptyThumbs = [];
+    this.reviews = [];
+    this.faqs = [];
+    this.similarBusinesses = [];
+    this.groupedMaterials = [];
+    this.loading = true;
   }
 
   async checkAuth() {
     const { data: { session } } = await this.supabase.client.auth.getSession();
     if (session) {
-      const { data } = await this.supabase.client.from('profiles').select('*').eq('id', session.user.id).single();
+      const { data } = await this.supabase.client.from('profiles').select('*').eq('id', session.user.id).maybeSingle();
       this.currentUser = data;
       this.enquiryForm.user_name = data?.name || '';
       this.enquiryForm.user_phone = data?.phone || '';
     }
   }
 
-  async loadBusiness(id: string) {
+  async loadBusiness(slugOrId: string) {
     try {
       this.loading = true;
-      const { data: b, error } = await this.supabase.client.from('businesses').select('*, categories(name, slug), business_images(image_url)').eq('id', id).maybeSingle();
+      const isUUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(slugOrId);
+
+      const query = this.supabase.client.from('businesses').select('*, categories(name, slug), business_images(image_url)');
+
+      if (isUUID) {
+        query.eq('id', slugOrId);
+      } else {
+        query.eq('slug', slugOrId);
+      }
+
+      const { data: b, error } = await query.maybeSingle();
 
       if (b && !error) {
         this.business = b;

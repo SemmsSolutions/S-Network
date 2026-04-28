@@ -4,6 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/services/recently_viewed_service.dart';
+import 'dart:async';
 import '../../shared/widgets/business_card_widget.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -31,10 +32,43 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     {'name': 'Material Supplier', 'slug': 'material-supplier', 'icon': '🧱'},
   ];
 
+  final PageController _pageController = PageController();
+  int _currentBannerIndex = 0;
+  Timer? _timer;
+
+  final List<Map<String, String>> bannerSlides = [
+    { 'title': 'Build Your Dream Home', 'subtitle': 'Connect with verified contractors across India', 'image': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80' },
+    { 'title': 'Trusted Architects Near You', 'subtitle': 'Licensed professionals with proven portfolios', 'image': 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800&q=80' },
+    { 'title': 'Interior Design Services', 'subtitle': 'Transform your space with expert designers', 'image': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=800&q=80' },
+  ];
+
   @override
   void initState() {
     super.initState();
     _fetchNearby();
+    _timer = Timer.periodic(const Duration(seconds: 4), (Timer timer) {
+      if (_currentBannerIndex < bannerSlides.length - 1) {
+        _currentBannerIndex++;
+      } else {
+        _currentBannerIndex = 0;
+      }
+      
+      if (_pageController.hasClients) {
+        _pageController.animateToPage(
+          _currentBannerIndex,
+          duration: const Duration(milliseconds: 350),
+          curve: Curves.easeIn,
+        );
+      }
+    });
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    _pageController.dispose();
+    _searchCtrl.dispose();
+    super.dispose();
   }
 
   Future<void> _fetchNearby() async {
@@ -118,6 +152,76 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     ),
                   ],
                 ),
+              ),
+            ),
+          ),
+          SliverToBoxAdapter(
+            child: SizedBox(
+              height: 200,
+              child: Stack(
+                children: [
+                  PageView.builder(
+                    controller: _pageController,
+                    onPageChanged: (int index) {
+                      setState(() => _currentBannerIndex = index);
+                    },
+                    itemCount: bannerSlides.length,
+                    itemBuilder: (context, index) {
+                      final slide = bannerSlides[index];
+                      return Container(
+                        margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(16),
+                          image: DecorationImage(
+                            image: NetworkImage(slide['image']!),
+                            fit: BoxFit.cover,
+                          ),
+                          boxShadow: const [BoxShadow(color: Colors.black12, blurRadius: 8, offset: Offset(0, 4))],
+                        ),
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(16),
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomLeft,
+                              end: Alignment.topRight,
+                              colors: [Colors.black.withOpacity(0.8), Colors.transparent],
+                            ),
+                          ),
+                          padding: const EdgeInsets.all(20),
+                          alignment: Alignment.bottomLeft,
+                          child: Column(
+                            mainAxisSize: MainAxisSize.min,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(slide['title']!, style: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                              const SizedBox(height: 4),
+                              Text(slide['subtitle']!, style: const TextStyle(color: Colors.white70, fontSize: 13)),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  Positioned(
+                    bottom: 24,
+                    left: 0,
+                    right: 0,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: bannerSlides.asMap().entries.map((entry) {
+                        return Container(
+                          width: _currentBannerIndex == entry.key ? 24.0 : 8.0,
+                          height: 8.0,
+                          margin: const EdgeInsets.symmetric(horizontal: 4.0),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(4),
+                            color: _currentBannerIndex == entry.key ? Colors.white : Colors.white.withOpacity(0.5),
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),

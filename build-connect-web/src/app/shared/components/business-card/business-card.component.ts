@@ -12,7 +12,7 @@ import { CompareService } from '../../../core/services/compare.service';
     <div class="biz-card card card-hover" (click)="openProfile()">
       <!-- Cover Image -->
       <div class="biz-img-wrap relative h-48 bg-gray-100">
-        <img [src]="business.cover_image_url || 'assets/images/placeholder-business.jpg'"
+        <img [src]="business.cover_image_url || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=600&q=80'"
              [alt]="business.name" loading="lazy" class="w-full h-full object-cover">
         <div class="absolute top-2 left-2 flex gap-2">
           <span class="badge-verified bg-green-50 text-green-700 px-2 py-1 rounded-full text-xs font-bold shadow-sm border border-green-200" *ngIf="business.is_verified">✓ Verified</span>

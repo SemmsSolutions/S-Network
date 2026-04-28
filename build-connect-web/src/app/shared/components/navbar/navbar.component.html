@@ -3,21 +3,13 @@
         <div class="navbar-inner">
 
             <!-- Logo -->
-            <a routerLink="/" class="sn-logo navbar-logo">
+            <a routerLink="/home" class="sn-logo navbar-logo">
                 <span class="red">S</span>-<span class="red">N</span>etwork
             </a>
 
             <!-- City Selector -->
-            <div class="city-selector" (click)="toggleCityDropdown()">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-                    <circle cx="12" cy="9" r="2.5" />
-                </svg>
-                <span>{{ selectedCity || 'Select City' }}</span>
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-                    <path d="M6 9l6 6 6-6" />
-                </svg>
-            </div>
+            <app-city-dropdown [selectedCity]="selectedCity" (cityChanged)="onCityChange($event)">
+            </app-city-dropdown>
 
             <!-- Search Bar -->
             <div class="navbar-search">
@@ -71,11 +63,30 @@
                 </a>
 
                 <!-- Notifications bell -->
-                <div class="nav-bell" *ngIf="currentUser" (click)="toggleNotifications()">
+                <div class="nav-bell relative" *ngIf="currentUser" (click)="toggleNotifications()">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                         <path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0" />
                     </svg>
                     <span class="bell-badge" *ngIf="unreadCount > 0">{{ unreadCount }}</span>
+                    <!-- Panel -->
+                    <div class="absolute right-0 top-full mt-2 w-72 bg-white rounded-lg shadow-xl border border-gray-200 z-50 overflow-hidden"
+                        *ngIf="showNotifications" (click)="$event.stopPropagation()">
+                        <div
+                            class="p-3 border-b border-gray-100 font-bold text-gray-700 bg-gray-50 flex justify-between">
+                            <span>Notifications</span>
+                            <span class="text-xs text-primary bg-red-50 px-2 rounded-full">{{ unreadCount }} New</span>
+                        </div>
+                        <div class="max-h-64 overflow-y-auto">
+                            <div *ngIf="!notifications.length" class="p-4 text-center text-gray-500 text-sm">No
+                                notifications</div>
+                            <a *ngFor="let n of notifications" [routerLink]="n.link || '/'"
+                                class="block p-3 border-b border-gray-50 hover:bg-gray-50 transition"
+                                [class.bg-red-50]="!n.is_read">
+                                <div class="text-sm text-gray-700 font-medium">{{ n.title || n.message }}</div>
+                                <div class="text-xs text-gray-400 mt-1">{{ n.created_at | date:'short' }}</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Login/User -->
