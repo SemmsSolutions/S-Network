@@ -100,7 +100,11 @@ export class VendorLayoutComponent implements OnInit, OnDestroy {
   setupRealtime() {
     if (!this.businessId) return;
 
-    this.channel = this.supabase.client.channel('leads-changes')
+    if (this.channel) {
+      this.supabase.client.removeChannel(this.channel);
+    }
+
+    this.channel = this.supabase.client.channel(`leads-changes-${this.businessId}-${Date.now()}`)
       .on(
         'postgres_changes',
         { event: 'INSERT', schema: 'public', table: 'leads', filter: `business_id=eq.${this.businessId}` },

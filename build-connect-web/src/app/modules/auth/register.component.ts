@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router, RouterModule } from '@angular/router';
@@ -81,10 +81,29 @@ import { SupabaseService } from '../../core/services/supabase.service';
           </div>
           <div>
             <label class="block text-sm font-bold text-gray-700">Category *</label>
-            <select [(ngModel)]="bizCategory" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md text-sm bg-white">
+            <select [(ngModel)]="bizCategory" (ngModelChange)="onCategoryChange()" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md text-sm bg-white">
               <option value="">Select category</option>
               <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
             </select>
+          </div>
+
+          <!-- Specializations block -->
+          <div class="mt-4" *ngIf="availableSpecializations.length > 0">
+            <label class="block text-sm font-bold text-gray-700 mb-2">
+              What do you specialize in? <span class="text-xs font-normal text-gray-500">(Select all that apply)</span>
+            </label>
+            <div class="grid grid-cols-2 gap-2">
+              <label *ngFor="let spec of availableSpecializations" class="flex items-start gap-2 p-2 border border-gray-200 rounded hover:bg-gray-50 transition cursor-pointer">
+                <input type="checkbox" [value]="spec.id" [checked]="selectedSpecializations.includes(spec.id)" (change)="toggleSpec(spec.id)" class="mt-1">
+                <span class="text-sm font-medium text-gray-700">{{ spec.name }}</span>
+              </label>
+            </div>
+            <div class="mt-1 text-red-500 text-xs" *ngIf="availableSpecializations.length > 0 && selectedSpecializations.length === 0">
+              Please select at least one specialization
+            </div>
+          </div>
+          <div class="mt-2 text-xs text-gray-500" *ngIf="categorySelectedButNoSpecs">
+            No specific sub-types for this category. You can add custom services later.
           </div>
           <div>
             <label class="block text-sm font-bold text-gray-700">Address *</label>
@@ -107,7 +126,7 @@ import { SupabaseService } from '../../core/services/supabase.service';
           </div>
           <div class="flex gap-3">
             <button (click)="step = 1" class="flex-1 py-3 border border-gray-300 rounded-md font-bold text-sm text-gray-700 hover:bg-gray-50">← Back</button>
-            <button (click)="step = 3" [disabled]="!bizName || !bizCategory || !bizAddress || !bizCity || !bizState || bizDescription.length < 50" class="flex-1 py-3 bg-primary text-white rounded-md font-bold text-sm disabled:opacity-50">Next: Documents →</button>
+            <button (click)="step = 3" [disabled]="!bizName || !bizCategory || !bizAddress || !bizCity || !bizState || bizDescription.length < 50 || (availableSpecializations.length > 0 && selectedSpecializations.length === 0)" class="flex-1 py-3 bg-primary text-white rounded-md font-bold text-sm disabled:opacity-50">Next: Documents →</button>
           </div>
         </div>
 
@@ -187,7 +206,11 @@ export class RegisterComponent implements OnInit {
     return !!(hasGst || hasMsme);
   }
 
-  constructor(private supabase: SupabaseService, private router: Router) { }
+  availableSpecializations: any[] = [];
+  selectedSpecializations: string[] = [];
+  categorySelectedButNoSpecs = false;
+
+  constructor(private supabase: SupabaseService, private router: Router, private cdr: ChangeDetectorRef) { }
 
   async ngOnInit() {
     const { data } = await this.supabase.client.from('categories').select('id, name').order('name');
@@ -200,6 +223,41 @@ export class RegisterComponent implements OnInit {
     if (file.size > 5 * 1024 * 1024) { this.errorMsg = 'File must be under 5MB'; return; }
     if (type === 'gst') this.gstFile = file;
     if (type === 'msme') this.msmeFile = file;
+  }
+
+  async onCategoryChange(): Promise<void> {
+    if (!this.bizCategory) {
+      this.availableSpecializations = [];
+      this.selectedSpecializations = [];
+      this.categorySelectedButNoSpecs = false;
+      this.cdr.detectChanges();
+      return;
+    }
+
+    const { data, error } = await this.supabase.client
+      .from('category_specializations')
+      .select('id, name, description, sort_order')
+      .eq('category_id', this.bizCategory)
+      .order('sort_order', { ascending: true });
+
+    if (error) {
+      console.error('Specializations load error:', error);
+      this.availableSpecializations = [];
+    } else {
+      this.availableSpecializations = data ?? [];
+    }
+
+    this.selectedSpecializations = [];
+    this.categorySelectedButNoSpecs = this.availableSpecializations.length === 0;
+    this.cdr.detectChanges();
+  }
+
+  toggleSpec(id: string) {
+    if (this.selectedSpecializations.includes(id)) {
+      this.selectedSpecializations = this.selectedSpecializations.filter(s => s !== id);
+    } else {
+      this.selectedSpecializations.push(id);
+    }
   }
 
   async registerUser() {
@@ -270,6 +328,18 @@ export class RegisterComponent implements OnInit {
           owner_id: userId, is_active: false, phone: '+91' + this.phone.replace(/\D/g, '')
         }).select('id').single();
         if (bizErr) throw bizErr;
+
+        if (this.selectedSpecializations.length > 0) {
+          const rows = this.selectedSpecializations.map(sid => ({
+            business_id: biz.id,
+            specialization_id: sid,
+            custom_description: null
+          }));
+          const { error: specErr } = await this.supabase.client
+            .from('vendor_specializations')
+            .upsert(rows, { onConflict: 'business_id,specialization_id' });
+          if (specErr) console.error('Save specializations error:', specErr);
+        }
 
         // 4. Upload documents
         let gstUrl = null, msmeUrl = null;

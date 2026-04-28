@@ -28,12 +28,17 @@ serve(async (req: Request) => {
             page = 1, limit = 10
         } = params;
 
-        let dbQuery = supabase.from('businesses').select(`
+        let selectStr = `
       *,
       categories ( name, icon ),
       business_images ( image_url ),
       reviews ( rating )
-    `);
+    `;
+        if (params.spec_id) {
+            selectStr += `, vendor_specializations!inner ( specialization_id )`;
+        }
+
+        let dbQuery = supabase.from('businesses').select(selectStr);
 
         // Apply strict filtering
         dbQuery = dbQuery.eq('is_on_vacation', false);
@@ -46,6 +51,9 @@ serve(async (req: Request) => {
         }
         if (category_id) {
             dbQuery = dbQuery.eq('category_id', category_id);
+        }
+        if (params.spec_id) {
+            dbQuery = dbQuery.eq('vendor_specializations.specialization_id', params.spec_id);
         }
         if (verified_only) {
             dbQuery = dbQuery.eq('is_verified', true);

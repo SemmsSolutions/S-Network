@@ -14,57 +14,87 @@ import { MaterialGroup } from '../../../shared/models/material.model';
   imports: [CommonModule, BusinessCardComponent, FormsModule, RouterModule],
   template: `
     <div class="bg-surface min-h-screen font-body p-4 md:p-8 relative pb-24">
-      <div class="max-w-7xl mx-auto flex flex-col items-start md:flex-row gap-8">
+      <div class="max-w-7xl mx-auto search-layout" [class.filter-open]="filterOpen">
         
         <!-- Sidebar Filters -->
-        <aside class="w-full md:w-64 bg-white p-6 rounded-xl shadow-sm border border-gray-200 flex-shrink-0 sticky top-4">
-          <h2 class="text-xl font-heading font-bold text-primary mb-4">Filters</h2>
+        <aside class="filter-sidebar bg-white p-6 rounded-xl shadow-sm border border-gray-200 sticky top-4" [class.open]="filterOpen">
+          <div class="filter-header mb-4 flex justify-between items-center border-b border-gray-100 pb-4 md:hidden">
+            <h3 class="font-bold text-lg text-primary">Filters</h3>
+            <button class="close-filter font-bold text-gray-500 text-xl" (click)="filterOpen = false">✕</button>
+          </div>
+          <h2 class="text-xl font-heading font-bold text-primary mb-4 hidden md:block">Filters</h2>
+
+          <!-- Category Filter -->
+          <div class="filter-section">
+            <label class="filter-label">Category</label>
+            <select [(ngModel)]="filters.category_id" (change)="onFilterCategoryChange()" class="filter-select">
+              <option value="">All Categories</option>
+              <option *ngFor="let c of categories" [value]="c.id">{{c.name}}</option>
+            </select>
+          </div>
+
+          <!-- Dynamic Specializations Filter -->
+          <div class="filter-section" *ngIf="availableSpecs.length > 0">
+            <label class="filter-label">Specializations</label>
+            <select [(ngModel)]="filters.spec_id" (change)="executeSearch()" class="filter-select">
+              <option value="">Any Specialization</option>
+              <option *ngFor="let s of availableSpecs" [value]="s.id">{{s.name}}</option>
+            </select>
+          </div>
           
-          <div class="mb-6">
-            <h3 class="font-bold text-gray-700 mb-2 text-sm uppercase">Minimum Rating</h3>
-            <select [(ngModel)]="filters.rating_min" (change)="executeSearch()" class="w-full border-gray-300 rounded p-2 text-sm bg-white border font-body outline-none focus:border-secondary">
+          <div class="filter-section">
+            <label class="filter-label">Minimum Rating</label>
+            <select [(ngModel)]="filters.rating_min" (change)="executeSearch()" class="filter-select">
               <option [value]="0">Any Rating</option>
               <option [value]="4">4+ Stars</option>
               <option [value]="4.5">4.5+ Stars</option>
             </select>
           </div>
 
-          <div class="mb-6">
-            <h3 class="font-bold text-gray-700 mb-2 text-sm uppercase">Materials</h3>
-            <select [(ngModel)]="filters.material_group_id" (change)="executeSearch()" class="w-full border-gray-300 rounded p-2 text-sm bg-white border font-body outline-none focus:border-secondary">
+          <div class="filter-section">
+            <label class="filter-label">Materials</label>
+            <select [(ngModel)]="filters.material_group_id" (change)="executeSearch()" class="filter-select">
               <option value="">Any Material</option>
               <option *ngFor="let g of materialGroups" [value]="g.id">{{g.icon}} {{g.name}}</option>
             </select>
           </div>
 
-          <div class="mb-6">
-            <h3 class="font-bold text-gray-700 mb-2 text-sm uppercase">Radius (km)</h3>
-            <input type="number" [(ngModel)]="filters.radius" (change)="executeSearch()" placeholder="Distance" class="w-full border-gray-300 p-2 rounded text-sm mb-2 border font-body outline-none focus:border-secondary">
+          <div class="filter-section">
+            <label class="filter-label">Radius (km)</label>
+            <input type="number" [(ngModel)]="filters.radius" (change)="executeSearch()" placeholder="Distance" class="filter-input mb-1">
             <p class="text-xs text-gray-400">Only works if Location was auto-detected</p>
           </div>
 
-          <div class="mb-6">
+          <div class="filter-section mb-6">
             <label class="flex items-center gap-2 cursor-pointer">
               <input type="checkbox" [(ngModel)]="filters.verified_only" (change)="executeSearch()" class="rounded text-primary focus:ring-primary h-4 w-4 border-gray-300">
               <span class="text-sm font-bold text-gray-700">Verified Only</span>
             </label>
           </div>
           
-          <button (click)="executeSearch()" class="w-full bg-secondary text-white font-bold py-2 rounded hover:bg-opacity-90 transition font-heading shadow-sm">Apply Filters</button>
+          <button (click)="executeSearch(); filterOpen = false" class="w-full bg-secondary text-white font-bold py-3 rounded-lg hover:bg-opacity-90 transition font-heading shadow-md md:hidden">Apply Filters</button>
         </aside>
 
         <!-- Results Grid -->
-        <main class="flex-1 w-full">
+        <main class="flex-1 w-full min-w-0">
           <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 gap-4">
-            <h1 class="text-2xl font-heading font-bold text-primary">Search Results <span *ngIf="params.q" class="text-gray-500">for "{{params.q}}"</span></h1>
-            <div class="flex items-center gap-2">
-              <span class="text-sm text-gray-500 font-bold">Sort by:</span>
-              <select [(ngModel)]="filters.sort_by" (change)="executeSearch()" class="border-gray-300 rounded p-2 text-sm bg-white border font-body outline-none focus:border-secondary font-bold text-primary">
-                <option value="relevance">Relevance</option>
-                <option value="rating">Rating: High to Low</option>
-                <option value="most_reviewed">Most Reviewed</option>
-                <option value="newest">Newest First</option>
-              </select>
+            <h1 class="text-2xl font-heading font-bold text-primary truncate w-full sm:w-auto">Search Results <span *ngIf="params.q" class="text-gray-500">for "{{params.q}}"</span></h1>
+            
+            <div class="flex items-center gap-2 self-stretch sm:self-auto justify-between sm:justify-start">
+              <!-- Mobile filter toggle button! -->
+              <button class="md:hidden border border-gray-300 rounded-lg px-4 py-2 text-sm font-bold flex gap-2 items-center bg-white shadow-sm" (click)="filterOpen = true">
+                <span>⚙️</span> Filters <span class="bg-primary text-white rounded-full min-w-[20px] h-5 px-1 flex items-center justify-center text-[10px]" *ngIf="activeFilterCount">{{activeFilterCount}}</span>
+              </button>
+
+              <div class="flex items-center gap-2">
+                <span class="text-sm text-gray-500 font-bold hidden sm:inline">Sort by:</span>
+                <select [(ngModel)]="filters.sort_by" (change)="executeSearch()" class="filter-select font-bold text-primary shadow-sm border-gray-200">
+                  <option value="relevance">Relevance</option>
+                  <option value="rating">Rating: High to Low</option>
+                  <option value="most_reviewed">Most Reviewed</option>
+                  <option value="newest">Newest First</option>
+                </select>
+              </div>
             </div>
           </div>
 
@@ -111,6 +141,20 @@ export class SearchResultsComponent implements OnInit {
   totalCount = 0;
   compareCount = 0;
   materialGroups: MaterialGroup[] = [];
+  categories: any[] = [];
+  availableSpecs: any[] = [];
+  filterOpen = false;
+
+  get activeFilterCount(): number {
+    let count = 0;
+    if (this.filters.rating_min) count++;
+    if (this.filters.spec_id) count++;
+    if (this.filters.category_id) count++;
+    if (this.filters.verified_only) count++;
+    if (this.filters.radius && this.filters.radius !== 20) count++;
+    if (this.filters.material_group_id) count++;
+    return count;
+  }
 
   params: any = {};
   filters = {
@@ -118,6 +162,8 @@ export class SearchResultsComponent implements OnInit {
     radius: 20,
     verified_only: false,
     material_group_id: '',
+    category_id: '',
+    spec_id: '',
     sort_by: 'relevance',
     page: 1,
     limit: 12
@@ -131,28 +177,63 @@ export class SearchResultsComponent implements OnInit {
     private materialService: MaterialService
   ) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     this.compareService.selection$.subscribe(sel => this.compareCount = sel.length);
     this.materialService.getMaterialGroups().subscribe(g => this.materialGroups = g);
 
+    const { data: cats } = await this.supabase.client.from('categories').select('id, name, slug').order('name');
+    this.categories = cats || [];
+
     this.route.queryParams.subscribe(params => {
       this.params = { ...params };
-      // Optional: reset page on new query
       this.filters.page = 1;
+
+      // Extract category id if slug provided
+      if (params['category']) {
+        const cat = this.categories.find(c => c.slug === params['category']);
+        if (cat) {
+          this.filters.category_id = cat.id;
+          this.loadSpecsForCategory(cat.id);
+        }
+      }
+
       this.executeSearch();
     });
+  }
+
+  async loadSpecsForCategory(catId: string) {
+    if (!catId) {
+      this.availableSpecs = [];
+      this.filters.spec_id = '';
+      return;
+    }
+    const { data } = await this.supabase.client.from('category_specializations')
+      .select('id, name').eq('category_id', catId).order('sort_order', { ascending: true });
+    this.availableSpecs = data || [];
+  }
+
+  onFilterCategoryChange() {
+    this.filters.spec_id = ''; // reset spec
+    this.loadSpecsForCategory(this.filters.category_id);
+    this.executeSearch();
   }
 
   async executeSearch() {
     this.loading = true;
     try {
-      const body = {
+      const body: any = {
         ...this.params,
         ...this.filters
       };
 
-      // Clean up empty material_group_id so it doesn't break search fn
+      if (this.params.q) {
+        body.query = this.params.q;
+      }
+
+      // Clean up empty fields so it doesn't break search fn
       if (!body.material_group_id) delete body.material_group_id;
+      if (!body.category_id) delete body.category_id;
+      if (!body.spec_id) delete body.spec_id;
 
       const { data, error } = await this.supabase.client.functions.invoke('search-businesses', { body });
       if (data) {

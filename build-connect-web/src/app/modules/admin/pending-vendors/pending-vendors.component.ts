@@ -30,7 +30,7 @@ import { SupabaseService } from '../../../core/services/supabase.service';
                 <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest">Pending</span>
               </td>
               <td class="p-4 text-right space-x-3">
-                <button (click)="approve(v.id)" [disabled]="isProcessing" class="bg-success hover:bg-opacity-90 text-white px-4 py-2 rounded-lg font-bold transition text-sm disabled:opacity-50">Approve</button>
+                <button (click)="approve(v)" [disabled]="isProcessing" class="bg-success hover:bg-opacity-90 text-white px-4 py-2 rounded-lg font-bold transition text-sm disabled:opacity-50">Approve</button>
                 <button (click)="reject(v.id)" [disabled]="isProcessing" class="bg-red-100 text-red-700 hover:bg-red-200 px-4 py-2 rounded-lg font-bold transition text-sm disabled:opacity-50">Reject</button>
               </td>
             </tr>
@@ -56,26 +56,27 @@ export class PendingVendorsComponent implements OnInit {
   async loadVendors() {
     const { data } = await this.supabase.client
       .from('businesses')
-      .select('*')
+      .select('*, profiles!owner_id(id, role)')
       .eq('is_verified', false)
       .order('created_at', { ascending: true });
-    if (data) this.vendors = data;
+    if (data) this.vendors = data.filter(v => v.profiles?.role === 'pending_vendor' || !v.is_verified);
   }
 
-  async approve(id: string) {
+  async approve(business: any) {
     if (!confirm('Are you sure you want to approve this vendor?')) return;
     this.isProcessing = true;
     try {
-      const { error } = await this.supabase.client.functions.invoke('approve-vendor', {
-        body: { business_id: id }
+      const { error } = await this.supabase.client.functions.invoke('approve-vendor-registration', {
+        body: { vendor_user_id: business.owner_id }
       });
       if (!error) {
-        this.vendors = this.vendors.filter(v => v.id !== id);
+        this.vendors = this.vendors.filter(v => v.id !== business.id);
       } else {
-        alert('Failed to approve vendor');
+        alert('Failed to approve vendor: ' + (error?.message || JSON.stringify(error)));
       }
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
+      alert('Error: ' + e.message);
     } finally {
       this.isProcessing = false;
     }

@@ -143,6 +143,23 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
                 </div>
               </div>
 
+              <!-- Specializations section -->
+              <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-200" *ngIf="vendorSpecializations.length > 0">
+                <h3 class="text-2xl font-bold font-heading text-navy mb-4">
+                  <span class="mr-2">🎯</span> Specializations
+                </h3>
+                <div class="flex flex-wrap gap-2.5">
+                  <div *ngFor="let vs of vendorSpecializations" class="bg-red-50 border border-red-100 rounded-lg p-3 w-full sm:w-auto min-w-[200px]">
+                    <div class="font-bold text-[13px] text-primary">
+                      {{ vs.category_specializations?.name }}
+                    </div>
+                    <div class="text-[11px] text-gray-500 mt-0.5" *ngIf="vs.custom_description">
+                      {{ vs.custom_description }}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
               <!-- Materials / Products (Existing structured view) -->
               <div class="bg-white p-6 md:p-8 rounded-xl shadow-sm border border-gray-200" *ngIf="groupedMaterials.length">
                 <h3 class="text-2xl font-bold font-heading text-navy mb-4">Materials & Products</h3>
@@ -461,6 +478,7 @@ export class BusinessProfileComponent implements OnInit {
   business: any = null;
   reviews: any[] = [];
   faqs: any[] = [];
+  vendorSpecializations: any[] = [];
   loading = true;
   calling = false;
   currentUser: any = null;
@@ -576,13 +594,23 @@ export class BusinessProfileComponent implements OnInit {
         await Promise.all([
           this.loadReviews(b.id),
           this.loadFaqs(b.id),
-          this.loadMaterials(b.id)
+          this.loadMaterials(b.id),
+          this.loadVendorSpecializations(b.id)
         ]);
       }
     } catch (e) {
       console.error('Error loading business:', e);
     }
     this.loading = false;
+  }
+
+  async loadVendorSpecializations(businessId: string): Promise<void> {
+    const { data, error } = await this.supabase.client
+      .from('vendor_specializations')
+      .select('id, custom_description, category_specializations(id, name)')
+      .eq('business_id', businessId);
+
+    if (!error) this.vendorSpecializations = data ?? [];
   }
 
   async loadReviews(bizId: string) {

@@ -5,10 +5,10 @@ import { SupabaseService } from '../../../core/services/supabase.service';
 import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
-    selector: 'app-notification-bell',
-    standalone: true,
-    imports: [CommonModule],
-    template: `
+  selector: 'app-notification-bell',
+  standalone: true,
+  imports: [CommonModule],
+  template: `
     <div class="relative">
       <button (click)="toggleDropdown()" class="relative p-2 text-gray-600 hover:text-primary transition rounded-full hover:bg-gray-100">
         <span class="text-xl">🔔</span>
@@ -62,7 +62,7 @@ import { AuthService } from '../../../core/services/auth.service';
       </div>
     </div>
   `,
-    styles: [`
+  styles: [`
     @keyframes slideUp {
       from { transform: translateY(100%); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
@@ -71,126 +71,131 @@ import { AuthService } from '../../../core/services/auth.service';
   `]
 })
 export class NotificationBellComponent implements OnInit, OnDestroy {
-    notifications: any[] = [];
-    unreadCount = 0;
-    isOpen = false;
+  notifications: any[] = [];
+  unreadCount = 0;
+  isOpen = false;
 
-    showToast = false;
-    latestNotification: any = null;
-    toastTimeout: any;
+  showToast = false;
+  latestNotification: any = null;
+  toastTimeout: any;
 
-    private subscription: any;
+  private subscription: any;
 
-    constructor(
-        private supabase: SupabaseService,
-        private auth: AuthService,
-        private router: Router
-    ) { }
+  constructor(
+    private supabase: SupabaseService,
+    private auth: AuthService,
+    private router: Router
+  ) { }
 
-    async ngOnInit() {
-        this.auth.currentUser$.subscribe(user => {
-            if (user) {
-                this.loadNotifications(user.id);
-                this.setupRealtime(user.id);
-            } else {
-                this.notifications = [];
-                this.unreadCount = 0;
-                if (this.subscription) this.subscription.unsubscribe();
-            }
-        });
+  async ngOnInit() {
+    this.auth.currentUser$.subscribe(user => {
+      if (user) {
+        this.loadNotifications(user.id);
+        this.setupRealtime(user.id);
+      } else {
+        this.notifications = [];
+        this.unreadCount = 0;
+        if (this.subscription) this.subscription.unsubscribe();
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.supabase.client.removeChannel(this.subscription);
+    }
+    if (this.toastTimeout) clearTimeout(this.toastTimeout);
+  }
+
+  async loadNotifications(userId: string) {
+    const { data } = await this.supabase.client
+      .from('notifications')
+      .select('*')
+      .eq('user_id', userId)
+      .order('created_at', { ascending: false })
+      .limit(20);
+
+    this.notifications = data || [];
+    this.updateUnreadCount();
+  }
+
+  updateUnreadCount() {
+    this.unreadCount = this.notifications.filter(n => !n.is_read).length;
+  }
+
+  setupRealtime(userId: string) {
+    if (this.subscription) {
+      this.supabase.client.removeChannel(this.subscription);
     }
 
-    ngOnDestroy() {
-        if (this.subscription) this.subscription.unsubscribe();
+    // Use a unique channel name to prevent Supabase Realtime channel state conflicts
+    this.subscription = this.supabase.client.channel(`notifications-${userId}-${Date.now()}`)
+      .on('postgres_changes', {
+        event: 'INSERT',
+        schema: 'public',
+        table: 'notifications',
+        filter: `user_id=eq.${userId}`
+      }, payload => {
+        const newNotif = payload.new;
+        this.notifications.unshift(newNotif);
+        this.updateUnreadCount();
+
+        // Show toast
+        this.latestNotification = newNotif;
+        this.showToast = true;
         if (this.toastTimeout) clearTimeout(this.toastTimeout);
+        this.toastTimeout = setTimeout(() => this.showToast = false, 4000);
+      })
+      .subscribe();
+  }
+
+  toggleDropdown() {
+    this.isOpen = !this.isOpen;
+    this.showToast = false; // Hide toast if they open the bell
+  }
+
+  async markAllRead() {
+    const user = this.auth.currentUser;
+    if (!user) return;
+
+    await this.supabase.client
+      .from('notifications')
+      .update({ is_read: true })
+      .eq('user_id', user.id)
+      .eq('is_read', false);
+
+    this.notifications.forEach(n => n.is_read = true);
+    this.updateUnreadCount();
+  }
+
+  async handleNotificationClick(n: any) {
+    this.isOpen = false;
+
+    // Mark as read if unread
+    if (!n.is_read) {
+      n.is_read = true;
+      this.updateUnreadCount();
+      await this.supabase.client.from('notifications').update({ is_read: true }).eq('id', n.id);
     }
 
-    async loadNotifications(userId: string) {
-        const { data } = await this.supabase.client
-            .from('notifications')
-            .select('*')
-            .eq('user_id', userId)
-            .order('created_at', { ascending: false })
-            .limit(20);
-
-        this.notifications = data || [];
-        this.updateUnreadCount();
+    // Route based on type
+    if (n.type === 'new_lead') {
+      this.router.navigate(['/vendor/leads']);
+    } else if (n.type === 'lead_status_update') {
+      // Navigate to user's saved/quotes page if they have one, for now /home
+      this.router.navigate(['/home']);
+    } else if (n.type === 'verification_approved' || n.type === 'vendor_approved') {
+      this.router.navigate(['/vendor/dashboard']);
     }
+  }
 
-    updateUnreadCount() {
-        this.unreadCount = this.notifications.filter(n => !n.is_read).length;
-    }
-
-    setupRealtime(userId: string) {
-        if (this.subscription) this.subscription.unsubscribe();
-
-        this.subscription = this.supabase.client.channel('public:notifications')
-            .on('postgres_changes', {
-                event: 'INSERT',
-                schema: 'public',
-                table: 'notifications',
-                filter: `user_id=eq.${userId}`
-            }, payload => {
-                const newNotif = payload.new;
-                this.notifications.unshift(newNotif);
-                this.updateUnreadCount();
-
-                // Show toast
-                this.latestNotification = newNotif;
-                this.showToast = true;
-                if (this.toastTimeout) clearTimeout(this.toastTimeout);
-                this.toastTimeout = setTimeout(() => this.showToast = false, 4000);
-            })
-            .subscribe();
-    }
-
-    toggleDropdown() {
-        this.isOpen = !this.isOpen;
-        this.showToast = false; // Hide toast if they open the bell
-    }
-
-    async markAllRead() {
-        const user = this.auth.currentUser;
-        if (!user) return;
-
-        await this.supabase.client
-            .from('notifications')
-            .update({ is_read: true })
-            .eq('user_id', user.id)
-            .eq('is_read', false);
-
-        this.notifications.forEach(n => n.is_read = true);
-        this.updateUnreadCount();
-    }
-
-    async handleNotificationClick(n: any) {
-        this.isOpen = false;
-
-        // Mark as read if unread
-        if (!n.is_read) {
-            n.is_read = true;
-            this.updateUnreadCount();
-            await this.supabase.client.from('notifications').update({ is_read: true }).eq('id', n.id);
-        }
-
-        // Route based on type
-        if (n.type === 'new_lead') {
-            this.router.navigate(['/vendor/leads']);
-        } else if (n.type === 'lead_status_update') {
-            // Navigate to user's saved/quotes page if they have one, for now /home
-            this.router.navigate(['/home']);
-        } else if (n.type === 'verification_approved' || n.type === 'vendor_approved') {
-            this.router.navigate(['/vendor/dashboard']);
-        }
-    }
-
-    getIcon(type: string): string {
-        const icons: Record<string, string> = {
-            'new_lead': '📥',
-            'lead_status_update': '📝',
-            'verification_approved': '✅',
-            'vendor_approved': '🎉'
-        };
-        return icons[type] || '🔔';
-    }
+  getIcon(type: string): string {
+    const icons: Record<string, string> = {
+      'new_lead': '📥',
+      'lead_status_update': '📝',
+      'verification_approved': '✅',
+      'vendor_approved': '🎉'
+    };
+    return icons[type] || '🔔';
+  }
 }

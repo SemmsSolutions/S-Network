@@ -25,7 +25,7 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
             <div class="banner-slide absolute inset-0 transition-opacity duration-500" *ngFor="let slide of bannerSlides; let i = index"
                  [class.opacity-100]="i === activeBannerIndex" [class.z-10]="i === activeBannerIndex"
                  [class.opacity-0]="i !== activeBannerIndex" [class.z-0]="i !== activeBannerIndex">
-              <img [src]="slide.image" [alt]="slide.title" loading="eager" class="w-full h-full object-cover">
+              <img [src]="slide.image" [alt]="slide.title" (error)="onImgError($event)" loading="eager" class="w-full h-full object-cover">
               <div class="banner-overlay absolute inset-0 bg-gradient-to-r from-black/80 to-transparent flex flex-col justify-center p-12">
                 <h2 class="text-white text-4xl font-bold mb-4 w-2/3">{{ slide.title }}</h2>
                 <p class="text-white/90 text-lg mb-8 w-2/3">{{ slide.subtitle }}</p>
@@ -106,7 +106,7 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
                  [routerLink]="['/search']"
                  [queryParams]="{q: item.name}"
                  class="group-item flex items-center gap-3 p-2 -mx-2 rounded-lg hover:bg-gray-50 hover:text-[#CC0000] group/item transition cursor-pointer">
-                <img [src]="item.image" [alt]="item.name" loading="lazy" class="w-12 h-12 rounded-lg object-cover shadow-sm group-hover/item:scale-105 transition-transform">
+                <img [src]="item.image" [alt]="item.name" (error)="onImgError($event)" loading="lazy" class="w-12 h-12 rounded-lg object-cover shadow-sm group-hover/item:scale-105 transition-transform">
                 <span class="text-sm font-semibold text-gray-700 group-hover/item:text-[#CC0000]">{{ item.name }}</span>
               </a>
             </div>
@@ -124,7 +124,7 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
              [routerLink]="['/search']"
              [queryParams]="{q: ps.term}"
              class="popular-card relative flex-none w-64 h-40 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition snap-start group cursor-pointer block">
-            <img [src]="ps.image" [alt]="ps.term" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+            <img [src]="ps.image" [alt]="ps.term" (error)="onImgError($event)" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
             <div class="popular-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent flex flex-col justify-end p-4">
               <h4 class="text-white font-bold mb-2">{{ ps.term }}</h4>
               <span class="btn-outline-white inline-block w-max text-xs px-3 py-1.5 rounded-full border border-white/70 text-white hover:bg-white hover:text-black transition">🔍 Search Now</span>
@@ -352,6 +352,8 @@ export class HomeComponent implements OnInit, OnDestroy {
   loading = false;
   private bannerInterval: any;
   private routerSub?: Subscription;
+  private citySub?: Subscription;
+  private isDestroyed = false;
   currentYear = new Date().getFullYear();
 
   // Construction-specific banner slides
@@ -439,7 +441,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
     // Step 3: Subscribe to city changes AFTER setting initial city
     // skip(0) behavior: compare against already-set selectedCity so first emit is a no-op
-    this.cityService.city$.subscribe(city => {
+    this.citySub = this.cityService.city$.subscribe(city => {
       if (city && this.selectedCity !== city) {
         this.selectedCity = city;
         localStorage.setItem('snet_city', city);
@@ -580,8 +582,10 @@ export class HomeComponent implements OnInit, OnDestroy {
       this.featuredVendors = [];
       this.topRatedVendors = [];
     } finally {
-      this.loading = false;
-      this.cdr.detectChanges();
+      if (!this.isDestroyed) {
+        this.loading = false;
+        this.cdr.detectChanges();
+      }
     }
   }
 
@@ -623,7 +627,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
+    this.isDestroyed = true;
     if (this.bannerInterval) clearInterval(this.bannerInterval);
     this.routerSub?.unsubscribe();
+    this.citySub?.unsubscribe();
   }
 }
