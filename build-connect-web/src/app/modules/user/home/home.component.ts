@@ -99,15 +99,15 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
     <section class="section grouped-categories py-12">
       <div class="container">
         <div class="grouped-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div *ngFor="let group of categoryGroups" class="group-card card bg-white p-5 hover:shadow-md transition border-gray-100">
-            <h3 class="group-title text-base font-bold text-gray-900 mb-4 pb-2 border-b-2 border-gray-100 inline-block">{{ group.title }}</h3>
-            <div class="group-items flex flex-col gap-4 mt-2">
+          <div *ngFor="let group of categoryGroups" class="group-card card bg-white p-5 hover:shadow-md transition border-gray-100 overflow-hidden">
+            <h3 class="group-title text-base font-bold text-gray-900 mb-4 pb-2 border-b-2 border-gray-100 block w-full">{{ group.title }}</h3>
+            <div class="group-items flex flex-col gap-3 mt-2">
               <a *ngFor="let item of group.items"
                  [routerLink]="['/search']"
                  [queryParams]="{q: item.name}"
-                 class="group-item flex items-center gap-3 p-2 -mx-2 rounded-lg hover:bg-gray-50 hover:text-[#CC0000] group/item transition cursor-pointer">
-                <img [src]="item.image" [alt]="item.name" (error)="onImgError($event)" loading="lazy" class="w-12 h-12 rounded-lg object-cover shadow-sm group-hover/item:scale-105 transition-transform">
-                <span class="text-sm font-semibold text-gray-700 group-hover/item:text-[#CC0000]">{{ item.name }}</span>
+                 class="group-item flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition cursor-pointer min-w-0">
+                <img [src]="item.image" [alt]="item.name" (error)="onImgError($event)" loading="lazy" class="w-12 h-12 rounded-lg object-cover shadow-sm flex-shrink-0">
+                <span class="text-sm font-semibold text-gray-700 hover:text-[#CC0000] truncate block">{{ item.name }}</span>
               </a>
             </div>
           </div>

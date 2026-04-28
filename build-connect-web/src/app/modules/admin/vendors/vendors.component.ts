@@ -176,6 +176,18 @@ import { SupabaseService } from '../../../core/services/supabase.service';
                 </div>
               </div>
             </div>
+
+            <!-- 🗑️ DANGER ZONE -->
+            <div class="border-t pt-4 mt-4">
+              <h3 class="text-xs uppercase tracking-widest font-bold text-red-400 mb-4">⚠️ Danger Zone</h3>
+              <div class="bg-red-50 border border-red-200 rounded-lg p-4">
+                <p class="text-sm text-red-700 font-semibold mb-1">Delete Vendor</p>
+                <p class="text-xs text-red-500 mb-3">Permanently deletes this vendor's business profile and resets their account. This cannot be undone.</p>
+                <button (click)="confirmingDelete = true" [disabled]="actionLoading" class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-lg font-bold text-sm transition disabled:opacity-50">
+                  🗑️ Delete Vendor
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -191,6 +203,23 @@ import { SupabaseService } from '../../../core/services/supabase.service';
           </div>
         </div>
       </div>
+
+      <!-- Delete Confirmation Modal -->
+      <div *ngIf="confirmingDelete" class="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-[60]">
+        <div class="bg-white rounded-xl p-6 max-w-md w-full shadow-2xl border-2 border-red-200">
+          <div class="text-center mb-4">
+            <span class="text-5xl">🗑️</span>
+          </div>
+          <h2 class="text-lg font-bold text-red-600 mb-2 text-center">Delete {{selectedVendor?.name}}?</h2>
+          <p class="text-sm text-gray-600 text-center mb-6">This will permanently delete the business profile and reset the user's role. <strong>This action cannot be undone.</strong></p>
+          <div class="flex gap-3">
+            <button (click)="deleteVendor()" [disabled]="actionLoading" class="flex-1 bg-red-600 hover:bg-red-700 text-white py-3 rounded-lg font-bold disabled:opacity-50 transition">
+              {{ actionLoading ? 'Deleting...' : '🗑️ Yes, Delete' }}
+            </button>
+            <button (click)="confirmingDelete = false" [disabled]="actionLoading" class="flex-1 border-2 border-gray-300 py-3 rounded-lg font-bold text-gray-700 hover:bg-gray-50 transition">Cancel</button>
+          </div>
+        </div>
+      </div>
     </div>
   `
 })
@@ -203,6 +232,7 @@ export class AdminVendorsComponent implements OnInit {
   searchQuery = '';
   selectedVendor: any = null;
   rejectingRegistration = false;
+  confirmingDelete = false;
   rejectReason = '';
   actionLoading = false;
   adminNote = '';
@@ -282,5 +312,30 @@ export class AdminVendorsComponent implements OnInit {
       await this.loadVendors(); await this.loadCounts();
     } catch (e) { console.error(e); }
     this.actionLoading = false;
+  }
+
+  async deleteVendor() {
+    if (!this.selectedVendor?.id) return;
+    this.actionLoading = true;
+    try {
+      // 1. Delete the business record
+      const { error: bizErr } = await this.supabase.client.from('businesses').delete().eq('id', this.selectedVendor.id);
+      if (bizErr) throw bizErr;
+
+      // 2. Reset the user's role to 'user' so they are not orphaned
+      if (this.selectedVendor.profiles?.id) {
+        await this.supabase.client.from('profiles').update({ role: 'user' }).eq('id', this.selectedVendor.profiles.id);
+      }
+
+      this.confirmingDelete = false;
+      this.selectedVendor = null;
+      await this.loadVendors();
+      await this.loadCounts();
+    } catch (e: any) {
+      console.error(e);
+      alert('Error deleting vendor: ' + e.message);
+    } finally {
+      this.actionLoading = false;
+    }
   }
 }
