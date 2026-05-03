@@ -1,8 +1,10 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { SupabaseService } from '../../../core/services/supabase.service';
+import { Subscription } from 'rxjs';
+import { NotificationService } from '../../services/notification.service';
 import { AuthService } from '../../../core/services/auth.service';
+import { SupabaseService } from '../../../core/services/supabase.service';
 
 @Component({
   selector: 'app-notification-bell',
@@ -23,14 +25,12 @@ import { AuthService } from '../../../core/services/auth.service';
           <h3 class="font-heading font-bold text-gray-800">Notifications</h3>
           <button *ngIf="unreadCount > 0" (click)="markAllRead()" class="text-xs text-primary hover:underline font-bold">Mark all read</button>
         </div>
-        
         <div class="max-h-96 overflow-y-auto">
           <div *ngIf="notifications.length === 0" class="p-8 text-center text-gray-500 text-sm">
             <span class="text-3xl block mb-2 opacity-50">📭</span>
             No new notifications
           </div>
-          
-          <div *ngFor="let n of notifications" 
+          <div *ngFor="let n of notifications"
                (click)="handleNotificationClick(n)"
                class="p-4 border-b border-gray-50 cursor-pointer hover:bg-orange-50 transition"
                [class.bg-white]="n.is_read"
@@ -46,13 +46,15 @@ import { AuthService } from '../../../core/services/auth.service';
           </div>
         </div>
       </div>
-      
+
       <!-- Overlay to close -->
       <div *ngIf="isOpen" (click)="isOpen = false" class="fixed inset-0 z-40"></div>
     </div>
-    
-    <!-- Toast Notification Container -->
-    <div *ngIf="showToast && latestNotification" class="fixed bottom-4 right-4 bg-white rounded-xl shadow-xl border-l-4 border-primary p-4 max-w-sm z-50 animate-slide-up cursor-pointer" (click)="handleNotificationClick(latestNotification); showToast = false">
+
+    <!-- Toast Notification -->
+    <div *ngIf="showToast && latestNotification"
+         class="fixed bottom-4 right-4 bg-white rounded-xl shadow-xl border-l-4 border-primary p-4 max-w-sm z-50 cursor-pointer"
+         (click)="handleNotificationClick(latestNotification); showToast = false">
       <div class="flex justify-between items-start gap-4">
         <div>
           <h4 class="font-bold text-sm text-gray-800">{{latestNotification.title}}</h4>
@@ -67,134 +69,77 @@ import { AuthService } from '../../../core/services/auth.service';
       from { transform: translateY(100%); opacity: 0; }
       to { transform: translateY(0); opacity: 1; }
     }
-    .animate-slide-up { animation: slideUp 0.3s ease-out forwards; }
   `]
 })
 export class NotificationBellComponent implements OnInit, OnDestroy {
   notifications: any[] = [];
   unreadCount = 0;
   isOpen = false;
-
   showToast = false;
   latestNotification: any = null;
   toastTimeout: any;
 
-  private subscription: any;
+  private notifSub?: Subscription;
+  private countSub?: Subscription;
+  private prevLength = 0;
 
   constructor(
-    private supabase: SupabaseService,
+    private notificationService: NotificationService,
     private auth: AuthService,
+    private supabase: SupabaseService,
     private router: Router
   ) { }
 
-  async ngOnInit() {
-    this.auth.currentUser$.subscribe(user => {
-      if (user) {
-        this.loadNotifications(user.id);
-        this.setupRealtime(user.id);
-      } else {
-        this.notifications = [];
-        this.unreadCount = 0;
-        if (this.subscription) this.subscription.unsubscribe();
+  ngOnInit() {
+    // Subscribe to shared NotificationService observables — no new channel created here
+    this.notifSub = this.notificationService.notifications$.subscribe(notifs => {
+      // Detect new notification for toast
+      if (notifs.length > this.prevLength && this.prevLength > 0) {
+        this.latestNotification = notifs[0];
+        this.showToast = true;
+        if (this.toastTimeout) clearTimeout(this.toastTimeout);
+        this.toastTimeout = setTimeout(() => this.showToast = false, 4000);
       }
+      this.prevLength = notifs.length;
+      this.notifications = notifs;
+    });
+
+    this.countSub = this.notificationService.unreadCount$.subscribe(count => {
+      this.unreadCount = count;
     });
   }
 
   ngOnDestroy() {
-    if (this.subscription) {
-      this.supabase.client.removeChannel(this.subscription);
-    }
+    this.notifSub?.unsubscribe();
+    this.countSub?.unsubscribe();
     if (this.toastTimeout) clearTimeout(this.toastTimeout);
-  }
-
-  async loadNotifications(userId: string) {
-    const { data } = await this.supabase.client
-      .from('notifications')
-      .select('*')
-      .eq('user_id', userId)
-      .order('created_at', { ascending: false })
-      .limit(20);
-
-    this.notifications = data || [];
-    this.updateUnreadCount();
-  }
-
-  updateUnreadCount() {
-    this.unreadCount = this.notifications.filter(n => !n.is_read).length;
-  }
-
-  setupRealtime(userId: string) {
-    if (this.subscription) {
-      this.supabase.client.removeChannel(this.subscription);
-    }
-
-    // Use a unique channel name to prevent Supabase Realtime channel state conflicts
-    this.subscription = this.supabase.client.channel(`notifications-${userId}-${Date.now()}`)
-      .on('postgres_changes', {
-        event: 'INSERT',
-        schema: 'public',
-        table: 'notifications',
-        filter: `user_id=eq.${userId}`
-      }, payload => {
-        const newNotif = payload.new;
-        this.notifications.unshift(newNotif);
-        this.updateUnreadCount();
-
-        // Show toast
-        this.latestNotification = newNotif;
-        this.showToast = true;
-        if (this.toastTimeout) clearTimeout(this.toastTimeout);
-        this.toastTimeout = setTimeout(() => this.showToast = false, 4000);
-      })
-      .subscribe();
   }
 
   toggleDropdown() {
     this.isOpen = !this.isOpen;
-    this.showToast = false; // Hide toast if they open the bell
+    this.showToast = false;
   }
 
   async markAllRead() {
     const user = this.auth.currentUser;
     if (!user) return;
-
-    await this.supabase.client
-      .from('notifications')
-      .update({ is_read: true })
-      .eq('user_id', user.id)
-      .eq('is_read', false);
-
-    this.notifications.forEach(n => n.is_read = true);
-    this.updateUnreadCount();
+    await this.notificationService.markAllRead(user.id);
   }
 
   async handleNotificationClick(n: any) {
     this.isOpen = false;
-
-    // Mark as read if unread
     if (!n.is_read) {
-      n.is_read = true;
-      this.updateUnreadCount();
-      await this.supabase.client.from('notifications').update({ is_read: true }).eq('id', n.id);
+      await this.notificationService.markRead(n.id);
     }
-
-    // Route based on type
-    if (n.type === 'new_lead') {
-      this.router.navigate(['/vendor/leads']);
-    } else if (n.type === 'lead_status_update') {
-      // Navigate to user's saved/quotes page if they have one, for now /home
-      this.router.navigate(['/home']);
-    } else if (n.type === 'verification_approved' || n.type === 'vendor_approved') {
-      this.router.navigate(['/vendor/dashboard']);
-    }
+    if (n.type === 'new_lead') this.router.navigate(['/vendor/leads']);
+    else if (n.type === 'lead_status_update') this.router.navigate(['/home']);
+    else if (n.type === 'verification_approved' || n.type === 'vendor_approved') this.router.navigate(['/vendor/dashboard']);
   }
 
   getIcon(type: string): string {
     const icons: Record<string, string> = {
-      'new_lead': '📥',
-      'lead_status_update': '📝',
-      'verification_approved': '✅',
-      'vendor_approved': '🎉'
+      'new_lead': '📥', 'lead_status_update': '📝',
+      'verification_approved': '✅', 'vendor_approved': '🎉'
     };
     return icons[type] || '🔔';
   }

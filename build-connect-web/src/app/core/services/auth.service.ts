@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { SupabaseService } from './supabase.service';
 import { BehaviorSubject } from 'rxjs';
 import { User } from '@supabase/supabase-js';
+import { NotificationService } from '../../shared/services/notification.service';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
@@ -14,15 +15,22 @@ export class AuthService {
     private profileSubject = new BehaviorSubject<any>(null);
     public profile$ = this.profileSubject.asObservable();
 
-    constructor(private supabase: SupabaseService) {
+    constructor(
+        private supabase: SupabaseService,
+        private notificationService: NotificationService
+    ) {
         this.supabase.client.auth.onAuthStateChange((_event, session) => {
             const user = session?.user || null;
             this.currentUserSubject.next(user);
             if (user) {
                 this.fetchRoleWithRetry(user.id);
+                // Setup notifications ONCE per session — prevents duplicate channels
+                this.notificationService.setup(user.id);
             } else {
                 this.userRoleSubject.next('user');
                 this.profileSubject.next(null);
+                // Tear down notification channel on logout
+                this.notificationService.teardown();
             }
         });
     }
@@ -58,7 +66,6 @@ export class AuthService {
                 await new Promise(resolve => setTimeout(resolve, delayMs * attempt));
             }
         }
-        // Fallback
         this.userRoleSubject.next('user');
     }
 
@@ -68,7 +75,7 @@ export class AuthService {
         } catch (e) { console.warn('Logout warning:', e); }
         localStorage.clear();
         sessionStorage.clear();
-        window.location.href = '/';  // Hard redirect — clears all Angular state
+        window.location.href = '/';
     }
 
     /** @deprecated Use logout() instead */

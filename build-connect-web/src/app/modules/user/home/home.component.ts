@@ -98,16 +98,19 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
     <!-- GROUPED CATEGORY SECTIONS -->
     <section class="section grouped-categories py-12">
       <div class="container">
-        <div class="grouped-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div *ngFor="let group of categoryGroups" class="group-card card bg-white p-5 hover:shadow-md transition border-gray-100 overflow-hidden">
-            <h3 class="group-title text-base font-bold text-gray-900 mb-4 pb-2 border-b-2 border-gray-100 block w-full">{{ group.title }}</h3>
-            <div class="group-items flex flex-col gap-3 mt-2">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div *ngFor="let group of categoryGroups" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 overflow-hidden">
+            <h3 class="text-base font-bold text-gray-900 mb-4 pb-2 border-b-2 border-gray-100 block">{{ group.title }}</h3>
+            <div class="grid grid-cols-3 gap-2">
               <a *ngFor="let item of group.items"
                  [routerLink]="['/search']"
                  [queryParams]="{q: item.name}"
-                 class="group-item flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition cursor-pointer min-w-0">
-                <img [src]="item.image" [alt]="item.name" (error)="onImgError($event)" loading="lazy" class="w-12 h-12 rounded-lg object-cover shadow-sm flex-shrink-0">
-                <span class="text-sm font-semibold text-gray-700 hover:text-[#CC0000] truncate block">{{ item.name }}</span>
+                 class="flex flex-col items-center gap-1 cursor-pointer group/item">
+                <div class="w-full rounded-lg overflow-hidden aspect-[4/3]">
+                  <img [src]="item.image" [alt]="item.name" (error)="onImgError($event)" loading="lazy"
+                       class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
+                </div>
+                <span class="text-[11px] font-semibold text-gray-600 group-hover/item:text-[#CC0000] text-center leading-tight w-full px-0.5">{{ item.name }}</span>
               </a>
             </div>
           </div>
