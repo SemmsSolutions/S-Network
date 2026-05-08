@@ -41,7 +41,7 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
       <div class="flex-1">
         <div *ngIf="!editMode" class="flex items-center justify-center h-full text-gray-400 text-center p-12">
           <div>
-            <div class="text-5xl mb-4">🏗️</div>
+            <div class="text-5xl mb-4">🗂️</div>
             <p class="font-bold">Select a category to edit<br>or click "+ Add New"</p>
           </div>
         </div>
@@ -180,7 +180,7 @@ export class CategoriesManagementComponent implements OnInit {
 
   startNew() {
     this.selectedCat = null;
-    this.editForm = { name: '', slug: '', icon: '🏗️', icon_url: '', description: '', sort_order: 0 };
+    this.editForm = { name: '', slug: '', icon: '📦', icon_url: '', description: '', sort_order: 0 };
     this.editSpecializations = [];
     this.editMode = true;
     this.isNew = true;

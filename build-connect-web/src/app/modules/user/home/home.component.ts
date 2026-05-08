@@ -155,7 +155,9 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
     <!-- TOP RATED THIS WEEK -->
     <section class="section bg-[#0A1628] py-16 mt-8">
       <div class="container">
-        <h2 class="section-title text-white text-2xl font-bold mb-8 border-b-4 border-[#CC0000] inline-block pb-2">Top Rated in {{ selectedCity || 'Your City' }}</h2>
+        <div class="flex items-center gap-3 mb-8">
+          <h2 class="section-title text-white text-2xl font-bold border-b-4 border-[#CC0000] pb-2 inline-block">Top Rated in {{ selectedCity || 'Your City' }}</h2>
+        </div>
         <div class="top-rated-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div *ngFor="let v of topRatedVendors">
              <app-business-card [business]="v" [compact]="true"></app-business-card>
@@ -173,7 +175,7 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
           <div class="how-step max-w-[220px] group">
             <div class="step-icon w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm border border-gray-100 group-hover:bg-[#CC0000] group-hover:text-white transition-colors duration-300">🔍</div>
             <h3 class="font-bold text-lg mb-2">Search</h3>
-            <p class="text-sm text-gray-500">Find verified construction professionals in your area by category or keyword</p>
+            <p class="text-sm text-gray-500">Find verified business professionals in your area by category or keyword</p>
           </div>
           
           <div class="how-arrow text-gray-300 text-3xl hidden md:block mt-8">→</div>
@@ -195,9 +197,9 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
           <div class="how-arrow text-gray-300 text-3xl hidden md:block mt-8">→</div>
           
           <div class="how-step max-w-[220px] group">
-            <div class="step-icon w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm border border-gray-100 group-hover:bg-[#CC0000] group-hover:text-white transition-colors duration-300">🏗️</div>
-            <h3 class="font-bold text-lg mb-2">Build</h3>
-            <p class="text-sm text-gray-500">Work with trusted verified vendors and track your project progress</p>
+            <div class="step-icon w-20 h-20 bg-gray-50 rounded-full flex items-center justify-center text-3xl mx-auto mb-4 shadow-sm border border-gray-100 group-hover:bg-[#CC0000] group-hover:text-white transition-colors duration-300">🤝</div>
+            <h3 class="font-bold text-lg mb-2">Hire</h3>
+            <p class="text-sm text-gray-500">Work with trusted verified professionals and track your project progress</p>
           </div>
 
         </div>
@@ -207,8 +209,8 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
     <!-- ABOUT SECTION -->
     <section class="section py-16 bg-gray-50">
       <div class="container text-center max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold mb-4">India's Construction Professional Network</h2>
-        <p class="text-gray-600 mb-10 leading-relaxed text-lg">S-Network connects homeowners, real estate investors, and businesses with verified construction professionals across India. Find civil contractors, architects, interior designers, electricians, plumbers, and material suppliers — all verified with GST/MSME documents.</p>
+        <h2 class="text-2xl font-bold mb-4">India's Trusted Business Professional Network</h2>
+        <p class="text-gray-600 mb-10 leading-relaxed text-lg">S-Network connects individuals and businesses with verified service professionals across India. Find experts in construction, interior design, electrical, plumbing, IT, consulting, and more — all verified with GST/MSME documents.</p>
         
         <div class="about-stats grid grid-cols-2 md:grid-cols-4 gap-6 bg-white p-8 rounded-2xl shadow-sm border border-gray-100">
           <div class="stat flex flex-col gap-1">
@@ -277,7 +279,7 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
           <div class="footer-grid grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10 mb-12">
             <div class="footer-col">
               <div class="sn-logo footer-logo text-white text-2xl font-black mb-4 tracking-wide"><span class="text-[#CC0000]">S</span>-<span class="text-[#CC0000]">N</span>etwork</div>
-              <p class="text-sm opacity-80 mb-6 leading-relaxed">India's trusted platform for finding verified construction professionals, from building to interior design.</p>
+              <p class="text-sm opacity-80 mb-6 leading-relaxed">India's trusted platform for finding verified business professionals across all industries and services.</p>
               <div class="footer-social flex gap-4">
                 <a href="https://www.facebook.com/share/1BBtS14Thg/" target="_blank" rel="noopener" aria-label="Facebook" class="w-10 h-10 rounded-full bg-white/10 hover:bg-[#1877F2] flex items-center justify-center transition text-white text-lg">f</a>
                  <a href="https://www.instagram.com/snetwork.in" target="_blank" rel="noopener" aria-label="Instagram" class="w-10 h-10 rounded-full bg-white/10 hover:bg-gradient-to-br hover:from-[#f09433] hover:to-[#bc1888] flex items-center justify-center transition text-white text-lg">in</a>
@@ -359,11 +361,11 @@ export class HomeComponent implements OnInit, OnDestroy {
   private isDestroyed = false;
   currentYear = new Date().getFullYear();
 
-  // Construction-specific banner slides
+  // Business-agnostic banner slides
   bannerSlides = [
-    { title: 'Build Your Dream Home', subtitle: 'Connect with verified contractors across India', cta: 'Find Contractors', link: '/search', image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80' },
-    { title: 'Trusted Architects Near You', subtitle: 'Licensed professionals with proven portfolios', cta: 'Browse Architects', link: '/search?category=architect', image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80' },
-    { title: 'Interior Design Services', subtitle: 'Transform your space with expert designers', cta: 'Explore Designs', link: '/search?category=interior-designer', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80' },
+    { title: 'Find the Right Professional', subtitle: 'Connect with verified service experts across India', cta: 'Explore Professionals', link: '/search', image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1200&q=80' },
+    { title: 'Trusted Experts Near You', subtitle: 'Licensed professionals with proven portfolios', cta: 'Browse Experts', link: '/search', image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=1200&q=80' },
+    { title: 'All Business Services', subtitle: 'From construction to consulting — find it all here', cta: 'View All Services', link: '/search', image: 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&w=1200&q=80' },
   ];
 
   // Featured category cards beside banner
@@ -549,8 +551,9 @@ export class HomeComponent implements OnInit, OnDestroy {
   async loadHomeData() {
     this.loading = true;
     try {
-      // Load categories
-      const { data: cats, error: catError } = await this.supabase.client.from('categories').select('*').order('name');
+      // Load categories from DB (includes icon_url uploaded via admin)
+      const { data: cats, error: catError } = await this.supabase.client
+        .from('categories').select('*').order('sort_order').order('name');
       if (catError) {
         console.warn('Categories error:', catError);
         this.categories = this.getFallbackCategories();
@@ -562,8 +565,35 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
       this.selectedPopCat = this.categories[0]?.slug ?? '';
 
-      // Load top vendors (non-critical)
-      const { data: pop } = await this.supabase.client.from('businesses').select('*, categories(name)').eq('is_verified', true).eq('is_active', true).order('rating', { ascending: false }).limit(8);
+      // Build featuredCards from first 4 DB categories
+      this.featuredCards = this.categories.slice(0, 4).map((c: any) => ({
+        title: c.name,
+        badge: 'VERIFIED',
+        desc: c.description || 'Get instant quotes',
+        catSlug: c.slug,
+        image: c.icon_url || `https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=160&fit=crop&q=80`
+      }));
+
+      // Build categoryGroups dynamically from DB — 3 items per group, 4 groups max
+      const groupSize = 3;
+      this.categoryGroups = [];
+      for (let i = 0; i < Math.min(this.categories.length, 12); i += groupSize) {
+        const slice = this.categories.slice(i, i + groupSize);
+        this.categoryGroups.push({
+          title: slice[0]?.name ?? 'Services',
+          items: slice.map((c: any) => ({
+            name: c.name,
+            slug: c.slug,
+            icon_url: c.icon_url ?? null,
+            image: c.icon_url || this.getCategoryFallbackImage(c.slug)
+          }))
+        });
+      }
+
+      // Load top vendors
+      const { data: pop } = await this.supabase.client.from('businesses')
+        .select('*, categories(name)').eq('is_verified', true).eq('is_active', true)
+        .order('rating', { ascending: false }).limit(8);
       this.topRatedVendors = pop || [];
 
       // Try homepage edge function for featured vendors
@@ -591,6 +621,20 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
     }
   }
+
+  getCategoryFallbackImage(slug: string): string {
+    const map: Record<string, string> = {
+      'architect': 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=300&h=180&fit=crop&q=80',
+      'civil-contractor': 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&h=180&fit=crop&q=80',
+      'interior-designer': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=300&h=180&fit=crop&q=80',
+      'electrician': 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300&h=180&fit=crop&q=80',
+      'plumber-waterproofing': 'https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=300&h=180&fit=crop&q=80',
+      'material-supplier': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=300&h=180&fit=crop&q=80',
+    };
+    return map[slug] ?? 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&h=180&fit=crop&q=80';
+  }
+
+
 
   getFallbackCategories() {
     return [

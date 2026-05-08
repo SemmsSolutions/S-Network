@@ -22,7 +22,7 @@ import { CommonModule } from '@angular/common';
           <button class="role-card user-card" (click)="selectRole('user')">
             <div class="role-card-icon">👤</div>
             <h2>I'm Looking for Services</h2>
-            <p>Find and hire verified construction professionals near you</p>
+            <p>Find and hire verified business professionals near you</p>
             <ul class="role-benefits">
               <li>✓ Search thousands of professionals</li>
               <li>✓ Send quote requests instantly</li>
@@ -35,8 +35,8 @@ import { CommonModule } from '@angular/common';
           <div class="role-divider"><span>OR</span></div>
 
           <button class="role-card vendor-card" (click)="selectRole('vendor')">
-            <div class="role-card-icon">🏗️</div>
-            <h2>I'm a Construction Professional</h2>
+            <div class="role-card-icon">💼</div>
+            <h2>I'm a Business Professional</h2>
             <p>List your business and start receiving leads from customers</p>
             <ul class="role-benefits">
               <li>✓ Free business listing</li>
@@ -124,6 +124,6 @@ export class RoleSelectComponent {
     constructor(private router: Router) { }
 
     selectRole(role: 'user' | 'vendor'): void {
-        this.router.navigate(['/auth/register'], { queryParams: { role } });
+        this.router.navigate(['/auth/register/form'], { queryParams: { role } });
     }
 }
