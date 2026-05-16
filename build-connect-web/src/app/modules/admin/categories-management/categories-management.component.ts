@@ -86,12 +86,14 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
                 {{ editForm.icon }}
               </div>
               <div class="flex-1">
-                <input type="file" #iconFileInput accept=".svg,image/svg+xml" (change)="onIconFileChange($event)" style="display:none">
+                <input type="file" #iconFileInput accept=".svg,image/svg+xml" (change)="onIconFileChange($event, iconFileInput)" style="display:none">
                 <button (click)="iconFileInput.click()" class="border border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-bold hover:bg-white transition">
                   📁 Upload SVG File
                 </button>
-                <span class="text-xs text-gray-400 ml-2">SVG only, max 200KB</span>
+                <span class="text-xs text-gray-400 ml-2">SVG only, max 500KB</span>
                 <div *ngIf="iconUploading" class="text-xs text-primary mt-1 animate-pulse">Uploading...</div>
+                <div *ngIf="iconError" class="text-xs text-red-600 mt-1 font-bold">⚠️ {{ iconError }}</div>
+                <div *ngIf="editForm.icon_url && !iconUploading && !iconError" class="text-xs text-green-600 mt-1">✅ Icon uploaded</div>
               </div>
               <div class="flex items-center gap-2">
                 <label class="text-xs text-gray-500">Or emoji:</label>
@@ -211,23 +213,57 @@ export class CategoriesManagementComponent implements OnInit {
     this.editSpecializations.splice(i, 1);
   }
 
-  async onIconFileChange(event: Event): Promise<void> {
+  iconError: string | null = null;
+
+  async onIconFileChange(event: Event, inputEl?: HTMLInputElement): Promise<void> {
     const file = (event.target as HTMLInputElement).files?.[0];
     if (!file) return;
-    if (!file.name.endsWith('.svg')) { alert('Only SVG files allowed'); return; }
-    if (file.size > 200 * 1024) { alert('SVG must be under 200KB'); return; }
+
+    this.iconError = null;
+
+    // Validate: SVG only
+    const isSvg = file.type === 'image/svg+xml' || file.name.toLowerCase().endsWith('.svg');
+    if (!isSvg) {
+      this.iconError = 'Please upload an SVG file only';
+      return;
+    }
+    if (file.size > 500 * 1024) {
+      this.iconError = 'SVG file must be under 500KB';
+      return;
+    }
+
     this.iconUploading = true;
     try {
-      const path = `categories/${this.editForm.slug ?? 'temp'}-${Date.now()}.svg`;
-      const { error } = await this.supabase.client.storage
-        .from('s-network-media').upload(path, file, { upsert: true, contentType: 'image/svg+xml' });
-      if (error) throw error;
+      const timestamp = Date.now();
+      const safeName = (this.editForm.slug || 'category').replace(/[^a-z0-9-]/g, '');
+      const path = `categories/${safeName}-${timestamp}.svg`;
+
+      const { data, error } = await this.supabase.client.storage
+        .from('s-network-media')
+        .upload(path, file, { contentType: 'image/svg+xml', upsert: true, cacheControl: '3600' });
+
+      if (error) {
+        console.error('Upload error details:', error);
+        if (error.message?.includes('mime type') || error.message?.includes('MIME')) {
+          this.iconError = 'SVG MIME type blocked. Run the SQL fix in Supabase Studio first.';
+        } else if (error.message?.includes('policy') || error.message?.includes('403') || error.message?.includes('Unauthorized')) {
+          this.iconError = 'Permission denied. Check storage RLS policies in Supabase.';
+        } else {
+          this.iconError = `Upload failed: ${error.message}`;
+        }
+        return;
+      }
+
       const { data: { publicUrl } } = this.supabase.client.storage.from('s-network-media').getPublicUrl(path);
       this.editForm.icon_url = publicUrl;
-    } catch (err) {
-      alert('Failed to upload icon. Please try again.');
+      console.log('Icon uploaded:', publicUrl);
+    } catch (err: any) {
+      console.error('Upload exception:', err);
+      this.iconError = 'Upload failed: ' + (err?.message ?? 'Unknown error');
     } finally {
       this.iconUploading = false;
+      // Reset file input so same file can be re-uploaded after a fix
+      if (inputEl) inputEl.value = '';
     }
   }
 

@@ -86,8 +86,19 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
              [routerLink]="['/search']"
              [queryParams]="{category: cat.slug}"
              class="category-icon-card flex flex-col items-center gap-3 group cursor-pointer">
-            <div class="cat-icon-wrap w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 group-hover:shadow-md" [style.background]="cat.bgColor">
-              <div class="cat-icon-img w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center drop-shadow-sm" [innerHTML]="getCategoryIcon(cat.slug) | safeHtml"></div>
+            <div class="cat-icon-wrap w-16 h-16 sm:w-20 sm:h-20 rounded-2xl flex items-center justify-center transition-transform group-hover:scale-105 group-hover:shadow-md"
+                 [style.background]="cat.icon_url ? '#fff' : cat.bgColor"
+                 [style.border]="cat.icon_url ? '1.5px solid #e5e7eb' : 'none'">
+              <!-- Uploaded SVG / image from admin -->
+              <img *ngIf="cat.icon_url"
+                   [src]="cat.icon_url"
+                   [alt]="cat.name"
+                   class="w-10 h-10 sm:w-12 sm:h-12 object-contain"
+                   (error)="onCatIconError($event, cat)">
+              <!-- Fallback: inline SVG emoji -->
+              <div *ngIf="!cat.icon_url"
+                   class="cat-icon-img w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center drop-shadow-sm"
+                   [innerHTML]="getCategoryIcon(cat.slug) | safeHtml"></div>
             </div>
             <span class="cat-name text-xs sm:text-sm font-semibold text-center text-gray-800 group-hover:text-[#CC0000] transition line-clamp-2 px-1">{{ cat.name }}</span>
           </a>
@@ -100,18 +111,31 @@ import { SafeHtmlPipe } from '../../../shared/pipes/safe-html.pipe';
       <div class="container">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           <div *ngFor="let group of categoryGroups" class="bg-white rounded-xl p-5 shadow-sm border border-gray-100 overflow-hidden">
-            <h3 class="text-base font-bold text-gray-900 mb-4 pb-2 border-b-2 border-gray-100 block">{{ group.title }}</h3>
-            <div class="grid grid-cols-3 gap-2">
+            <!-- Group header: category name + its uploaded icon -->
+            <div class="flex items-center gap-3 mb-4 pb-3 border-b-2 border-gray-100">
+              <div class="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                   [style.background]="group.icon_url ? '#fff' : group.bgColor"
+                   [style.border]="group.icon_url ? '1.5px solid #e5e7eb' : 'none'">
+                <img *ngIf="group.icon_url" [src]="group.icon_url" [alt]="group.title" class="w-7 h-7 object-contain">
+                <div *ngIf="!group.icon_url" class="w-7 h-7 flex items-center justify-center"
+                     [innerHTML]="getCategoryIcon(group.slug) | safeHtml"></div>
+              </div>
+              <h3 class="text-base font-bold text-gray-900">{{ group.title }}</h3>
+            </div>
+            <!-- Specialization items -->
+            <div class="space-y-1" *ngIf="group.items.length > 0">
               <a *ngFor="let item of group.items"
                  [routerLink]="['/search']"
-                 [queryParams]="{q: item.name}"
-                 class="flex flex-col items-center gap-1 cursor-pointer group/item">
-                <div class="w-full rounded-lg overflow-hidden aspect-[4/3]">
-                  <img [src]="item.image" [alt]="item.name" (error)="onImgError($event)" loading="lazy"
-                       class="w-full h-full object-cover group-hover/item:scale-105 transition-transform duration-300">
-                </div>
-                <span class="text-[11px] font-semibold text-gray-600 group-hover/item:text-[#CC0000] text-center leading-tight w-full px-0.5">{{ item.name }}</span>
+                 [queryParams]="{category: group.slug, q: item.name}"
+                 class="flex items-center gap-2 py-1.5 px-2 rounded-lg hover:bg-gray-50 hover:text-[#CC0000] transition cursor-pointer group/item">
+                <span class="w-1.5 h-1.5 rounded-full bg-gray-300 group-hover/item:bg-[#CC0000] flex-shrink-0 transition"></span>
+                <span class="text-sm text-gray-700 group-hover/item:text-[#CC0000] transition truncate">{{ item.name }}</span>
               </a>
+            </div>
+            <!-- No specializations: link to category search directly -->
+            <div *ngIf="group.items.length === 0">
+              <a [routerLink]="['/search']" [queryParams]="{category: group.slug}"
+                 class="text-sm text-[#CC0000] font-semibold hover:underline">Browse {{ group.title }} →</a>
             </div>
           </div>
         </div>
@@ -376,41 +400,8 @@ export class HomeComponent implements OnInit, OnDestroy {
     { title: 'Material Suppliers', badge: 'BEST PRICE', desc: 'Bulk pricing available', catSlug: 'material-supplier', image: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=400&h=160&fit=crop&q=80' },
   ];
 
-  // Grouped category sections
-  categoryGroups = [
-    {
-      title: 'Construction & Building',
-      items: [
-        { name: 'House Construction', image: 'https://images.unsplash.com/photo-1541888049-74d3269b61e2?w=300&h=180&fit=crop&q=80' },
-        { name: 'Commercial Buildings', image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&h=180&fit=crop&q=80' },
-        { name: 'Renovation Work', image: 'https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=300&h=180&fit=crop&q=80' },
-      ]
-    },
-    {
-      title: 'Interior & Design',
-      items: [
-        { name: 'Modular Kitchen', image: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&h=180&fit=crop&q=80' },
-        { name: 'Living Room Design', image: 'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&h=180&fit=crop&q=80' },
-        { name: 'Bedroom Interior', image: 'https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=300&h=180&fit=crop&q=80' },
-      ]
-    },
-    {
-      title: 'Electrical & Plumbing',
-      items: [
-        { name: 'Home Wiring', image: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300&h=180&fit=crop&q=80' },
-        { name: 'Waterproofing', image: 'https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=300&h=180&fit=crop&q=80' },
-        { name: 'Sanitary Fitting', image: 'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=300&h=180&fit=crop&q=80' },
-      ]
-    },
-    {
-      title: 'Windows & Finishing',
-      items: [
-        { name: 'UPVC Windows', image: 'https://images.unsplash.com/photo-1503594384566-461fe158e797?w=300&h=180&fit=crop&q=80' },
-        { name: 'False Ceiling', image: 'https://images.unsplash.com/photo-1613545325268-9265c8f79f2b?w=300&h=180&fit=crop&q=80' },
-        { name: 'Flooring Work', image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=300&h=180&fit=crop&q=80' },
-      ]
-    },
-  ];
+  // Grouped category sections — populated dynamically from DB in loadHomeData()
+  categoryGroups: { title: string; slug: string; icon_url: string | null; bgColor: string; items: { name: string }[] }[] = [];
 
   // Popular category subcategory links
   popCatLinks: Record<string, string[]> = {
@@ -458,6 +449,12 @@ export class HomeComponent implements OnInit, OnDestroy {
   onImgError(event: Event): void {
     (event.target as HTMLImageElement).src =
       'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&h=180&fit=crop&q=80';
+  }
+
+  /** If the uploaded category icon fails to load, fall back to emoji SVG */
+  onCatIconError(event: Event, cat: any): void {
+    cat.icon_url = null; // triggers *ngIf switch to fallback SVG
+    (event.target as HTMLImageElement).style.display = 'none';
   }
 
   getCategoryIcon(slug: string): string {
@@ -565,30 +562,36 @@ export class HomeComponent implements OnInit, OnDestroy {
       }
       this.selectedPopCat = this.categories[0]?.slug ?? '';
 
-      // Build featuredCards from first 4 DB categories
-      this.featuredCards = this.categories.slice(0, 4).map((c: any) => ({
+      // Build featuredCards from first 4 DB categories — use slug-specific image per card
+      const cardBadges = ['VERIFIED', 'PREMIUM', 'TOP RATED', 'BEST PRICE'];
+      this.featuredCards = this.categories.slice(0, 4).map((c: any, i: number) => ({
         title: c.name,
-        badge: 'VERIFIED',
+        badge: cardBadges[i] ?? 'VERIFIED',
         desc: c.description || 'Get instant quotes',
         catSlug: c.slug,
-        image: c.icon_url || `https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=400&h=160&fit=crop&q=80`
+        image: c.icon_url || this.getCategoryFallbackImage(c.slug)
       }));
 
-      // Build categoryGroups dynamically from DB — 3 items per group, 4 groups max
-      const groupSize = 3;
-      this.categoryGroups = [];
-      for (let i = 0; i < Math.min(this.categories.length, 12); i += groupSize) {
-        const slice = this.categories.slice(i, i + groupSize);
-        this.categoryGroups.push({
-          title: slice[0]?.name ?? 'Services',
-          items: slice.map((c: any) => ({
-            name: c.name,
-            slug: c.slug,
-            icon_url: c.icon_url ?? null,
-            image: c.icon_url || this.getCategoryFallbackImage(c.slug)
-          }))
-        });
-      }
+      // Build categoryGroups: title = category name, items = its specializations from DB
+      const { data: allSpecs } = await this.supabase.client
+        .from('category_specializations')
+        .select('id, name, category_id, sort_order')
+        .order('sort_order', { ascending: true });
+
+      const specsByCategory: Record<string, any[]> = {};
+      (allSpecs ?? []).forEach((s: any) => {
+        if (!specsByCategory[s.category_id]) specsByCategory[s.category_id] = [];
+        specsByCategory[s.category_id].push(s);
+      });
+
+      // Use up to 4 categories, each as a group; items = their specializations
+      this.categoryGroups = this.categories.slice(0, 8).map((c: any) => ({
+        title: c.name,
+        slug: c.slug,
+        icon_url: c.icon_url ?? null,
+        bgColor: c.bgColor,
+        items: (specsByCategory[c.id] ?? []).map((s: any) => ({ name: s.name }))
+      })).filter((g: any) => g.items.length > 0 || true); // show even empty ones
 
       // Load top vendors
       const { data: pop } = await this.supabase.client.from('businesses')
@@ -624,14 +627,18 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   getCategoryFallbackImage(slug: string): string {
     const map: Record<string, string> = {
-      'architect': 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=300&h=180&fit=crop&q=80',
-      'civil-contractor': 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&h=180&fit=crop&q=80',
-      'interior-designer': 'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=300&h=180&fit=crop&q=80',
-      'electrician': 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300&h=180&fit=crop&q=80',
-      'plumber-waterproofing': 'https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=300&h=180&fit=crop&q=80',
-      'material-supplier': 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=300&h=180&fit=crop&q=80',
+      'architect':               'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=300&h=180&fit=crop&q=80',
+      'civil-contractor':        'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=300&h=180&fit=crop&q=80',
+      'commercial-contractor':   'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&h=180&fit=crop&q=80',
+      'interior-designer':       'https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=300&h=180&fit=crop&q=80',
+      'electrician':             'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300&h=180&fit=crop&q=80',
+      'plumber':                 'https://images.unsplash.com/photo-1607400201515-c2c41c07d307?w=300&h=180&fit=crop&q=80',
+      'plumber-waterproofing':   'https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=300&h=180&fit=crop&q=80',
+      'residential-builder':     'https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=300&h=180&fit=crop&q=80',
+      'turnkey-contractor':      'https://images.unsplash.com/photo-1556909172-54557c7e4fb7?w=300&h=180&fit=crop&q=80',
+      'material-supplier':       'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=300&h=180&fit=crop&q=80',
     };
-    return map[slug] ?? 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=300&h=180&fit=crop&q=80';
+    return map[slug] ?? 'https://images.unsplash.com/photo-1590412200988-a436970781fa?w=300&h=180&fit=crop&q=80';
   }
 
 

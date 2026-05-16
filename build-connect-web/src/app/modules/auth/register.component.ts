@@ -1,7 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router, RouterModule } from '@angular/router';
+import { Router, RouterModule, ActivatedRoute } from '@angular/router';
 import { SupabaseService } from '../../core/services/supabase.service';
 
 @Component({
@@ -44,10 +44,9 @@ import { SupabaseService } from '../../core/services/supabase.service';
           </div>
           <div>
             <label class="block text-sm font-bold text-gray-700">Account Type *</label>
-            <select [(ngModel)]="role" class="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md text-sm bg-white focus:ring-primary focus:border-primary">
-              <option value="user">Looking for Professionals (User)</option>
-              <option value="vendor">Offering Services (Vendor)</option>
-            </select>
+            <div class="mt-1 px-3 py-2 border border-gray-200 rounded-md text-sm bg-gray-50 text-gray-600">
+              {{ role === 'vendor' ? '💼 Vendor (Business Professional)' : '👤 User (Looking for Services)' }}
+            </div>
           </div>
 
           <!-- User: direct register -->
@@ -210,9 +209,17 @@ export class RegisterComponent implements OnInit {
   selectedSpecializations: string[] = [];
   categorySelectedButNoSpecs = false;
 
-  constructor(private supabase: SupabaseService, private router: Router, private cdr: ChangeDetectorRef) { }
+  constructor(private supabase: SupabaseService, private router: Router, private cdr: ChangeDetectorRef, private route: ActivatedRoute) { }
 
   async ngOnInit() {
+    // READ THE ROLE PARAM — key fix for Bug 3
+    const roleParam = this.route.snapshot.queryParamMap.get('role');
+    if (roleParam === 'vendor') {
+      this.role = 'vendor';
+    } else if (roleParam === 'user') {
+      this.role = 'user';
+    }
+    // If no role param, role stays 'user' (default)
     const { data } = await this.supabase.client.from('categories').select('id, name').order('name');
     this.categories = data || [];
   }
